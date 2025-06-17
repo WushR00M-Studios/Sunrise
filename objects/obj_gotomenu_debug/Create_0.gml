@@ -1,0 +1,12 @@
+menu_x = x;
+menu_y = y;
+button_h = 32;
+button[0] = "Main Menu";
+button[1] = "Settings Menu";
+button[2] = "Story Mode Save Select";
+button[3] = "Debug Menu (already here silly :b)";
+button[4] = "Connect Menu";
+button[5] = "Back";
+buttons = array_length_1d(button);
+menu_index = 0;
+last_selected = 0;

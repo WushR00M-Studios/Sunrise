@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"NotificationSystem",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"NotificationSystem",
+  "parent":{
+    "name":"dialog_sys",
+    "path":"folders/Scripts/dialog_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

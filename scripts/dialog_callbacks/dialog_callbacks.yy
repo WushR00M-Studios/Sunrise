@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"dialog_callbacks",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"dialog_callbacks",
+  "parent":{
+    "name":"dialog_sys",
+    "path":"folders/Scripts/dialog_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
