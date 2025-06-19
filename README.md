@@ -59,6 +59,7 @@ For documentation on creating datapacks for Sunrise, [click here to go to the wi
 
 ### Programming
 - Lead Programming - WushR00M / WushyAnimates
+- Programming - TheBlueVolcano
 - Assistant Programming - SimonDoes
 - Developer Tools - Juju (Julian) Adams
 
@@ -76,6 +77,7 @@ For documentation on creating datapacks for Sunrise, [click here to go to the wi
 - Lead Musician - WushR00M / WushyAnimates
 - Musician - UndergroundError
 - Musician - Caystel
+- Musician - SpeheeSphereDude
 - Guest Musician - Derpcat
 - Guest Musician - sulflix
 - Guest Musician - solare_system
