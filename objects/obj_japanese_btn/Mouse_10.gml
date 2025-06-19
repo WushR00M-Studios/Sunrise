@@ -1,0 +1,1 @@
+global.languageopt = 1;

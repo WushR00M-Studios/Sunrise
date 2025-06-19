@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"vo_goodbye_wushy",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":5.114807,
+  "name":"vo_goodbye_wushy",
+  "parent":{
+    "name":"voices",
+    "path":"folders/Sounds/voices.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"vo_goodbye_wushy.wav",
+  "type":0,
+  "volume":1.0,
+}

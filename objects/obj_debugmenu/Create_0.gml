@@ -1,0 +1,12 @@
+menu_x = x;
+menu_y = y;
+button_h = 32;
+button[0] = "Go to Main Menu";
+button[1] = "Restart Game";
+button[2] = "Go to Menu";
+button[3] = "Factory Reset Data (impossible in browser)";
+button[4] = "Exit Game";
+button[5] = "Go to Level or World";
+buttons = array_length_1d(button);
+menu_index = 0;
+last_selected = 0;

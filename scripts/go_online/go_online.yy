@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"go_online",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"go_online",
+  "parent":{
+    "name":"network_sys",
+    "path":"folders/Scripts/network_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

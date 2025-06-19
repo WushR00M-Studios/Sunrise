@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Shader9",
+  "name":"Shader9",
+  "parent":{
+    "name":"Sunrise",
+    "path":"Sunrise.yyp",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

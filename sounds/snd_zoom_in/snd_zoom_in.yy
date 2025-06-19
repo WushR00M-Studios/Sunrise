@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_zoom_in",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.75058955,
+  "name":"snd_zoom_in",
+  "parent":{
+    "name":"create_mode",
+    "path":"folders/Sounds/sounds/create_mode.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_zoom_in.wav",
+  "type":0,
+  "volume":1.0,
+}

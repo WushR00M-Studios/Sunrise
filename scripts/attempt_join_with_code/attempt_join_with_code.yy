@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"attempt_join_with_code",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"attempt_join_with_code",
+  "parent":{
+    "name":"network_sys",
+    "path":"folders/Scripts/network_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"start_host_server",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"start_host_server",
+  "parent":{
+    "name":"network_sys",
+    "path":"folders/Scripts/network_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
