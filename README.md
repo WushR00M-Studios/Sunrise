@@ -1,6 +1,6 @@
 # Sunrise
 ## Sunrise Game Client
-![Sunrise Title Screenshot](.github/image.png)
+![Sunrise Title Screenshot](github/image.png)
 
 If you're looking for a download link to the official compiled version, visit:
 - [Official WushR00M Studios Page](https://www.wushroomstudios.com/store/sunrise).
