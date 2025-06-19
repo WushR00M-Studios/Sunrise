@@ -13,7 +13,10 @@ If you're looking for a download link to the official compiled version, visit:
 - System Specifics:
   - 2GB+ RAM
   - 5+ GB Storage
-  - Windows 10 / 11
+  - 64-Bit OS
+  - OS Specifics:
+    - Windows 10 / 11 (64-Bit)
+    - macOS Big Sur / Montery
 
 > [!NOTE]
 > Windows 7 is no longer supported as of GM-Runtime version 2024.11 due to Microsoft dropping support for DirectX 11.
