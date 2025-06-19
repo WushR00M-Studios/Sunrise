@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"vo_goodbye_xawo",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":4.6759186,
+  "name":"vo_goodbye_xawo",
+  "parent":{
+    "name":"voices",
+    "path":"folders/Sounds/voices.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"vo_goodbye_xawo.mp3",
+  "type":0,
+  "volume":1.0,
+}
