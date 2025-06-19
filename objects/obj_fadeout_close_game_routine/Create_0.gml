@@ -1,1 +1,2 @@
 voice = noone;
+hasplayed = false
