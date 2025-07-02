@@ -1,2 +1,2 @@
-screen_save(working_directory + "Screenshot_" + string(randomnum) + ".png");
-audio_play_sound(snd_tab_change, 0, false);
+screen_save(working_directory + "Screenshot_" + string(current_month) + string(current_day) + string(current_year) + "_" + string(current_hour) + string(current_minute) + string(current_second) + ".png");
+audio_play_sound(snd_screenshot, 0, false);

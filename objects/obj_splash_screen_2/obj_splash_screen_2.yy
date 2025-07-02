@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_madein_logo",
-    "path":"sprites/spr_madein_logo/spr_madein_logo.yy",
+    "name":"spr_autosave_notice",
+    "path":"sprites/spr_autosave_notice/spr_autosave_notice.yy",
   },
   "spriteMaskId":null,
   "visible":true,

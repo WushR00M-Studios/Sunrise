@@ -1,4 +1,5 @@
 ready = false;
+global.discord_active = false;
 
 alarm[0] = room_speed * 5;
 

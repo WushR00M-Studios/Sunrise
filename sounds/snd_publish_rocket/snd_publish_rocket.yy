@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":-1.0,
+  "duration":9.438911,
   "name":"snd_publish_rocket",
   "parent":{
     "name":"UI",

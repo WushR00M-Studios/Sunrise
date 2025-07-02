@@ -1,21 +1,32 @@
 window_set_min_height(768);
-window_set_min_width(1366);
 
 global.connected = false;
+global.setup = false;
+
+randomnum = 0;
 
 secret = 0;
 
 sunrise_init();
-scr_optionsinit();
 
-ini_open("options.ini")
-global.op_fullscreen = ini_read_real("options", "Fullscreen Mode_2", 0);
-global.op_subtitles = ini_read_real("options", "Subtitles_4", 0);
+if file_exists("options.ini") {
+	global.setup = false;
+	ini_open("options.ini")
+	global.op_fullscreen = ini_read_real("options", "Fullscreen Mode_2", 0);
+	global.op_typesound = ini_read_real("options", "Typing Sounds_3", 0);
 
-if global.op_fullscreen == 1
-	window_set_fullscreen(true);
+	if global.op_fullscreen == 1
+		window_set_fullscreen(true);
+	else
+		window_set_fullscreen(false);
 	
-ini_close();
+	ini_close();
+	
+	global.current_user = "Guest";
+} else {
+	global.setup = true;	
+}
+
 global.server_socket = "";
 global.client_sockets = "";
 global.client_socket = "";
@@ -23,31 +34,24 @@ global.party_list = "";
 
 global.version = 3;
 
-erormsg = "PANIC: we're hanging here!"
-
 controller = false;
 touch = false;
 
-global.button1_callback = noone;
-global.button2_callback = noone;
-
 global.languageopt = 0;
-
 global.playtestfin = false;
-
 global.exiting = false;
 
 instance_create_depth(0, 0, -1, obj_cursor);
 instance_create_depth(0, 0, -1, obj_controller);
-instance_create_depth(0, 0, -1, obj_richpres);
 
-global.current_user = "Guest";
+if os_device != os_android {
+	instance_create_depth(0, 0, -1, obj_richpres);
+} else {
+	if instance_exists(obj_voice_hub)
+		instance_destroy(obj_voice_hub);
+}
 
 room_goto_next();
-
-// 0 is English
-// 1 is Japanese (unfinished)
-// 2 is Spanish (unfinished)
 
 // CONTROLLER GUIDE
 //gp_face1	Top button 1 (this maps to the "A" on an Xbox controller and the cross on a PS controller)

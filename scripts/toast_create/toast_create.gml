@@ -23,4 +23,6 @@ function toast_create(_text, _color_index){
 	global.toast_texts[global.toast_queue_size] = _text;
 	global.toast_colors[global.toast_queue_size] = _color;
 	global.toast_queue_size++;
+	
+	audio_play_sound(snd_notification, 0, false);
 }

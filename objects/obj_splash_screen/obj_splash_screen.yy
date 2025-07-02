@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wrstudios_logo",
-    "path":"sprites/spr_wrstudios_logo/spr_wrstudios_logo.yy",
+    "name":"spr_wushroomstudios_logo",
+    "path":"sprites/spr_wushroomstudios_logo/spr_wushroomstudios_logo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

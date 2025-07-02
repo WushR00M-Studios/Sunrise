@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":27.300997,
+  "duration":0.0,
   "name":"snd_dont_spoil_the_game_motherfuckers",
   "parent":{
     "name":"misc",

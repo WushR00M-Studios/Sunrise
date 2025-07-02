@@ -7,8 +7,8 @@ if !gamepad_is_connected(0) {
 
 
 // Scroll variables
+scroll_target = 0;
 scroll_y = 0;
-scroll_speed = 40;
 
 // Fonts (replace with your actual font resource names)
 font_header = Font4;
@@ -38,16 +38,25 @@ menu_top = 64;
 array_push(options, { type: "header", name: "Video & Audio" });
 array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
 array_push(options, make_toggle("Fullscreen Mode", "Enables or disables Windowed Mode", false));
-array_push(options, make_slider("Master Volume", "Volume of the whole Game", 0, 100, 100));
+array_push(options, make_toggle("Typing Sounds", "Whenver a key is striked, a small tick sound will play if enabled", true));
+array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
 
-array_push(options, { type: "header", name: "Gameplay" });
-array_push(options, make_toggle("Cinematic Bars", "Cinematic Bars to make cutscenes more dramatic", false));
-array_push(options, make_toggle("Camera Shake", "Recommended for normal play, is disabled if photosenstive mode is on", true));
-array_push(options, make_toggle("Lighting (beta)", "Sunrise's lighting engine in beta, can be disabled at will.", false));
+// array_push(options, { type: "header", name: "Online & Parental" });
+// array_push(options, make_toggle("Allow Online Access", "Allows or disallows connecting to Sunrise Online", true));
+// array_push(options, make_toggle("Allow Level Rating", "Allows or disallows the rating of user made content", true));
+// array_push(options, make_toggle("Allow Text Chat", "Allows or disallows sending and recieving text chat alongside voice chat", true));
+// array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, beware when disabling!", true));
 
 array_push(options, { type: "header", name: "System" });
-array_push(options, make_button("Credits", "See who made this amazing game!", function() { room_goto(rm_credits); }));
+array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
+array_push(options, make_toggle("Discord Rich Presence", "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
+array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 array_push(options, make_button("Datapacks", "This feature is coming soon, check back later!", function() { /* No action yet */ }));
+
+array_push(options, { type: "header", name: "Maintanence" });
+array_push(options, make_toggle("Developer Mode", "Enables in-game datapack development UI", false));
+array_push(options, make_toggle("Datapack Scripts", "Disable this to disable all datapack scripts.", true));
+array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { /* No action yet */ }));
 
 update_item_rects();
 // === Load options from ini ===

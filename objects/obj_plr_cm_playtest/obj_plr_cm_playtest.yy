@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"misc",
-    "path":"folders/Objects/create_mode/misc.yy",
+    "path":"folders/Objects/misc.yy",
   },
   "parentObjectId":null,
   "persistent":false,

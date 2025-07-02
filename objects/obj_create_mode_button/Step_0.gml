@@ -1,4 +1,4 @@
-x = lerp(x, room_width - 406, 0.05);
+x = lerp(x, view_wport[0] - 406, 0.05);
 y = lerp(y, 680, 0.05);
 
 if hover == true {

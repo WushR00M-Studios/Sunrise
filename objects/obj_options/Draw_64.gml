@@ -16,6 +16,7 @@ for (var i = 0; i < array_length(options); i++) {
     if (item.type == "header") {
         draw_set_font(Font4);
         draw_set_color(c_white);
+		draw_set_halign(fa_left);
         draw_text(var_x, center_y, item.name);
         draw_set_color(c_gray);
         draw_line(var_x, rect.y + rect.h - 8, room_width - padding_x, rect.y + rect.h - 8);
@@ -31,6 +32,7 @@ for (var i = 0; i < array_length(options); i++) {
         draw_set_color(c_white);
 
         // Draw item name
+		draw_set_halign(fa_left);
         draw_text(var_x, center_y, item.name);
 
         if (item.type == "toggle") {
@@ -103,7 +105,7 @@ for (var i = 0; i < array_length(options); i++) {
         else if (item.type == "button") {
             var btn_x = var_x + 200;
             var btn_y = rect.y + rect.h / 2 - 14;
-            var btn_w = 180;
+            var btn_w = (256);
             var btn_h = 28;
             draw_set_color(c_black);
             draw_rectangle(btn_x, btn_y, btn_x + btn_w, btn_y + btn_h, false);
@@ -113,7 +115,8 @@ for (var i = 0; i < array_length(options); i++) {
             }
             draw_set_color(c_white);
             draw_set_font(Font7);
-            draw_text(btn_x + btn_w / 2, btn_y + btn_h / 2, item.name);
+			draw_set_halign(fa_right);
+            draw_text(btn_x + btn_w - 4, btn_y + btn_h / 2, item.name);
         }
     }
     draw_y += (item.type == "header") ? header_height : line_height;
@@ -122,7 +125,7 @@ for (var i = 0; i < array_length(options); i++) {
 // Draw description box bottom center
 draw_set_halign(fa_center);
 var desc_x = room_width / 2;
-var desc_y = room_height - 32;
+var desc_y = 32;
 draw_set_font(Font7);
 draw_set_color(c_white);
 draw_text(desc_x, desc_y, description_text);

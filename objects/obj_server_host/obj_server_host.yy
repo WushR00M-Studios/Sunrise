@@ -8,8 +8,8 @@
   "name":"obj_server_host",
   "overriddenProperties":[],
   "parent":{
-    "name":"online",
-    "path":"folders/Objects/online.yy",
+    "name":"party",
+    "path":"folders/Objects/online/party.yy",
   },
   "parentObjectId":null,
   "persistent":false,

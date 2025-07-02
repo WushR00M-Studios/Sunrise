@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"vo_goodbye_osu",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":2.7175283,
+  "name":"vo_goodbye_osu",
+  "parent":{
+    "name":"voices",
+    "path":"folders/Sounds/voices.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"vo_goodbye_osu.mp3",
+  "type":0,
+  "volume":0.5,
+}

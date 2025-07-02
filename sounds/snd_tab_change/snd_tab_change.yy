@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.22058956,
+  "duration":0.13639456,
   "name":"snd_tab_change",
   "parent":{
     "name":"main_menu",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_tab_change.wav",
   "type":0,
-  "volume":0.25,
+  "volume":1.0,
 }

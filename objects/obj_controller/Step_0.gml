@@ -167,7 +167,7 @@ if global.exiting == false {
 			if global.playtest == false {
 				if global.controllertoolbar == false {
 					if global.cm_tool == 1 {
-						face1_enabled = false;
+						face1_enabled = true;
 						face2_enabled = false;
 						face3_enabled = true;
 						face4_enabled = true;
@@ -177,17 +177,17 @@ if global.exiting == false {
 						lt_enabled = true;
 						rt_enabled = true;
 		
-						face1_prompt = "";
+						face1_prompt = "Select Item";
 						face2_prompt = "";
 						face3_prompt = "Object Editor";
 						face4_prompt = "Level Properties";
 						start_prompt = "Navigate Toolbar";
-						lb_prompt = "Navigate Index";
-						rb_prompt = "Navigate Index"
+						lb_prompt = "Navigate Radial";
+						rb_prompt = "Navigate Radial"
 						lt_prompt = "Place Terrain";
 						rt_prompt = "Remove Terrain";
 					} else if global.cm_tool == 2 {
-						face1_enabled = false;
+						face1_enabled = true;
 						face2_enabled = true;
 						face3_enabled = true;
 						face4_enabled = false;
@@ -197,35 +197,35 @@ if global.exiting == false {
 						lt_enabled = true;
 						rt_enabled = true;
 		
-						face1_prompt = "";
+						face1_prompt = "Select Item";
 						face2_prompt = "Terrain Editor";
 						face3_prompt = "";
 						face4_prompt = "Level Properties";
 						start_prompt = "Navigate Toolbar";
-						lb_prompt = "Navigate Index";
-						rb_prompt = "Navigate Index"
+						lb_prompt = "Navigate Radial";
+						rb_prompt = "Navigate Radial"
 						lt_prompt = "Place Object";
 						rt_prompt = "Remove Object";
 					} else if global.cm_tool == 3 {
-						face1_enabled = false;
+						face1_enabled = true;
 						face2_enabled = true;
 						face3_enabled = false;
 						face4_enabled = true;
 						start_enabled = true;
-						lb_enabled = false;
-						rb_enabled = false;
-						lt_enabled = false;
-						rt_enabled = false;
+						lb_enabled = true;
+						rb_enabled = true;
+						lt_enabled = true;
+						rt_enabled = true;
 		
-						face1_prompt = "";
+						face1_prompt = "Select Item";
 						face2_prompt = "Terrain Editor";
 						face3_prompt = "Object Editor";
 						face4_prompt = "";
 						start_prompt = "Navigate Toolbar";
-						lb_prompt = "";
-						rb_prompt = ""
-						lt_prompt = "";
-						rt_prompt = "";
+						lb_prompt = "Navigate Radial";
+						rb_prompt = "Navigate Radial"
+						lt_prompt = "Place Terrain";
+						rt_prompt = "Remove Terrain";
 					}
 				} else if global.controllertoolbar == true {
 					face1_enabled = true;

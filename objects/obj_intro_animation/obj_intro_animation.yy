@@ -10,8 +10,8 @@
   "name":"obj_intro_animation",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"title_screen",
+    "path":"folders/Objects/title_screen.yy",
   },
   "parentObjectId":null,
   "persistent":false,

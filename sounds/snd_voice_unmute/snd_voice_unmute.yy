@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_voice_unmute",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.38086167,
+  "name":"snd_voice_unmute",
+  "parent":{
+    "name":"social",
+    "path":"folders/Sounds/sounds/social.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_voice_unmute.wav",
+  "type":0,
+  "volume":1.0,
+}

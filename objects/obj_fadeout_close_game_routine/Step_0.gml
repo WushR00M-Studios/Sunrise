@@ -32,11 +32,15 @@ if voice != noone {
 			game_end();	
 		}
 	} else if voice == 9 {
-		if !audio_is_playing(vo_goodbye_blue7) {
+		if !audio_is_playing(vo_goodbye_wushy) {
 			game_end();	
 		}
 	} else if voice == 10 {
 		if !audio_is_playing(vo_goodbye_xawo) {
+			game_end();	
+		}
+	} else if voice == 11 {
+		if !audio_is_playing(vo_goodbye_osu) {
 			game_end();	
 		}
 	}

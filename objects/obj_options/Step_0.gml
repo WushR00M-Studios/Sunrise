@@ -1,7 +1,3 @@
-// Mouse wheel scroll
-var wheel = mouse_wheel_up() - mouse_wheel_down();
-scroll_y -= wheel * scroll_speed;
-
 // Calculate total content height
 var content_height = 0;
 for (var i = 0; i < array_length(options); i++) {
@@ -11,10 +7,6 @@ for (var i = 0; i < array_length(options); i++) {
         content_height += line_height;
     }
 }
-
-// Clamp scroll
-var max_scroll = max(0, content_height - scroll_area_height);
-scroll_y = clamp(scroll_y, 0, max_scroll);
 
 // Reset hover and description
 hovered_item = -1;
@@ -27,7 +19,7 @@ var my = device_mouse_y_to_gui(0);
 
 var pos_y = menu_top - scroll_y;  // renamed from y
 hovered_item = -1;
-description_text = "";
+description_text = "Manage Sunrise's various Settings here!";
 
 for (var i = 0; i < array_length(options); i++) {
     var item = options[i];
@@ -41,20 +33,36 @@ for (var i = 0; i < array_length(options); i++) {
 				description_text = "Disables or smoothes most flashing lights";
 			else if item.name == "Fullscreen Mode"
 				description_text = "Enables or disables Windowed Mode";
-			else if item.name == "Master Volume"
-				description_text = "Volume of the whole Game";
-			else if item.name == "Subtitles"
-				description_text = "See subtitles for what sounds & voice clips are being played";
-			else if item.name == "Cinematic Bars"
-				description_text = "Cinematic Bars to make cutscenes more dramatic";
-			else if item.name == "Camera Shake"
-				description_text = "Recommended for normal play, is disabled if photosenstive mode is on";
-			else if item.name == "Lighting (beta)"
-				description_text = "Sunrise's lighting engine in beta, can be disabled at will.";
+			else if item.name == "Typing Sounds"
+				description_text = "Whenver a key is struck, a small tick sound will play if enabled";
+			else if item.name == "Voice Chat"
+				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
 			else if item.name == "Datapacks"
 				description_text = "This feature is coming soon, check back later!";
+			else if item.name == "Discord Rich Presence"
+				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
+			else if item.name == "Autosaving"
+				description_text = "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!";
+			else if item.name == "Reset Everything"
+				description_text = "Resets all game data and starts from the inital setup. THIS ACTION CAN NOT BE UNDONE, BACKUP YOUR CONTENT!!";
+			else if item.name == "Datapack Scripts"
+				description_text = "Disable this to disable all datapack scripts.";
+			else if item.name == "Reset Profile"
+				description_text = "Resets only the current user's game data.";
+			else if item.name == "Developer Mode"
+				description_text = "Enables in-game datapack development UI";
+			else if item.name == "Debug Mode"
+				description_text = "Debug Mode, remove before production and sharing";
+			else if item.name == "Allow Level Rating"
+				description_text = "Allows or disallows rating levels and user content";
+			else if item.name == "Allow Online Access"
+				description_text = "Allows or disallows connecting to Sunrise Online";
+			else if item.name == "Allow Text Chat"
+				description_text = "Allows or disallows sending and recieving messages in text";
+			else if item.name == "Restricted Mode"
+				description_text = "Hides and censors things like foul language, beware when disabling!";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
 			
@@ -138,30 +146,50 @@ if (gamepad_is_connected(0)) {
 				description_text = "Disables or smoothes most flashing lights";
 			else if item.name == "Fullscreen Mode"
 				description_text = "Enables or disables Windowed Mode";
-			else if item.name == "Master Volume"
-				description_text = "Volume of the whole Game";
-			else if item.name == "Subtitles"
-				description_text = "See subtitles for what sounds & voice clips are being played";
-			else if item.name == "Cinematic Bars"
-				description_text = "Cinematic Bars to make cutscenes more dramatic";
-			else if item.name == "Camera Shake"
-				description_text = "Recommended for normal play, is disabled if photosenstive mode is on";
-			else if item.name == "Lighting (beta)"
-				description_text = "Sunrise's lighting engine in beta, can be disabled at will.";
+			else if item.name == "Typing Sounds"
+				description_text = "Whenver a key is struck, a small tick sound will play if enabled";
+			else if item.name == "Voice Chat"
+				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
 			else if item.name == "Datapacks"
 				description_text = "This feature is coming soon, check back later!";
+			else if item.name == "Discord Rich Presence"
+				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
+			else if item.name == "Autosaving"
+				description_text = "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!";
+			else if item.name == "Reset Everything"
+				description_text = "Resets all game data and starts from the inital setup. THIS ACTION CAN NOT BE UNDONE, BACKUP YOUR CONTENT!!";
+			else if item.name == "Datapack Scripts"
+				description_text = "Disable this to disable all datapack scripts.";
+			else if item.name == "Reset Profile"
+				description_text = "Resets only the current user's game data.";
+			else if item.name == "Developer Mode"
+				description_text = "Enables in-game datapack development UI";
+			else if item.name == "Debug Mode"
+				description_text = "Debug Mode, remove before production and sharing";
+			else if item.name == "Allow Level Rating"
+				description_text = "Allows or disallows rating levels and user content";
+			else if item.name == "Allow Online Access"
+				description_text = "Allows or disallows connecting to Sunrise Online";
+			else if item.name == "Allow Text Chat"
+				description_text = "Allows or disallows sending and recieving messages in text";
+			else if item.name == "Restricted Mode"
+				description_text = "Hides and censors things like foul language, beware when disabling!";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
     }
 }
 
-// Scroll wheel for scrolling options list
-var wheel = mouse_wheel_up() - mouse_wheel_down();
-if (wheel != 0) {
-    scroll_y = clamp(scroll_y - wheel * 20, 0, max_scroll);
+// Smooth Mouse Wheel Scrolling
+if (mouse_wheel_up()) {
+    scroll_target -= 36;
 }
+if (mouse_wheel_down()) {
+    scroll_target += 36;
+}
+scroll_target = clamp(scroll_target, 0, max_scroll);
+scroll_y = lerp(scroll_y, scroll_target, 0.25);
 
 // Handle mouse click on option items
 	if (mouse_check_button_pressed(mb_left) && hovered_item != -1) {
@@ -186,11 +214,17 @@ if (wheel != 0) {
 			
 			if (item.name == "Fullscreen Mode" && item.value) {
 				window_set_fullscreen(true);
-				save_options();
+				global.op_fullscreen = true;
 			} else if (item.name == "Fullscreen Mode" && !item.value) {
 				window_set_fullscreen(false);
-				save_options();
+				global.op_fullscreen = false;
 			}
+			
+			if (item.name == "Typing Sounds" && item.value)
+				global.op_typesound = true;
+			else if (item.name == "Typing Sounds" && !item.value)
+				global.op_typesound = false;
+		
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
 	    } else if (item.type == "dropdown") {
@@ -202,7 +236,7 @@ if (wheel != 0) {
 	        }
 	    } else if (item.type == "button") {
 	        if (item.name == "Credits") {
-	            room_goto(rm_credits);
+	            instance_create_depth(0, 0, -1, obj_fadein_routine)
 	        }
 	    }
 	}

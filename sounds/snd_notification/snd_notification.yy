@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.2857143,
+  "duration":0.18750566,
   "name":"snd_notification",
   "parent":{
     "name":"main_menu",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_notification.mp3",
+  "soundFile":"snd_notification.wav",
   "type":0,
   "volume":1.0,
 }

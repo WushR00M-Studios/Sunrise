@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.7562585,
+  "duration":0.06820862,
   "name":"snd_highlight",
   "parent":{
     "name":"main_menu",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_highlight.mp3",
+  "soundFile":"snd_highlight.wav",
   "type":0,
   "volume":1.0,
 }

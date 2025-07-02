@@ -19,7 +19,7 @@ draw_set_font(Font7);
 		draw_sprite(spr_getaloadofthisdingus, 0, room_width / 2, room_height - 64);
 	else if voice == 9 {
 		if hasplayed == false {
-			video_open("british_meals.mp4");
+			video_open("goodbye_vid.mp4");
 			hasplayed = true;
 		}
 			var _data = video_draw();
@@ -61,3 +61,5 @@ draw_set_font(Font7);
 
 	} else if voice == 10
 		draw_text(room_width / 2, room_height - 64, "*ahem*... see you later!");
+	else if voice == 11
+		draw_text(room_width / 2, room_height - 64, "See you next time...");

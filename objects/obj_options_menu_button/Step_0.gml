@@ -1,4 +1,4 @@
-x = lerp(x, room_width - 166, 0.05);
+x = lerp(x, view_wport[0] - 166, 0.05);
 
 if hover == true {
 	image_xscale = lerp(image_xscale, 1.1, 0.05);

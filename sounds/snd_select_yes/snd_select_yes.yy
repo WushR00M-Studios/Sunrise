@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.9512244,
+  "duration":0.17049886,
   "name":"snd_select_yes",
   "parent":{
     "name":"main_menu",
