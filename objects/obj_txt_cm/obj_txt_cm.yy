@@ -32,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":{
-    "name":"spr_textdisplay_notest",
-    "path":"sprites/spr_textdisplay_notest/spr_textdisplay_notest.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

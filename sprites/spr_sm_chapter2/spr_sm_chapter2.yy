@@ -19,7 +19,7 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"2fffa5cc-8919-4471-a649-d931ca2b7d08","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"2fffa5cc-8919-4471-a649-d931ca2b7d08","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e84f4895-1000-41e3-96aa-20320d5c2463","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e84f4895-1000-41e3-96aa-20320d5c2463","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"0a50d52b-fa64-4c28-9467-141d51573f12","blendMode":0,"displayName":"default","isLocked":false,"name":"0a50d52b-fa64-4c28-9467-141d51573f12","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_sm_chapter2",

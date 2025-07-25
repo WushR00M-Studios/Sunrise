@@ -6,8 +6,15 @@ global.setup = false;
 randomnum = 0;
 
 secret = 0;
+vibcool = false;
 
 sunrise_init();
+
+global.mobile = false;
+if os_type == os_android
+	global.mobile = true;
+else
+	global.mobile = false;
 
 if file_exists("options.ini") {
 	global.setup = false;
@@ -27,6 +34,8 @@ if file_exists("options.ini") {
 	global.setup = true;	
 }
 
+global.haptics = false;
+
 global.server_socket = "";
 global.client_sockets = "";
 global.client_socket = "";
@@ -40,11 +49,10 @@ touch = false;
 global.languageopt = 0;
 global.playtestfin = false;
 global.exiting = false;
-
-instance_create_depth(0, 0, -1, obj_cursor);
+	
 instance_create_depth(0, 0, -1, obj_controller);
 
-if os_device != os_android {
+if !global.mobile {
 	instance_create_depth(0, 0, -1, obj_richpres);
 } else {
 	if instance_exists(obj_voice_hub)

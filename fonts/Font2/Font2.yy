@@ -1,7 +1,7 @@
 {
   "$GMFont":"",
   "%Name":"Font2",
-  "AntiAlias":1,
+  "AntiAlias":0,
   "applyKerning":0,
   "ascender":19,
   "ascenderOffset":0,
@@ -134,10 +134,7 @@
   "sdfSpread":8,
   "size":15.0,
   "styleName":"Regular",
-  "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
-  },
+  "textureGroupId":null,
   "TTFName":"",
   "usesSDF":false,
 }

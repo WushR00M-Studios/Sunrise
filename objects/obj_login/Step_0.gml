@@ -18,6 +18,9 @@ for (var i = 0; i < array_length(accounts); i++) {
 				if array_length(accounts) < 4 {
 	                input_mode = "new_name";
 	                input_text = "";
+					
+					if global.mobile
+						keyboard_virtual_show(kbv_type_default, kbv_returnkey_next, kbv_autocapitalize_none, false);
 				} else {
 					toast_dismiss();
 					toast_create("FAILURE: You've reached the maximum account of accounts allowed to be created.", 4);
@@ -82,6 +85,9 @@ if (gamepad_is_connected(pad)) {
         if (acc.name == "Add New") {
             input_mode = "new_name";
             input_text = "";
+			
+			if global.mobile
+				keyboard_virtual_show(kbv_type_default, kbv_returnkey_next, kbv_autocapitalize_none, false);
         } else if (acc.name == "Guest") {
             global.current_user = "Guest";
             audio_play_sound(snd_select_yes, 0, false);
@@ -91,6 +97,7 @@ if (gamepad_is_connected(pad)) {
                 input_mode = "login_pin";
                 input_text = "";
                 input_index = selected_index;
+				keyboard_virtual_show(kbv_type_numbers, kbv_returnkey_done, kbv_autocapitalize_none, false);	
             } else {
                 global.current_user = acc.name;
                 audio_play_sound(snd_select_yes, 0, false);
@@ -138,6 +145,11 @@ if (input_mode != "none") {
                     input_text = "";
                     input_mode = "new_pin";
                     show_duplicate_error = false;
+					
+					if global.mobile {
+						keyboard_virtual_hide();
+						keyboard_virtual_show(kbv_type_numbers, kbv_returnkey_done, kbv_autocapitalize_none, false);	
+					}
                 } else {
                     input_text = "";
                     toast_dismiss();
@@ -151,8 +163,9 @@ if (input_mode != "none") {
 		            name: global.new_name,
 		            pin: input_text // can be empty string
 		        };
+				
+				keyboard_virtual_hide();
 		        array_insert(accounts, array_length(accounts) - 2, acc);
-
 				
 		        save_accounts();
 		        input_text = "";
@@ -162,6 +175,7 @@ if (input_mode != "none") {
             var correct_pin = accounts[input_index].pin;
 	        if (input_text == correct_pin) {
 	            global.current_user = accounts[input_index].name;
+				keyboard_virtual_hide();
                 audio_play_sound(snd_select_yes, 0, false);
                 instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
 	        } else {

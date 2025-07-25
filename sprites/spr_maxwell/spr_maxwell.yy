@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"misc",
-    "path":"folders/Sprites/misc.yy",
+    "name":"cameos",
+    "path":"folders/Sprites/cameos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

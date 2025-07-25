@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"radial",
-    "path":"folders/Sprites/create_mode/radial.yy",
+    "name":"instances",
+    "path":"folders/Sprites/create_mode/icons/instances.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

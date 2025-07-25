@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_light_notest",
-    "path":"sprites/spr_light_notest/spr_light_notest.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

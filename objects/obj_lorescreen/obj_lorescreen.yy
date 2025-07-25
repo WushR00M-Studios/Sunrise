@@ -10,8 +10,8 @@
   "name":"obj_lorescreen",
   "overriddenProperties":[],
   "parent":{
-    "name":"lore",
-    "path":"folders/Objects/lore.yy",
+    "name":"misc",
+    "path":"folders/Objects/misc.yy",
   },
   "parentObjectId":null,
   "persistent":false,

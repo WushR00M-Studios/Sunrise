@@ -14,7 +14,11 @@ for (var i = 0; i < array_length(options); i++) {
     var center_y = rect.y + rect.h / 2;
 
     if (item.type == "header") {
-        draw_set_font(Font4);
+		if global.mobile
+			draw_set_font(Font4_Mobile);
+		else
+			draw_set_font(Font4);
+			
         draw_set_color(c_white);
 		draw_set_halign(fa_left);
         draw_text(var_x, center_y, item.name);
@@ -28,7 +32,12 @@ for (var i = 0; i < array_length(options); i++) {
             draw_rectangle(rect.x, rect.y, rect.x + rect.w, rect.y + rect.h, false);
 			draw_set_alpha(1);
         }
-        draw_set_font(Font7);
+		
+        if global.mobile
+			draw_set_font(Font7_Mobile);
+		else
+			draw_set_font(Font7);
+			
         draw_set_color(c_white);
 
         // Draw item name
@@ -36,13 +45,23 @@ for (var i = 0; i < array_length(options); i++) {
         draw_text(var_x, center_y, item.name);
 
         if (item.type == "toggle") {
-            var box_x = var_x + 200;
-            var box_y = rect.y + rect.h / 2 - 10;
-            draw_roundrect(box_x, box_y, box_x + 20, box_y + 20, false);
-            if (item.value) {
-				draw_set_color(c_blue);
-                draw_roundrect(box_x + 2, box_y + 2, box_x + 18, box_y + 18, false);
-            }
+			if global.mobile {
+	            var box_x = var_x + 250;
+	            var box_y = rect.y;
+	            draw_roundrect(box_x, box_y, box_x + 32, box_y + 32, false);
+	            if (item.value) {
+					draw_set_color(c_blue);
+	                draw_roundrect(box_x + 2, box_y + 2, box_x + 30, box_y + 30, false);
+	            }
+			} else {
+				var box_x = var_x + 200;
+	            var box_y = rect.y + rect.h / 2 - 10;
+	            draw_roundrect(box_x, box_y, box_x + 20, box_y + 20, false);
+	            if (item.value) {
+					draw_set_color(c_blue);
+	                draw_roundrect(box_x + 2, box_y + 2, box_x + 18, box_y + 18, false);
+	            }
+			}
         }
         else if (item.type == "slider") {
             var slider_x = var_x + 200;
@@ -126,6 +145,11 @@ for (var i = 0; i < array_length(options); i++) {
 draw_set_halign(fa_center);
 var desc_x = room_width / 2;
 var desc_y = 32;
-draw_set_font(Font7);
+
+if global.mobile
+	draw_set_font(Font7_Mobile);
+else
+	draw_set_font(Font7);
+	
 draw_set_color(c_white);
 draw_text(desc_x, desc_y, description_text);

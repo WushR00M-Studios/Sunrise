@@ -17,10 +17,12 @@ if global.languageopt == 1 {
 
 if gamepad_is_connected(0) {
 	if global.contindex = 1 {
-		sprite_index = spr_story_mode_button;
+		sprite_index = spr_start_demo_button;
+		//sprite_index = spr_story_mode_button;
 		hover = true;
 	} else {
-		sprite_index = spr_story_mode_button_un;
+		sprite_index = spr_start_demo_button_un;
+		//sprite_index = spr_story_mode_button_un;
 		hover = false;
 	}
 }

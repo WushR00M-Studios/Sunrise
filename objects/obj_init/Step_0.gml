@@ -1,7 +1,9 @@
-if os_device == os_android {	
-	if audio_is_playing(snd_highlight) {
+if global.mobile {	
+	if audio_is_playing(snd_highlight)
 		audio_stop_sound(snd_highlight);	
-	}
+
+	if mouse_check_button_pressed(mb_left)
+		instance_create_depth(mouse_x, mouse_y, -1, obj_cursor);
 }
 
 randomize();
