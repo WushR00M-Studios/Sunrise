@@ -41,9 +41,8 @@ Next, you'll need to follow the setup instructions for the proper SDKs (these re
 Then, build (create executable) normally and transfer the respective package onto your console (can be a real developers-kit, modded console, debug mode, etc.)
 
 ## Documentation
-
-For documentation on creating datapacks for Sunrise, [click here to go to the wiki page for Sunrise Datapacks.](https://github.com/WushR00M-Studios/Sunrise-Datapack-Wiki/wiki).
-[Documentation for GameMaker Language (GML, Sunrise's primary programming language) is available here]()
+[You can view the Documentation here:](https://github.com/WushR00M-Studios/Sunrise-Documentation).
+[Documentation for GameMaker Language (GML, Sunrise's primary programming language) is available here](https://manual.gamemaker.io/monthly/en/)
 
 ## Credits
 - Creator & Director - WushR00M / WushyAnimates
