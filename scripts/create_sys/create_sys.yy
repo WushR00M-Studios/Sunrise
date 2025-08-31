@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_sys",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_sys",
+  "parent":{
+    "name":"create_sys",
+    "path":"folders/Scripts/create_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

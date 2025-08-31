@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GMHook",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GMHook",
+  "parent":{
+    "name":"misc",
+    "path":"folders/Scripts/misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
