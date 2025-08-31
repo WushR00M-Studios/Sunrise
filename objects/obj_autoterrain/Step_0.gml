@@ -1,4 +1,4 @@
-if global.cmtheme == "Plains" {
+if global.cmtheme == "Plains" or global.cmtheme == "Forest" {
 	if place_meeting(x, y - 32, obj_autoterrain) {
 		if sprite_index == spr_autoter_grass
 			sprite_index = spr_autoter_dirt;
