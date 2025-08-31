@@ -57,214 +57,23 @@ if (controller_active) {
                 switch (item_name) {
                     case "New Level":
 						show_debug_message("Action: New Level");
-						global.newlvl = "Unnamed Level";
-						global.lvlauthor = "Unknown";
 						window_set_caption("Sunrise Editor - New Level");
 						room_restart();
 					break;
                     case "Open Level": 
 						show_debug_message("Action: Open Level"); 
-						controller_active = false;
-						global.controllertoolbar = false;
-						active_button = -1;
-						var file = get_open_filename("Sunrise Levels|*.srlvl","");
-						if file != noone {
-							ini_open(file);
-							show_debug_message("Level file opened!");
-							if ini_section_exists("info") {
-								show_debug_message("Valid [1]");
-								if ini_key_exists("info","name") {
-									show_debug_message("Valid [2]");
-									global.newlvl = ini_read_string("info","name","Unnamed Level")
-									if ini_key_exists("info","author") {
-										show_debug_message("Valid [3]");
-										global.lvlauthor = ini_read_string("info","author","Unknown");
-										
-										layer_destroy_instances("Objects");
-										
-										ini_open(file);
-										var index = 0;
-
-										while (true) {
-										    var section_name = "Object_" + string(index);
-										    if (!ini_section_exists(section_name)) {
-										        break; // No more entries
-										    }
-										    var obj_name = ini_read_string(section_name, "name", "");
-										    var obj_x = ini_read_real(section_name, "x", 0);
-										    var obj_y = ini_read_real(section_name, "y", 0);
-											
-										    var obj_index = asset_get_index(obj_name);
-										    if (obj_index != -1) {
-										        instance_create_layer(obj_x, obj_y, "Objects", obj_index);
-											}
-										    index += 1;
-										}
-										
-										ini_close();
-										show_debug_message("Level parsed successfully!");
-										toast_dismiss();
-										toast_create("Level successfully opened!", 2);
-										window_set_caption("Sunrise Editor - " + global.newlvl);
-									} else {
-										ini_close();
-										show_debug_message("Error: author not found");
-										toast_dismiss();
-										toast_create("FAILURE: We couldn't open your level file!", 4);
-									}
-								} else {
-									ini_close();
-									show_debug_message("Error: level title not found");
-									toast_dismiss();
-									toast_create("FAILURE: We couldn't open your level file!", 4);
-								}
-							} else {
-								ini_close();
-								show_debug_message("Error: info section not found");
-								toast_dismiss();
-								toast_create("FAILURE: We couldn't open your level file!", 4);
-							}
-						} else {
-							toast_dismiss();
-							toast_create("FAILURE: No or invalid level file entered!", 4);	
-						}
+						load_level();
 					break;
 					case "Save Level":
 						show_debug_message("Action: Save Level");
-						controller_active = false;
-						global.controllertoolbar = false;
-						active_button = -1;
-						if savedyet == false {
-							show_debug_message("Action: Save Level as..., because we haven't saved yet"); 
-							var file = get_save_filename("Sunrise Levels|*.srlvl","");
-							if file != noone {
-								global.autosave_name = file;
-								ini_open(file);
-								show_debug_message("Saving level file...");
-								show_debug_message("Saving title information...");
-								ini_write_string("info","name",global.newlvl);
-								show_debug_message("Saving author information...");
-								ini_write_string("info","author",global.lvlauthor);
-
-									var layer_name = "Objects"
-									var file_name = file;
-
-									ini_open(file_name);
-									var index = 0;
-
-									with (all) {
-									    if (layer_get_name(layer) == layer_name) {
-									        var obj_name = object_get_name(object_index);
-									        var section = "Object_" + string(index);
-
-									        ini_write_string(section, "name", obj_name);
-									        ini_write_real(section, "x", x);
-									        ini_write_real(section, "y", y);
-
-											show_debug_message("Object_" + string(index) + " saved");
-									        index += 1;
-									    }
-									}
-					
-								show_debug_message("Level saved!");
-								ini_close();
-								toast_dismiss();
-								toast_create("Level successfully saved!", 2);
-								window_set_caption("Sunrise Editor - " + global.newlvl);
-								savedyet = true;
-							} else {
-								toast_dismiss();
-								toast_create("FAILURE: No or invalid level file entered!", 4);		
-							}
-						} else {
-							ini_open(global.autosave_name);
-							show_debug_message("Saving level file...");
-							show_debug_message("Saving title information...");
-							ini_write_string("info","name",global.newlvl);
-							show_debug_message("Saving author information...");
-							ini_write_string("info","author",global.lvlauthor);
-
-								var layer_name = "Objects"
-								var file_name = global.autosave_name;
-
-								ini_open(file_name);
-								var index = 0;
-
-								with (all) {
-								    if (layer_get_name(layer) == layer_name) {
-								        var obj_name = object_get_name(object_index);
-								        var section = "Object_" + string(index);
-
-								        ini_write_string(section, "name", obj_name);
-								        ini_write_real(section, "x", x);
-								        ini_write_real(section, "y", y);
-
-										show_debug_message("Object_" + string(index) + " saved");
-								        index += 1;
-								    }
-								}
-					
-							show_debug_message("Level saved!");
-							ini_close();
-							toast_dismiss();
-							toast_create("Level successfully saved!", 2);
-							window_set_caption("Sunrise Editor - " + global.newlvl);	
-						}
+						if global.cmauto != ""
+							save_level();
+						else
+							save_level_as();
 					break;
 					case "Save Level as...": 
 						show_debug_message("Action: Save Level as..."); 
-						controller_active = false;
-						global.controllertoolbar = false;
-						active_button = -1;
-						var file = get_save_filename("Sunrise Levels|*.srlvl","");
-						if file != noone {
-							global.autosave_name = file;
-							ini_open(file);
-							show_debug_message("Saving level file...");
-							show_debug_message("Saving title information...");
-							ini_write_string("info","name",global.newlvl);
-							show_debug_message("Saving author information...");
-							ini_write_string("info","author",global.lvlauthor);
-
-								var layer_name = "Objects"
-								var file_name = file;
-
-								ini_open(file_name);
-								var index = 0;
-
-								with (all) {
-								    if (layer_get_name(layer) == layer_name) {
-								        var obj_name = object_get_name(object_index);
-								        var section = "Object_" + string(index);
-
-								        ini_write_string(section, "name", obj_name);
-								        ini_write_real(section, "x", x);
-								        ini_write_real(section, "y", y);
-
-										show_debug_message("Object_" + string(index) + " saved");
-								        index += 1;
-								    }
-								}
-					
-							show_debug_message("Level saved!");
-							ini_close();
-							toast_dismiss();
-							toast_create("Level successfully saved!", 2);
-							window_set_caption("Sunrise Editor - " + global.newlvl);
-							savedyet = true;
-						} else {
-							toast_dismiss();
-							toast_create("FAILURE: No or invalid level file entered!", 4);		
-						}
-					break;
-                    case "Import": 
-						toast_dismiss();
-						toast_create("This feature is coming soon. Check back later!", 1);	
-						controller_active = false;
-						global.controllertoolbar = false;
-						active_button = -1;
-						//var url = get_string("Enter a valid URL link!","");
-						//download = http_get_file(url, working_directory);
+						save_level_as();
 					break;
                     case "Exit": 
 						audio_stop_all();
@@ -383,201 +192,23 @@ if (mouse_clicked) {
                 switch (item_name) {
                     case "New Level":
 						show_debug_message("Action: New Level");
-						global.newlvl = "Unnamed Level";
-						global.lvlauthor = "Unknown";
 						window_set_caption("Sunrise Editor - New Level");
 						room_restart();
 					break;
                     case "Open Level": 
 						show_debug_message("Action: Open Level"); 
-						var file = get_open_filename("Sunrise Levels|*.srlvl","");
-						if file != noone {
-							ini_open(file);
-							show_debug_message("Level file opened!");
-							if ini_section_exists("info") {
-								show_debug_message("Valid [1]");
-								if ini_key_exists("info","name") {
-									show_debug_message("Valid [2]");
-									global.newlvl = ini_read_string("info","name","Unnamed Level")
-									if ini_key_exists("info","author") {
-										show_debug_message("Valid [3]");
-										global.lvlauthor = ini_read_string("info","author","Unknown");
-										
-										layer_destroy_instances("Objects");
-										
-										ini_open(file);
-										var index = 0;
-
-										while (true) {
-										    var section_name = "Object_" + string(index);
-										    if (!ini_section_exists(section_name)) {
-										        break; // No more entries
-										    }
-										    var obj_name = ini_read_string(section_name, "name", "");
-										    var obj_x = ini_read_real(section_name, "x", 0);
-										    var obj_y = ini_read_real(section_name, "y", 0);
-											
-										    var obj_index = asset_get_index(obj_name);
-										    if (obj_index != -1) {
-										        instance_create_layer(obj_x, obj_y, "Objects", obj_index);
-											}
-										    index += 1;
-										}
-										
-										ini_close();
-										show_debug_message("Level parsed successfully!");
-										toast_dismiss();
-										toast_create("Level successfully opened!", 2);
-										window_set_caption("Sunrise Editor - " + global.newlvl);
-									} else {
-										ini_close();
-										show_debug_message("Error: author not found");
-										toast_dismiss();
-										toast_create("FAILURE: We couldn't open your level file!", 4);
-									}
-								} else {
-									ini_close();
-									show_debug_message("Error: level title not found");
-									toast_dismiss();
-									toast_create("FAILURE: We couldn't open your level file!", 4);
-								}
-							} else {
-								ini_close();
-								show_debug_message("Error: info section not found");
-								toast_dismiss();
-								toast_create("FAILURE: We couldn't open your level file!", 4);
-							}
-						} else {
-							toast_dismiss();
-							toast_create("FAILURE: No or invalid level file entered!", 4);	
-						}
+						load_level();
 					break;
 					case "Save Level":
 						show_debug_message("Action: Save Level");
-						if savedyet == false {
-							show_debug_message("Action: Save Level as..., because we haven't saved yet"); 
-							var file = get_save_filename("Sunrise Levels|*.srlvl","");
-							if file != noone {
-								global.autosave_name = file;
-								ini_open(file);
-								show_debug_message("Saving level file...");
-								show_debug_message("Saving title information...");
-								ini_write_string("info","name",global.newlvl);
-								show_debug_message("Saving author information...");
-								ini_write_string("info","author",global.lvlauthor);
-
-									var layer_name = "Objects"
-									var file_name = file;
-
-									ini_open(file_name);
-									var index = 0;
-
-									with (all) {
-									    if (layer_get_name(layer) == layer_name) {
-									        var obj_name = object_get_name(object_index);
-									        var section = "Object_" + string(index);
-
-									        ini_write_string(section, "name", obj_name);
-									        ini_write_real(section, "x", x);
-									        ini_write_real(section, "y", y);
-
-											show_debug_message("Object_" + string(index) + " saved");
-									        index += 1;
-									    }
-									}
-					
-								show_debug_message("Level saved!");
-								ini_close();
-								toast_dismiss();
-								toast_create("Level successfully saved!", 2);
-								window_set_caption("Sunrise Editor - " + global.newlvl);
-								savedyet = true;
-							} else {
-								toast_dismiss();
-								toast_create("FAILURE: No or invalid level file entered!", 4);		
-							}
-						} else {
-							ini_open(global.autosave_name);
-							show_debug_message("Saving level file...");
-							show_debug_message("Saving title information...");
-							ini_write_string("info","name",global.newlvl);
-							show_debug_message("Saving author information...");
-							ini_write_string("info","author",global.lvlauthor);
-
-								var layer_name = "Objects"
-								var file_name = global.autosave_name;
-
-								ini_open(file_name);
-								var index = 0;
-
-								with (all) {
-								    if (layer_get_name(layer) == layer_name) {
-								        var obj_name = object_get_name(object_index);
-								        var section = "Object_" + string(index);
-
-								        ini_write_string(section, "name", obj_name);
-								        ini_write_real(section, "x", x);
-								        ini_write_real(section, "y", y);
-
-										show_debug_message("Object_" + string(index) + " saved");
-								        index += 1;
-								    }
-								}
-					
-							show_debug_message("Level saved!");
-							ini_close();
-							toast_dismiss();
-							toast_create("Level successfully saved!", 2);
-							window_set_caption("Sunrise Editor - " + global.newlvl);	
-						}
+						if global.cmauto != ""
+							save_level();
+						else
+							save_level_as();
 					break;
 					case "Save Level as...": 
 						show_debug_message("Action: Save Level as..."); 
-						var file = get_save_filename("Sunrise Levels|*.srlvl","");
-						if file != noone {
-							global.autosave_name = file;
-							ini_open(file);
-							show_debug_message("Saving level file...");
-							show_debug_message("Saving title information...");
-							ini_write_string("info","name",global.newlvl);
-							show_debug_message("Saving author information...");
-							ini_write_string("info","author",global.lvlauthor);
-
-								var layer_name = "Objects"
-								var file_name = file;
-
-								ini_open(file_name);
-								var index = 0;
-
-								with (all) {
-								    if (layer_get_name(layer) == layer_name) {
-								        var obj_name = object_get_name(object_index);
-								        var section = "Object_" + string(index);
-
-								        ini_write_string(section, "name", obj_name);
-								        ini_write_real(section, "x", x);
-								        ini_write_real(section, "y", y);
-
-										show_debug_message("Object_" + string(index) + " saved");
-								        index += 1;
-								    }
-								}
-					
-							show_debug_message("Level saved!");
-							ini_close();
-							toast_dismiss();
-							toast_create("Level successfully saved!", 2);
-							window_set_caption("Sunrise Editor - " + global.newlvl);
-							savedyet = true;
-						} else {
-							toast_dismiss();
-							toast_create("FAILURE: No or invalid level file entered!", 4);		
-						}
-					break;
-                    case "Download & Import": 
-						//var url = get_string("Enter a valid URL link!","");
-						//download = http_get_file(url, working_directory);
-						toast_create("This feature is coming soon. Check back later!", 1);	
+						save_level_as();
 					break;
                     case "Exit": 
 						audio_stop_all();
@@ -646,88 +277,15 @@ if (abs(dropdown_height - dropdown_target_height) < 0.5) {
 if autosave_time != 0 && do_autosave == true {
 	autosave_time--;	
 } else if do_autosave == true {
-		ini_open(global.autosave_name);
-		show_debug_message("Saving level file...");
-		show_debug_message("Saving title information...");
-		ini_write_string("info","name",global.newlvl);
-		show_debug_message("Saving author information...");
-		ini_write_string("info","author",global.lvlauthor);
-
-			var layer_name = "Objects"
-			var file_name = global.autosave_name;
-
-			ini_open(file_name);
-			var index = 0;
-
-			with (all) {
-			    if (layer_get_name(layer) == layer_name) {
-			        var obj_name = object_get_name(object_index);
-			        var section = "Object_" + string(index);
-
-			        ini_write_string(section, "name", obj_name);
-			        ini_write_real(section, "x", x);
-			        ini_write_real(section, "y", y);
-
-					show_debug_message("Object_" + string(index) + " saved");
-			        index += 1;
-			    }
-			}
-
-		show_debug_message("Level saved!");
-		ini_close();
-		window_set_caption("Sunrise Editor - " + global.newlvl);
-		toast_dismiss();
-		toast_create("Autosave complete!", 2);
-		autosave_time = 7200; // 2 minutes
-		do_autosave = true;
+	save_level_autosave();
+	autosave_time = 7200; // 2 minutes
+	do_autosave = true;
 }
 
 if keyboard_check(vk_control) && keyboard_check_pressed(ord("S")) {
 	show_debug_message("Action: Save Level");
-	controller_active = false;
-	global.controllertoolbar = false;
-	active_button = -1;
-	if savedyet == false {
-		show_debug_message("Action: Save Level as..., because we haven't saved yet"); 
-		var file = get_save_filename("Sunrise Levels|*.srlvl","");
-		if file != noone {
-			global.autosave_name = file;
-			ini_open(file);
-			show_debug_message("Saving level file...");
-			show_debug_message("Saving title information...");
-			ini_write_string("info","name",global.newlvl);
-			show_debug_message("Saving author information...");
-			ini_write_string("info","author",global.lvlauthor);
-
-				var layer_name = "Objects"
-				var file_name = file;
-
-				ini_open(file_name);
-				var index = 0;
-
-				with (all) {
-				    if (layer_get_name(layer) == layer_name) {
-				        var obj_name = object_get_name(object_index);
-				        var section = "Object_" + string(index);
-
-				        ini_write_string(section, "name", obj_name);
-				        ini_write_real(section, "x", x);
-				        ini_write_real(section, "y", y);
-
-						show_debug_message("Object_" + string(index) + " saved");
-				        index += 1;
-				    }
-				}
-
-			show_debug_message("Level saved!");
-			ini_close();
-			toast_dismiss();
-			toast_create("Level successfully saved!", 2);
-			window_set_caption("Sunrise Editor - " + global.newlvl);
-			savedyet = true;
-		} else {
-			toast_dismiss();
-			toast_create("FAILURE: No or invalid level file entered!", 4);		
-		}	
-	}
+	if global.cmauto != ""
+		save_level();
+	else
+		save_level_as();
 }

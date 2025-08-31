@@ -19,7 +19,7 @@ function init_var() {
 function save_level_as() {
 	filename = get_save_filename("Sunrise Levels|*.srlvl|All Files|*.*", "Untitled.srlvl");
 	if (filename != "") {
-		var instances = layer_get_all_instances("Objects");
+		var instances = layer_get_all_elements("Objects");
 	    var count = array_length(instances);
 
 	    ini_open(filename);
@@ -50,7 +50,7 @@ function save_level_as() {
 }
 
 function save_level() {
-	var instances = layer_get_all_instances("Objects");
+	var instances = layer_get_all_elements("Objects");
 	var count = array_length(instances);
 
 	ini_open(global.cmauto);
@@ -74,6 +74,33 @@ function save_level() {
 	ini_close();
 	
 	toast_create("SUCCESS: Level saved successfully!", 2);
+}
+
+function save_level_autosave() {
+	var instances = layer_get_all_elements("Objects");
+	var count = array_length(instances);
+
+	ini_open(global.cmauto);
+
+	for (var i = 0; i < count; i++) {
+	    var inst = instances[i];
+	    if (!instance_exists(inst)) continue;
+
+	    var section = "instance_" + string(i);
+	    ini_write_string(section, "object", object_get_name(inst.object_index));
+	    ini_write_real(section, "x", inst.x);
+	    ini_write_real(section, "y", inst.y);
+	}
+
+	ini_write_real("meta", "count", count);
+		
+	ini_write_string("info", "leveltitle", global.cmname);
+	ini_write_string("info", "levelauthor", global.cmauthor);
+	ini_write_string("info", "leveltheme", global.cmtheme);
+	ini_write_string("info", "leveltime", global.cmtime);
+	ini_close();
+	
+	toast_create("SUCCESS: Level autosaved!", 2);
 }
 
 function load_level() {

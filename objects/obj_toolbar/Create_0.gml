@@ -8,7 +8,11 @@ buttons = [
 ];
 
 // Button size and position
-button_width = 148;
+if os_type == os_windows
+	button_width = 164;
+else if os_type == os_android
+	button_width = 148;
+	
 button_height = 24;
 toolbar_height = 24;
 

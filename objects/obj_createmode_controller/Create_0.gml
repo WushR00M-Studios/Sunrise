@@ -1,15 +1,7 @@
-global.newlvl = "Unnamed Level";
-global.lvlauthor = "Unknown";
-
-global.lsvspawn_x = 0;
-global.lsvspawn_y = 0;
-new_new_lvl = "";
+init_var();
 
 selectable_objects = [obj_solid_cm, obj_txt_cm];
 selectable_index = -1;
-
-global.playtest = false;
-global.playtestfin = false;
 
 	if !audio_is_playing(mus_yourwelcome_74) or !audio_is_playing(mus_capslock) {
 		audio_stop_all();
@@ -22,17 +14,12 @@ global.playtestfin = false;
 			
 	}
 
-instance_create_depth(view_get_xport(0),0,-1,obj_flashout_routine);
-
-global.clipboard = "";
-global.clipboardx = 0;
-global.clipboardy = 0;
-
-global.newlocx = 0;
-global.newlocy = 0;
+instance_create_depth(view_get_xport(view_current),view_get_yport(view_current),-1,obj_flashout_routine);
 
 lvlprop = false;
 
 filemenu = false;
 objmenu = false;
 logicmenu = false;
+
+global.playtest = false;

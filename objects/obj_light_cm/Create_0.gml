@@ -1,1 +1,0 @@
-light_radius = 7; // max light level (0 to 7)
