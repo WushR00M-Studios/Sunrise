@@ -1,8 +1,5 @@
 init_var();
 
-selectable_objects = [obj_solid_cm, obj_txt_cm];
-selectable_index = -1;
-
 	if !audio_is_playing(mus_yourwelcome_74) or !audio_is_playing(mus_capslock) {
 		audio_stop_all();
 		mustrack = irandom_range(1,2);
@@ -21,5 +18,3 @@ lvlprop = false;
 filemenu = false;
 objmenu = false;
 logicmenu = false;
-
-global.playtest = false;

@@ -1,5 +1,5 @@
 // os_type == os_windows {
-if os_type == os_android {
+if os_type == os_windows {
 	var screen_w = display_get_gui_width();
 	var toolbar_h = button_height;
 
@@ -89,7 +89,7 @@ if os_type == os_android {
 	draw_set_color(make_color_rgb(35, 35, 35)); // or c_gray for softer line
 	draw_line(0, toolbar_h, screen_w, toolbar_h);
 //} else if os_type == os_android {
-} else if os_type == os_windows {
+} else if os_type == os_android {
 		var screen_w = display_get_gui_width();
 	var toolbar_h = button_height;
 

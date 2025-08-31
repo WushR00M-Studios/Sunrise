@@ -8,12 +8,12 @@ buttons = [
 ];
 
 // Button size and position
-if os_type == os_windows
-	button_width = 164;
-else if os_type == os_android
-	button_width = 148;
-	
-button_height = 24;
+button_width = 148;
+
+if os_type == os_android
+	button_height = 40;
+else if os_type == os_windows
+	button_height = 24;
 toolbar_height = 24;
 
 // Dropdown state

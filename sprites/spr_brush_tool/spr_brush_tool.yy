@@ -23,7 +23,7 @@
   ],
   "name":"spr_brush_tool",
   "nineSlice":null,
-  "origin":0,
+  "origin":3,
   "parent":{
     "name":"ui",
     "path":"folders/Sprites/create_mode/icons/ui.yy",
@@ -78,7 +78,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":0,
-    "yorigin":0,
+    "yorigin":16,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
