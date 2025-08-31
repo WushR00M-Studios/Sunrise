@@ -59,6 +59,75 @@ if !global.mobile {
 		instance_destroy(obj_voice_hub);
 }
 
+global.tele = false;
+ini_open("options.ini")
+if ini_read_real("options", "Telemetry_13", 1) == 1
+	global.tele = true
+else
+	global.tele = false
+	
+ini_close();
+if global.tele == true {
+	if os_is_network_connected() {
+		if (os_type == os_android) {
+			var systemos = "Android ARM64 (reported: " + string(os_version) + ")";
+				
+			var mw = os_get_info()
+			var devmodel = ds_map_find_value(mw, "MODEL");
+			var cpuabi1 = ds_map_find_value(mw, "CPU_ABI");
+			var cpuabi2 = ds_map_find_value(mw, "CPU_ABI2");
+			var devboot = ds_map_find_value(mw, "BOOTLOADER");
+			var glver = ds_map_find_value(mw, "GL_VERSION");
+			
+			set_webhook();
+
+			var embed = new DiscordEmbed();
+			embed.SetTitle("Sunrise Telemetry")
+				.SetDescription("User is playing on v0.3.0 - Android!")
+				.SetColor(0x0000ff)
+				.AddField("System OS", string(systemos), true)
+				.AddField("Device Model", string(devmodel), true)
+				.AddField("CPU ABI", string(cpuabi1), true)
+				.AddField("CPU ABI #2", string(cpuabi2), true)
+				.AddField("System Bootloader", string(devboot), true)
+				.AddField("OpenGL Version", string(glver), true)
+
+			webhook.AddEmbed(embed)
+				.Execute();
+		} else {
+			if os_version >= 655360	
+				var systemos = "Windows 10 or 11 (reported: " + string(os_version) + ")";
+			else
+				var systemos = "Legacy Windows (Windows 8.1, 8, 7) - (reported: " + string(os_version) + ")";
+				
+			var mw = os_get_info()
+			var dedmem = ds_map_find_value(mw, "video_adapter_dedicatedsystemmemory");
+			var sharemem = ds_map_find_value(mw, "video_adapter_sharedsystemmemory");
+			var videodes = ds_map_find_value(mw, "video_adapter_description");
+			var dx11 = ds_map_find_value(mw, "video_d3d11_device");
+			var udid = ds_map_find_value(mw, "udid");
+
+			set_webhook();
+
+			var embed = new DiscordEmbed();
+			embed.SetTitle("Sunrise Telemetry")
+				.SetDescription("User is playing on v0.3.0 - Windows!")
+				.SetColor(0x0000ff)
+				.AddField("System OS", string(systemos), true)
+				.AddField("Hardware UDID", string(udid), true)
+				.AddField("Video Dedicated Memory", string(dedmem), true)
+				.AddField("Video Shared Memory", string(sharemem), true)
+				.AddField("Video Adapter", string(videodes), true)
+				.AddField("DirectX11 Adapter", string(dx11), true)
+
+			webhook.AddEmbed(embed)
+				.Execute();
+		}
+	} else {
+		toast_create("FAILURE: Telemetry was unable to send! Are you connected to the internet?", 4);	
+	}
+}
+
 room_goto_next();
 
 // CONTROLLER GUIDE

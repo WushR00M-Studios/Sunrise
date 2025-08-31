@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"set_webhook",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"set_webhook",
+  "parent":{
+    "name":"misc",
+    "path":"folders/Scripts/misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

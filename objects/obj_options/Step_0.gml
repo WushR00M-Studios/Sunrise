@@ -51,12 +51,10 @@ for (var i = 0; i < array_length(options); i++) {
 			else if item.name == "Reset User Data"
 				description_text = "DOESN'T WORK YET, DELETE THE USER.INI FILES IF YOU WANT TO REMOVE YOUR DATA";
 				//description_text = "Resets all game data and starts from the inital setup";
-			else if item.name == "Debug Information"
-				description_text = "shows info about the game in the top right, such as FPS and whatever";
-			else if item.name == "Convert 0.2 level to Laser format Test"
-				description_text = "IN DEVELOPMENT; this one attempts to convert levels made in 0.2 to the new updated laser format";
-			else if item.name == "Datapacks"
-				description_text = "IN DEVELOPMENT; basically mod support";
+			else if item.name == "Telemetry"
+				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
+			else if item.name == "Error Reporting"
+				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
 			
@@ -174,12 +172,10 @@ if (gamepad_is_connected(0)) {
 			else if item.name == "Reset User Data"
 				description_text = "DOESN'T WORK YET, DELETE THE USER.INI FILES IF YOU WANT TO REMOVE YOUR DATA";
 				//description_text = "Resets all game data and starts from the inital setup";
-			else if item.name == "Debug Information"
-				description_text = "shows info about the game in the top right, such as FPS and whatever";
-			else if item.name == "Convert 0.2 level to Laser format Test"
-				description_text = "IN DEVELOPMENT; this one attempts to convert levels made in 0.2 to the new updated laser format";
-			else if item.name == "Datapacks"
-				description_text = "IN DEVELOPMENT; basically mod support";
+			else if item.name == "Telemetry"
+				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
+			else if item.name == "Error Reporting"
+				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
     }

@@ -11,6 +11,9 @@ function init_var() {
 	global.cmauthor = global.current_user // default level author (current logged in user)
 	
 	global.cmauto = "" // autosave name, which gets filled in whenever we first save the level loaded
+	
+	global.cmtheme = "Plains"
+	global.cmtime = "Day"
 }
 
 function save_level_as() {
@@ -33,8 +36,10 @@ function save_level_as() {
 
 	    ini_write_real("meta", "count", count);
 		
-		ini_write_string("info", global.cmname, "Untitled");
-		ini_write_string("info", global.cmauthor, "Unknown Author");
+		ini_write_string("info", "levelname", global.cmname);
+		ini_write_string("info", "levelauthor", global.cmauthor);
+		ini_write_string("info", "leveltheme", global.cmtheme);
+		ini_write_string("info", "leveltime", global.cmtime);
 	    ini_close();
 	
 		toast_create("SUCCESS: Level saved successfully!", 2);
@@ -64,6 +69,8 @@ function save_level() {
 		
 	ini_write_string("info", "leveltitle", global.cmname);
 	ini_write_string("info", "levelauthor", global.cmauthor);
+	ini_write_string("info", "leveltheme", global.cmtheme);
+	ini_write_string("info", "leveltime", global.cmtime);
 	ini_close();
 	
 	toast_create("SUCCESS: Level saved successfully!", 2);
@@ -77,27 +84,43 @@ function load_level() {
 		if ini_section_exists("info") {
 			if ini_key_exists("info", "leveltitle") {
 				var a = ini_read_string("info", "leveltitle", "Untitled");
-				if ini_key_exists("levelauthor") {
-					var t = ini_read_string("info", "levelauthor", "Unknown Author");
+				if ini_key_exists("info", "levelauthor") {
+					var aw = ini_read_string("info", "levelauthor", "Unknown Author");
 					global.cmname = a;
-					global.cmauthor = t;
+					global.cmauthor = aw;
+					if ini_key_exists("info", "leveltheme")
+						var ae = ini_read_string("info", "leveltheme", "Plains");
+					else
+						var ae = "Plains"
+					
+					if ae != "Plains" or ae != "Playspace" or ae != "Metropolis" or ae != "Forest" or ae != "Mansion" or ae != "Stage" {
+						var porting = true;
+					}
+					
+					if ini_key_exists("info", "leveltime")
+						var ax = ini_read_string("info", "leveltime", "Day");
+					else
+						var ax = "Day"
 					
 					for (var i = 0; i < count; i++) {
 				        var section = "instance_" + string(i);
 				        var obj_name = ini_read_string(section, "object", "");
-				        var x = ini_read_real(section, "x", 0);
-				        var y = ini_read_real(section, "y", 0);
+				        var tx = ini_read_real(section, "x", 0);
+				        var ty = ini_read_real(section, "y", 0);
 
 				        if (obj_name != "") {
 				            var obj = asset_get_index(obj_name);
 				            if (obj != -1) {
-				                instance_create_layer(x, y, "Objects", obj);
+				                instance_create_layer(tx, ty, "Objects", obj);
 				            }
 				        }
 				    }
 					
 					ini_close();
-					toast_create("SUCCESS: Level loaded successfully!", 2);
+					if porting == true
+						toast_create("SUCCESS: v0.2 formatted level imported successfully!", 2);
+					else
+						toast_create("SUCCESS: Level loaded successfully!", 2);
 				} else {
 					toast_create("FAILURE: Level loading error!", 4);
 				}
@@ -114,4 +137,9 @@ function load_level() {
 	} else {
 		toast_create("FAILURE: Level load cancelled...", 4);
 	}
+}
+
+function fail_loading() {
+	ini_close();
+	toast_create("FAILURE: Level loading error!", 4);
 }

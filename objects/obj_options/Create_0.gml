@@ -50,11 +50,8 @@ if global.mobile {
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
-
-	array_push(options, { type: "header", name: "Debug (REMOVE BEFORE PRODUCTION)" });
-	array_push(options, make_toggle("Debug Information", "placeholder description", true));
-	array_push(options, make_button("Convert 0.2 level to 0.3 format Test", "placeholder description", function() { }));
-	array_push(options, make_button("Datapacks", "placeholder description", function() { }));
+	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
 } else {
 	array_push(options, { type: "header", name: "Preferences" });
 	array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
@@ -76,11 +73,8 @@ if global.mobile {
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
 	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
-
-	array_push(options, { type: "header", name: "Debug (REMOVE BEFORE PRODUCTION)" });
-	array_push(options, make_toggle("Debug Information", "placeholder description", true));
-	array_push(options, make_button("Convert 0.2 level to 0.3 format Test", "placeholder description", function() { }));
-	array_push(options, make_button("Datapacks", "placeholder description", function() { }));
+	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
 }
 update_item_rects();
 // === Load options from ini ===

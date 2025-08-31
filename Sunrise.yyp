@@ -308,6 +308,7 @@
     {"id":{"name":"scr_ssave_config","path":"scripts/scr_ssave_config/scr_ssave_config.yy",},},
     {"id":{"name":"scr_ssave_manager","path":"scripts/scr_ssave_manager/scr_ssave_manager.yy",},},
     {"id":{"name":"scr_ssave","path":"scripts/scr_ssave/scr_ssave.yy",},},
+    {"id":{"name":"set_webhook","path":"scripts/set_webhook/set_webhook.yy",},},
     {"id":{"name":"show_dialog","path":"scripts/show_dialog/show_dialog.yy",},},
     {"id":{"name":"ssave_config_level","path":"scripts/ssave_config_level/ssave_config_level.yy",},},
     {"id":{"name":"start_host_server","path":"scripts/start_host_server/start_host_server.yy",},},
