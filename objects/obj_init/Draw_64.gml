@@ -11,3 +11,5 @@ if !window_has_focus() or os_is_paused() {
 	draw_set_valign(fa_middle);
 	draw_text(view_wport[0] / 2, view_hport[0] / 2, "FOCUS LOST");
 }
+
+draw_sprite(spr_devbuild_footer, 0, 0, 0);
