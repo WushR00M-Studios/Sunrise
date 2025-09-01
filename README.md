@@ -26,19 +26,7 @@ To build the game, simply open up the project file (Sunrise.yyp) and hit the "Ru
 > The game will NOT run properly on the HTML5 target. You will experience crashes, slowdowns, freezes, and the ability to not save.
 
 > [!NOTE]
-> To build Sunrise for Linux, Apple, and Android Devices, a seperate device is required as well as a valid keystore (Android exclusive).
-
-## Building Sunrise for Consoles
-
-To build Sunrise for Consoles (and all GameMaker projects in general), you need to [purchase a GameMaker Enterprise license](https://gamemaker.io/en/get) ($80 per month, $800 per year).
-Next, you'll need to follow the setup instructions for the proper SDKs (these repositories are not public, you *require* the license to view them):
-
-- [Xbox One / Series X|S](https://github.com/GameMakerEnterprise/GMS2-Runner-Xbox/wiki/Setting-Up-For-Xbox-One-&-Series-X-S-(GDK))
-- [Nintendo Switch](https://github.com/GameMakerEnterprise/GMS2-Runner-Switch/wiki/Setting-Up-For-Nintendo-Switch)
-- [PlayStation 4](https://github.com/GameMakerEnterprise/GMS2-Runner-PS4/wiki/Setting-up-for-Sony-PlayStation-4)
-- [PlayStation 5](https://github.com/GameMakerEnterprise/GMS2-Runner-PS5/wiki/Setting-up-for-Sony-PlayStation-5)
-
-Then, build (create executable) normally and transfer the respective package onto your console (can be a real developers-kit, modded console, debug mode, etc.)
+> To build Sunrise for Linux, Apple, and Android Devices, a seperate device is required as well as a valid keystore (Android exclusive). 
 
 ## Documetnation
 
