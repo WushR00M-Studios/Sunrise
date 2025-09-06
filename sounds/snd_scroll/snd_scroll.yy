@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.15015873,
+  "duration":0.06820862,
   "name":"snd_scroll",
   "parent":{
     "name":"main_menu",

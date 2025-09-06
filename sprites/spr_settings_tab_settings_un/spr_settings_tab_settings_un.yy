@@ -27,7 +27,7 @@
   "origin":4,
   "parent":{
     "name":"settings",
-    "path":"folders/Sprites/main_menu/settings.yy",
+    "path":"folders/Sprites/UI/settings.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

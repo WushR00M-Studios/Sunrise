@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_titlescreen",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":77.609795,
+  "name":"mus_titlescreen",
+  "parent":{
+    "name":"ost",
+    "path":"folders/Sounds/ost.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_titlescreen.mp3",
+  "type":0,
+  "volume":0.8,
+}

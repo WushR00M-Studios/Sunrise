@@ -1,11 +1,15 @@
-/// show_dialog(text, btn1, btn2, two_buttons)
-function show_dialog(_text, _btn1, _btn2, _two_buttons) {
-	instance_create_depth(0,0,0,obj_dialog_controller);
-    obj_dialog_controller.dialog_text = string_wrap(_text, (obj_dialog_controller.box_width - obj_dialog_controller.box_padding));
-    obj_dialog_controller.button1_text = _btn1;
-    obj_dialog_controller.button2_text = _btn2;
-    obj_dialog_controller.button2_enabled = _two_buttons;
-    obj_dialog_controller.show_buttons = true;
-    obj_dialog_controller.dialog_result = "";
+function scr_show_dialog(_msg, _icon, _buttons) {
+	with (obj_dialog) {
+	    message_text = argument0;
+	    icon_sprite  = argument1;
+	    buttons      = argument2;
 
+	    hover_index  = -1;
+
+	    var _w = 500;
+	    target_x = 0;                     // snap target to 0 (left edge)
+	    draw_x   = -_w;                   // start off-screen left
+	    state    = "opening";
+	    visible  = true;
+	}
 }

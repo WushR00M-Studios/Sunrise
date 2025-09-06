@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.35156462,
+  "duration":0.23437642,
   "name":"snd_cancel_return_back",
   "parent":{
     "name":"main_menu",

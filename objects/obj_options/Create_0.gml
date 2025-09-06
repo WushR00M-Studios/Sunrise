@@ -1,11 +1,3 @@
-if !gamepad_is_connected(0) {
-	layer_destroy("Instances_1");
-	layer_destroy("tabs");
-} else {
-	instance_deactivate_layer("Instances_1");	
-}
-
-
 // Scroll variables
 scroll_target = 0;
 scroll_y = 0;
@@ -35,24 +27,26 @@ scroll_area_height = 400; // Adjust as needed
 menu_top = 64;
 
 if global.mobile {
+	
 	array_push(options, { type: "header", name: "Preferences" });
 	array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
 	array_push(options, make_toggle("Haptics", "Certain actions vibrate your controller for short or long moments", false));
 	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
-
-	// array_push(options, { type: "header", name: "Online & Parental" });
-	// array_push(options, make_toggle("Allow Online Access", "Allows or disallows connecting to Sunrise Online", true));
-	// array_push(options, make_toggle("Allow Level Rating", "Allows or disallows the rating of user made content", true));
-	// array_push(options, make_toggle("Allow Text Chat", "Allows or disallows sending and recieving text chat alongside voice chat", true));
-	// array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, beware when disabling!", true));
+	array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, the filter may not be 100% accurate!", true));
 
 	array_push(options, { type: "header", name: "System" });
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
+	
+	array_push(options, { type: "header", name: "Debugging and Maintenance" });
+	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
+	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
+
 } else {
+	
 	array_push(options, { type: "header", name: "Preferences" });
 	array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
 	array_push(options, make_toggle("Fullscreen Mode", "Enables or disables Windowed Mode", false));
@@ -60,21 +54,20 @@ if global.mobile {
 	array_push(options, make_toggle("Typing Sounds", "Whenver a key is striked, a small tick sound will play if enabled", true));
 	array_push(options, make_toggle("Haptics", "Certain actions vibrate your controller for short or long moments", false));
 	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
-
-	// array_push(options, { type: "header", name: "Online & Parental" });
-	// array_push(options, make_toggle("Allow Online Access", "Allows or disallows connecting to Sunrise Online", true));
-	// array_push(options, make_toggle("Allow Level Rating", "Allows or disallows the rating of user made content", true));
-	// array_push(options, make_toggle("Allow Text Chat", "Allows or disallows sending and recieving text chat alongside voice chat", true));
-	// array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, beware when disabling!", true));
+	array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, the filter may not be 100% accurate!", true));
 
 	array_push(options, { type: "header", name: "System" });
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_toggle("Discord Rich Presence", "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
-	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
+	
+	array_push(options, { type: "header", name: "Debugging and Maintenance" });
+	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
+	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
+
 }
 update_item_rects();
 // === Load options from ini ===

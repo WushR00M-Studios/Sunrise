@@ -6,6 +6,16 @@ if global.mobile {
 		instance_create_depth(mouse_x, mouse_y, -1, obj_cursor);
 }
 
+if !global.mobile && room != rm_create {
+	if global.slidebar == false {
+		if mouse_y <= 32
+			global.slidebar = true;
+	} else if global.slidebar == true {
+		if mouse_y >= 65
+			global.slidebar = false;
+	}
+}
+
 randomize();
 
 exception_unhandled_handler(function(ex)

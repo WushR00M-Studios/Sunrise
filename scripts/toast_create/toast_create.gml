@@ -24,5 +24,14 @@ function toast_create(_text, _color_index){
 	global.toast_colors[global.toast_queue_size] = _color;
 	global.toast_queue_size++;
 	
-	audio_play_sound(snd_notification, 0, false);
+	if _color_index == 1
+		audio_play_sound(snd_notification, 0, false);
+	else if _color_index == 2
+		audio_play_sound(snd_notification_success, 0, false);
+	else if _color_index == 3
+		audio_play_sound(snd_notification_warning, 0, false);
+	else if _color_index == 4
+		audio_play_sound(snd_notification_failure, 0, false);
+	else
+		audio_play_sound(snd_notification, 0, false);
 }

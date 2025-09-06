@@ -23,7 +23,7 @@
   ],
   "name":"spr_devbuild_footer",
   "nineSlice":null,
-  "origin":0,
+  "origin":6,
   "parent":{
     "name":"misc",
     "path":"folders/Sprites/misc.yy",
@@ -78,7 +78,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":0,
-    "yorigin":0,
+    "yorigin":8,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

@@ -27,7 +27,7 @@
   "origin":0,
   "parent":{
     "name":"other_small_buttons",
-    "path":"folders/Sprites/main_menu/other_small_buttons.yy",
+    "path":"folders/Sprites/UI/other_small_buttons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

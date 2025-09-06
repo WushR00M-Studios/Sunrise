@@ -28,7 +28,7 @@
   "origin":4,
   "parent":{
     "name":"mobile",
-    "path":"folders/Sprites/main_menu/mobile.yy",
+    "path":"folders/Sprites/UI/mobile.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

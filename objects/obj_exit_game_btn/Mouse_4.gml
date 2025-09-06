@@ -1,5 +1,9 @@
-audio_stop_all();
 toast_dismiss();
 audio_play_sound(snd_select_yes, 0, false);
 
-instance_create_layer(0, 0, "Instances_1", obj_fadeout_close_game_routine);
+var btns = [
+	{label:"Let me out already!", action: dummyscript()},
+	{label:"Just a little more...",  action: dummyscript()},
+];
+
+scr_show_dialog("Are you sure you want to exit Sunrise?", spr_dialog_warning, btns);

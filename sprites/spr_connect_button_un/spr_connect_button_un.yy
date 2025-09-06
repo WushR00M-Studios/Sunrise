@@ -30,7 +30,7 @@
   "origin":4,
   "parent":{
     "name":"main_menu",
-    "path":"folders/Sprites/main_menu/controller/main_menu.yy",
+    "path":"folders/Sprites/UI/controller/main_menu.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

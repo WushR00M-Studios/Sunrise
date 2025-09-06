@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"options_desc_func",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"options_desc_func",
+  "parent":{
+    "name":"options_sys",
+    "path":"folders/Scripts/options_sys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

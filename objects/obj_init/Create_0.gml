@@ -43,6 +43,8 @@ global.party_list = "";
 
 global.version = 3;
 
+global.slidebar = false;
+
 controller = false;
 touch = false;
 
@@ -60,6 +62,7 @@ if !global.mobile {
 }
 
 global.tele = false;
+telesent = false;
 ini_open("options.ini")
 if ini_read_real("options", "Telemetry_13", 1) == 1
 	global.tele = true
@@ -67,7 +70,7 @@ else
 	global.tele = false
 	
 ini_close();
-if global.tele == true {
+if global.tele == true && telesent == false {
 	if os_is_network_connected() {
 		if (os_type == os_android) {
 			var systemos = "Android ARM64 (reported: " + string(os_version) + ")";
@@ -123,6 +126,8 @@ if global.tele == true {
 			webhook.AddEmbed(embed)
 				.Execute();
 		}
+		
+		telesent = true;
 	} else {
 		toast_create("FAILURE: Telemetry was unable to send! Are you connected to the internet?", 4);	
 	}

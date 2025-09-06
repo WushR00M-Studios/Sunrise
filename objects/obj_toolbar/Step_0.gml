@@ -58,7 +58,17 @@ if (controller_active) {
                     case "New Level":
 						show_debug_message("Action: New Level");
 						window_set_caption("Sunrise Editor - New Level");
-						room_restart();
+						if global.cmauto != "" {
+							room_restart();
+						} else if global.cmauto = "" {
+							var btns = [
+							    {label:"Yes, save my changes!", action: dummyscript()},
+							    {label:"Forget all of my progress!",  action: dummyscript()},
+							    {label:"Oops, continue editing!", action: dummyscript()}
+							];
+
+							scr_show_dialog("You have unsaved changes! Save?", spr_dialog_warning, btns);	
+						}
 					break;
                     case "Open Level": 
 						show_debug_message("Action: Open Level"); 
@@ -76,9 +86,13 @@ if (controller_active) {
 						save_level_as();
 					break;
                     case "Exit": 
-						audio_stop_all();
-						audio_play_sound(mus_mainmenu, 0, true);
-						instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
+						var btns = [
+							{label:"Yes, save my changes!", action: dummyscript()},
+							{label:"Forget my progress!",  action: dummyscript()},
+							{label:"Oops, continue editing!", action: dummyscript()}
+						];
+
+						scr_show_dialog("Do you want to save before exiting?", spr_dialog_filesave, btns);	
 					break;
                 }
 			break;
@@ -193,7 +207,17 @@ if (mouse_clicked) {
                     case "New Level":
 						show_debug_message("Action: New Level");
 						window_set_caption("Sunrise Editor - New Level");
-						room_restart();
+						if global.cmauto != "" {
+							room_restart();
+						} else if global.cmauto = "" {
+							var btns = [
+							    {label:"Yes, save my changes!", action: dummyscript()},
+							    {label:"Forget all of my progress!",  action: dummyscript()},
+							    {label:"Oops, continue editing!", action: dummyscript()}
+							];
+
+							scr_show_dialog("You have unsaved changes! Save?", spr_dialog_warning, btns);	
+						}
 					break;
                     case "Open Level": 
 						show_debug_message("Action: Open Level"); 
@@ -211,9 +235,13 @@ if (mouse_clicked) {
 						save_level_as();
 					break;
                     case "Exit": 
-						audio_stop_all();
-						audio_play_sound(mus_mainmenu, 0, true);
-						instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
+						var btns = [
+							{label:"Yes, save my changes!", action: dummyscript()},
+							{label:"Forget my progress!",  action: dummyscript()},
+							{label:"Oops, continue editing!", action: dummyscript()}
+						];
+
+						scr_show_dialog("Do you want to save before exiting?", spr_dialog_filesave, btns);	
 					break;
                 }
 			break;

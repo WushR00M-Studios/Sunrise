@@ -43,14 +43,13 @@ for (var i = 0; i < array_length(options); i++) {
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
 			else if item.name == "Statistics"
-				description_text = "IN DEVELOPMENT; See your statistics and information about the game!";
+				description_text = "See your statistics and information about the game!";
 			else if item.name == "Discord Rich Presence"
 				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
 			else if item.name == "Autosaving"
 				description_text = "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!";
 			else if item.name == "Reset User Data"
-				description_text = "DOESN'T WORK YET, DELETE THE USER.INI FILES IF YOU WANT TO REMOVE YOUR DATA";
-				//description_text = "Resets all game data and starts from the inital setup";
+				description_text = "Resets all offline game data and starts from the inital setup";
 			else if item.name == "Telemetry"
 				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
 			else if item.name == "Error Reporting"
@@ -70,6 +69,7 @@ if (gamepad_is_connected(0)) {
 
     // Navigate Up
     if (gamepad_button_check_pressed(gamepad_id, gp_padu) && gamepad_cooldown <= 0) {
+		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index - 1 + array_length(options)) mod array_length(options);
             if (options[selected_index].type != "header") break;
@@ -79,6 +79,7 @@ if (gamepad_is_connected(0)) {
 
     // Navigate Down
     if (gamepad_button_check_pressed(gamepad_id, gp_padd) && gamepad_cooldown <= 0) {
+		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index + 1) mod array_length(options);
             if (options[selected_index].type != "header") break;

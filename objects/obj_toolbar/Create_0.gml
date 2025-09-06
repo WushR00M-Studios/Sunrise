@@ -1,4 +1,5 @@
 window_set_caption("Sunrise Editor - New Level");
+init_var();
 
 // Toolbar button labels and dropdown items
 buttons = [

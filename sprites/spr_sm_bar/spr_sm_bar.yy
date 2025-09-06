@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"story_mode",
-    "path":"folders/Sprites/main_menu/story_mode.yy",
+    "path":"folders/Sprites/UI/story_mode.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

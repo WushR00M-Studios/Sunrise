@@ -1,3 +1,0 @@
-function exitgame() {
-	instance_create_depth(0,0,-1,obj_fadeout_close_game_routine);
-}

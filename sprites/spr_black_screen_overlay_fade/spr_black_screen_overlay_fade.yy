@@ -32,7 +32,7 @@
   "origin":0,
   "parent":{
     "name":"misc",
-    "path":"folders/Sprites/main_menu/misc.yy",
+    "path":"folders/Sprites/UI/misc.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

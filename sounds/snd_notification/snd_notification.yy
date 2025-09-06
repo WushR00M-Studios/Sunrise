@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.18750566,
+  "duration":0.4093424,
   "name":"snd_notification",
   "parent":{
     "name":"main_menu",
