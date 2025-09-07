@@ -16,3 +16,5 @@ bgfade		   = 0;
 target_x = -1;  // where we want it to go
 draw_x   = -1;  // current X position (for animation)
 state    = "idle"; // can be "idle", "opening", "open", "closing"
+
+warningsound = false;

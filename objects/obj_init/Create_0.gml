@@ -52,6 +52,11 @@ global.languageopt = 0;
 global.playtestfin = false;
 global.exiting = false;
 	
+global.input_result = "";
+global.input_finished = false;
+
+global.temp1 = "";
+	
 instance_create_depth(0, 0, -1, obj_controller);
 
 if !global.mobile {

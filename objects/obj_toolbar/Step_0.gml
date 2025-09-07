@@ -110,7 +110,18 @@ if (controller_active) {
 			case "Level Options":
                 switch (item_name) {
                     case "Set Name":
-						global.newlvl = get_string_async("Enter a new level name:","");
+						scr_show_input_dialog(
+						    "Enter a new name for your level!",
+						    spr_dialog_rename
+						);
+
+						if (global.input_result != "") {
+						    show_debug_message("User typed: " + global.input_result);
+							global.cmname = global.input_result;
+							global.input_result = "";
+						} else {
+							toast_create("FAILURE: The name entered was invalid!", 4);	
+						}
 					break; 
 					
 					case "Playtest Level":
@@ -259,11 +270,11 @@ if (mouse_clicked) {
 			case "Level Options":
                 switch (item_name) {
                     case "Set Name":
-						global.newlvl = get_string("Enter a new level name:","");
-						if global.newlvl == "" or global.newlvl == noone
-							global.newlvl = "Unnamed Level"	
-
-						window_set_caption("Sunrise Editor - " + global.newlvl);
+						global.input_finished = false;
+						scr_show_input_dialog(
+						    "Enter a new name for your level!",
+						    spr_dialog_rename
+						);			
 					break;
                     case "Set Author": 
 						global.lvlauthor = get_string("Enter your name, this will automatically grab your account name later in development!","");
@@ -316,4 +327,16 @@ if keyboard_check(vk_control) && keyboard_check_pressed(ord("S")) {
 		save_level();
 	else
 		save_level_as();
+}
+
+if global.input_finished == true {
+	global.input_finished = false;
+	if (global.input_result != "") {
+		show_debug_message("User typed: " + global.input_result);
+		global.cmname = global.input_result;
+		global.input_result = "";
+		window_set_caption("Sunrise Editor - " + global.cmname);
+	} else {
+		toast_create("FAILURE: The name entered was invalid!", 4);	
+	}
 }

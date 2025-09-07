@@ -24,6 +24,10 @@ switch (state) {
             draw_x = target_x;
             state = "open";
         }
+		if warningsound == false
+			audio_play_sound(snd_warning_msg, 0, false);
+		
+		warningsound = true;
     break;
 
     case "closing":
@@ -36,6 +40,7 @@ switch (state) {
             state = "idle";
             visible = false;
         }
+		warningsound = false;
     break;
 }
 
@@ -67,6 +72,20 @@ if (state == "open") {
 				} else if buttons[i].label == "Let me out already!" {
 					instance_create_layer(0, 0, "Instances_1", obj_fadeout_close_game_routine);
 					audio_stop_all();
+				} else if buttons[i].label == "Yes, delete it!" {
+					array_delete(global.accounts, i, 1);	
+
+					ini_open("user.ini");
+					ini_section_delete("Account" + string(i))
+					var count = ini_read_real("Meta", "AccountCount", "0");
+					ini_write_string("Meta", "AccountCount", string(count - 1))
+				
+					ini_close();
+				
+					save_accounts();
+				
+					toast_dismiss();
+					toast_create("SUCCESS: Account removed successfully!", 2);	
 				} else {
 					dummyscript();
 				}
@@ -83,4 +102,17 @@ if (visible) {
     mouse_clear(mb_left);
     mouse_clear(mb_right);
     mouse_clear(mb_middle);
+}
+
+function save_accounts() {
+    ini_open("user.ini");
+    var real_count = array_length(global.accounts) - 2;
+    ini_write_string("Meta", "AccountCount", string(real_count));
+
+    for (var i = 0; i < real_count; i++) {
+        ini_write_string("Account" + string(i), "Name", global.accounts[i].name);
+        ini_write_string("Account" + string(i), "PIN", global.accounts[i].pin);
+    }
+
+    ini_close();
 }

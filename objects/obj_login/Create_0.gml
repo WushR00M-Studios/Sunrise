@@ -1,4 +1,4 @@
-accounts = [];
+global.accounts = [];
 
 ini_open("user.ini");
 var count = ini_read_string("Meta", "AccountCount", "0");
@@ -6,12 +6,12 @@ var count = ini_read_string("Meta", "AccountCount", "0");
 for (var i = 0; i < real(count); i++) {
     var name = ini_read_string("Account" + string(i), "Name", "Corrupted Data");
     var pin = ini_read_string("Account" + string(i), "PIN", "");
-    array_push(accounts, { name: name, sprite: spr_default_profile_picture, pin: pin });
+    array_push(global.accounts, { name: name, sprite: spr_default_profile_picture, pin: pin });
 }
 ini_close();
 
-array_push(accounts, { name: "Guest", sprite: spr_default_profile_picture, pin: "" });
-array_push(accounts, { name: "Add New", sprite: spr_accounts_add_icon, pin: "" });
+array_push(global.accounts, { name: "Guest", sprite: spr_default_profile_picture, pin: "" });
+array_push(global.accounts, { name: "Add New", sprite: spr_accounts_add_icon, pin: "" });
 
 selected_index = 0;
 target_scroll = 0;
@@ -35,20 +35,20 @@ function string_digits(str) {
 
 function save_accounts() {
     ini_open("user.ini");
-    var real_count = array_length(accounts) - 2;
+    var real_count = array_length(global.accounts) - 2;
     ini_write_string("Meta", "AccountCount", string(real_count));
 
     for (var i = 0; i < real_count; i++) {
-        ini_write_string("Account" + string(i), "Name", accounts[i].name);
-        ini_write_string("Account" + string(i), "PIN", accounts[i].pin);
+        ini_write_string("Account" + string(i), "Name", global.accounts[i].name);
+        ini_write_string("Account" + string(i), "PIN", global.accounts[i].pin);
     }
 
     ini_close();
 }
 
 function is_duplicate_username(name) {
-    for (var i = 0; i < array_length(accounts); i++) {
-        if (accounts[i].name == name) {
+    for (var i = 0; i < array_length(global.accounts); i++) {
+        if (global.accounts[i].name == name) {
             return true;
         }
     }

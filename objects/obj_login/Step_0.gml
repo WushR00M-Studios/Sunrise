@@ -3,9 +3,9 @@ hovered_index = -1;
 
 var mx = device_mouse_x_to_gui(0);
 var my = device_mouse_y_to_gui(0);
-var start_x = display_get_gui_width() / 2 - ((array_length(accounts) - 1) * spacing) / 2;
+var start_x = display_get_gui_width() / 2 - ((array_length(global.accounts) - 1) * spacing) / 2;
 
-for (var i = 0; i < array_length(accounts); i++) {
+for (var i = 0; i < array_length(global.accounts); i++) {
     var tx = start_x + i * spacing - current_scroll;
     var ty = display_get_gui_height() / 2;
 
@@ -13,38 +13,28 @@ for (var i = 0; i < array_length(accounts); i++) {
         hovered_index = i;
         if (mouse_check_button_pressed(mb_left)) {
             selected_index = i;
-            var acc = accounts[i];
+            var acc = global.accounts[i];
             if (acc.name == "Add New") {
-				if array_length(accounts) < 4 {
-	                input_mode = "new_name";
-	                input_text = "";
-					
-					if global.mobile
-						keyboard_virtual_show(kbv_type_default, kbv_returnkey_next, kbv_autocapitalize_none, false);
+				if array_length(global.accounts) < 3 {
+					global.input_finished = false;
+					scr_show_input_dialog(
+						"What is your username?",
+						spr_dialog_account
+					);
 				} else {
 					toast_dismiss();
-					toast_create("FAILURE: You've reached the maximum account of accounts allowed to be created.", 4);
+				toast_create("NOTICE: You've reached the maximum number of accounts!", 3);
 				}
-            } else if (acc.name == "Guest") {
-                global.current_user = "Guest";
+			} else {
+				global.current_user = acc.name;
 				audio_play_sound(snd_select_yes, 0, false);
 				instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
-            } else {
-                if (acc.pin != "") {
-                    input_mode = "login_pin";
-                    input_text = "";
-                    input_index = i;
-                } else {
-                    global.current_user = acc.name;
-					audio_play_sound(snd_select_yes, 0, false);
-                    instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
-                }
-            }
+			}
         }
 		
 		if (mouse_check_button_pressed(mb_right)) {
 	        selected_index = i;
-            var acc = accounts[i];
+            var acc = global.accounts[i];
 			
 			if acc.name == "Guest" {
 				toast_dismiss();
@@ -53,19 +43,12 @@ for (var i = 0; i < array_length(accounts); i++) {
 				toast_dismiss();
 				toast_create("FAILURE: That isn't an account!", 4);
 			} else {
-				array_delete(accounts, i, 1);	
-				
-				ini_open("user.ini");
-				ini_section_delete("Account" + string(i))
-				var count = ini_read_real("Meta", "AccountCount", "0");
-				ini_write_string("Meta", "AccountCount", string(count - 1))
-				
-				ini_close();
-				
-				save_accounts();
-				
-				toast_dismiss();
-				toast_create("SUCCESS: Account removed successfully!", 2);
+				var btns = [
+					{label:"Yes, delete it!", action: dummyscript()},
+					{label:"Nevermind that!!",  action: dummyscript()},
+				];
+
+				scr_show_dialog("Are you sure you want to remove this?", spr_dialog_warning, btns);
 			}
 		}
     }
@@ -75,116 +58,45 @@ for (var i = 0; i < array_length(accounts); i++) {
 var pad = 0;
 if (gamepad_is_connected(pad)) {
     if (gamepad_button_check_pressed(pad, gp_padr)) {
-        selected_index = clamp(selected_index + 1, 0, array_length(accounts) - 1);
+        selected_index = clamp(selected_index + 1, 0, array_length(global.accounts) - 1);
     }
     if (gamepad_button_check_pressed(pad, gp_padl)) {
-        selected_index = clamp(selected_index - 1, 0, array_length(accounts) - 1);
+        selected_index = clamp(selected_index - 1, 0, array_length(global.accounts) - 1);
     }
     if (gamepad_button_check_pressed(pad, gp_face1)) {
-        var acc = accounts[selected_index];
+        var acc = global.accounts[selected_index];
         if (acc.name == "Add New") {
-            input_mode = "new_name";
-            input_text = "";
-			
-			if global.mobile
-				keyboard_virtual_show(kbv_type_default, kbv_returnkey_next, kbv_autocapitalize_none, false);
-        } else if (acc.name == "Guest") {
-            global.current_user = "Guest";
+            global.input_finished = false;
+			scr_show_input_dialog(
+				"What is your username?",
+				spr_dialog_account
+			);
+        } else {
+            global.current_user = acc.name;
             audio_play_sound(snd_select_yes, 0, false);
             instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
-        } else {
-            if (acc.pin != "") {
-                input_mode = "login_pin";
-                input_text = "";
-                input_index = selected_index;
-				keyboard_virtual_show(kbv_type_numbers, kbv_returnkey_done, kbv_autocapitalize_none, false);	
-            } else {
-                global.current_user = acc.name;
-                audio_play_sound(snd_select_yes, 0, false);
-                instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
-            }
         }
     }
     var target_index_x = selected_index * spacing;
-    var center_x = ((array_length(accounts) - 1) * spacing) / 2;
+    var center_x = ((array_length(global.accounts) - 1) * spacing) / 2;
     target_scroll = target_index_x - center_x;
 }
 
-// Keyboard input for name or pin
-if (input_mode != "none") {
-    var key = keyboard_lastchar;
-	caps_lock = false;
-
-    // Backspace handling
-    if (keyboard_check_pressed(vk_backspace)) {
-        input_text = string_copy(input_text, 1, string_length(input_text) - 1);
-    }
-    // Add character if valid
-    else if (key != "") {
-        var code = ord(key);
-        if (code >= 32 && code <= 126 && string_length(input_text) < 20) {
-            input_text += (caps_lock) ? string_upper(key) : key;
-        }
-    }
-
-    keyboard_lastchar = ""; // Reset input to avoid spamming
-
-    // Handle Enter, Y/N keys
-    if (keyboard_check_pressed(vk_enter)) {
-        if (input_mode == "new_name") {
-            if (string_length(input_text) > 0) {
-                var duplicate = false;
-                for (var i = 0; i < array_length(accounts); i++) {
-                    if (accounts[i].name == input_text) {
-                        duplicate = true;
-                        break;
-                    }
-                }
-                if (!duplicate) {
-                    global.new_name = input_text;
-                    input_text = "";
-                    input_mode = "new_pin";
-                    show_duplicate_error = false;
-					
-					if global.mobile {
-						keyboard_virtual_hide();
-						keyboard_virtual_show(kbv_type_numbers, kbv_returnkey_done, kbv_autocapitalize_none, false);	
-					}
-                } else {
-                    input_text = "";
-                    toast_dismiss();
-					toast_create("FAILURE: You cannot create accounts with duplicate names!", 4);
-                }
-            }
-        } else if (input_mode == "new_pin") {
-		    // Accept 4-digit PIN or blank for no PIN
-		    if ((string_length(input_text) == 4 && string_digits(input_text)) || string_length(input_text) == 0) {
-		        var acc = {
-		            name: global.new_name,
-		            pin: input_text // can be empty string
-		        };
+if global.input_finished == true {
+	global.input_finished = false;
+	if (global.input_result != "") {
+		show_debug_message("User typed: " + global.input_result);
+		var acc = {
+			name: global.input_result,
+			pin: ""
+		};
 				
-				keyboard_virtual_hide();
-		        array_insert(accounts, array_length(accounts) - 2, acc);
+		keyboard_virtual_hide();
+		array_insert(global.accounts, array_length(global.accounts) - 2, acc);
 				
-		        save_accounts();
-		        input_text = "";
-		        input_mode = "none";
-		    }
-        } else if (input_mode == "login_pin") {
-            var correct_pin = accounts[input_index].pin;
-	        if (input_text == correct_pin) {
-	            global.current_user = accounts[input_index].name;
-				keyboard_virtual_hide();
-                audio_play_sound(snd_select_yes, 0, false);
-                instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
-	        } else {
-	            input_mode = "none";
-	            input_text = "";
-	            input_index = -1;
-				toast_dismiss();
-				toast_create("FAILURE: Incorrect PIN!", 4);
-	        }
-        }
-    }
+		save_accounts();
+		global.input_result = "";
+	} else {
+		toast_create("FAILURE: The name entered was invalid!", 4);	
+	}
 }
