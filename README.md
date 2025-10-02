@@ -27,7 +27,7 @@ To build the game, simply open up the project file (Sunrise.yyp) and hit the "Ru
 > [!NOTE]
 > To build Sunrise for Linux, Apple, and Android Devices, a seperate device is required as well as a valid keystore (Android exclusive). 
 
-## Documetnation
+## Documentation
 
 For documentation on creating datapacks for Sunrise, [click here to go to the wiki page for Sunrise Datapacks.](https://github.com/WushR00M-Studios/Sunrise-Datapack-Wiki/wiki).
 [Documentation for GameMaker Language (GML, Sunrise's primary programming language) is available here]()
