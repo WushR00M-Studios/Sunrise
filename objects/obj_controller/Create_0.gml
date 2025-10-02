@@ -1,5 +1,7 @@
 global.contindex = 1;
-global.contname = string(gamepad_get_description(0));
+global.contname = "";
+
+controller_index = 0;
 
 controller_type = 1;
 exitgame_timer = 0;
@@ -25,18 +27,3 @@ lt_prompt		= "";
 rt_prompt		= "";
 
 button_prompt_count = 0;
-
-if string_count("Xbox", global.contname) >= 1
-	global.controllertype = 1;
-else if string_count("XInput", global.contname) >= 1
-	global.controllertype = 1;
-else if string_count("Nintendo", global.contname) >= 1
-	global.controllertype = 2;
-else if string_count("Dualsense", global.contname) >= 1
-	global.controllertype = 3;
-else if string_count("Dualshock", global.contname) >= 1
-	global.controllertype = 3;
-else if global.contname == "Wireless Controller"
-	global.controllertype = 3;
-else 
-	global.controllertype = 1;

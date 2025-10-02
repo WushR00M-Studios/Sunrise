@@ -17,11 +17,7 @@ credit_text = [
 "Concept & Level Design - TheBlueVolcano",
 "Guest Artist - Jason Lee (jasontomlee)",
 " ",
-"3D MODEL WORK",
-"Vineshroom Easter Egg - SaltySaveState",
-" ",
 "VOICE TALENT",
-"Announcer Guy - Sr. Pelo",
 "Goodbye Voices:",
 "- WushR00M",
 "- TheBlueVolcano",
@@ -51,16 +47,14 @@ credit_text = [
 "Design & Music QA - Rose&Theo",
 " ",
 "ANDROID DEVELOPMENT",
-"Google Play Testing - LemonBluez",
 "Google Play Testing - Spacelord",
 "Android Testing - TheBlueVolcano",
 " ",
 // "KICKSTARTER SUPPORTERS",
 // "Backer - Username",
 // " ",
-"(C) WushR00M Studios 2021 - 2025. All rights reserved.",
-"Sunrise: Alpha v0.3 - Codename Lazer (SAGE 2025 Demo)",
-"DEVELOPMENTAL BUILD, NOTHING HERE IS FINAL! (maybe)",
+"(C) WushR00M Studios 2026. All rights reserved.",
+"Sunrise: Alpha v0.3 - Codename Lazer",
 
 ];
 
@@ -68,4 +62,5 @@ scroll_y = display_get_height(); // Starts below the screen
 line_height = 32;
 scroll_speed = 1;
 
+audio_stop_all();
 audio_play_sound(mus_a_millenium_to_a_dream, 0, true);

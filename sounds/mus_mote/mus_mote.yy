@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":71.952995,
   "name":"mus_mote",
   "parent":{
     "name":"ost",

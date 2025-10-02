@@ -29,15 +29,13 @@ menu_top = 64;
 if global.mobile {
 	
 	array_push(options, { type: "header", name: "Preferences" });
-	array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
-	array_push(options, make_toggle("Haptics", "Certain actions vibrate your controller for short or long moments", false));
+	array_push(options, make_toggle("Photosensitive Mode", "Disables or smoothes most flashing lights", false));
 	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
-	array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, the filter may not be 100% accurate!", true));
 
-	array_push(options, { type: "header", name: "System" });
+	array_push(options, { type: "header", name: "System and Accessibility" });
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
+	array_push(options, make_toggle("Colorblind Symbols", "Enables or disables icons to overlay colors for those visually impaired", false));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
-	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
 	
 	array_push(options, { type: "header", name: "Debugging and Maintenance" });
 	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
@@ -48,19 +46,16 @@ if global.mobile {
 } else {
 	
 	array_push(options, { type: "header", name: "Preferences" });
-	array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
+	array_push(options, make_toggle("Photosensitive Mode", "Disables or smoothes most flashing lights", false));
 	array_push(options, make_toggle("Fullscreen Mode", "Enables or disables Windowed Mode", false));
 	array_push(options, make_toggle("Borderless Fullscreen", "Allows for fullscreen without needing to re-render anything", false));
-	array_push(options, make_toggle("Typing Sounds", "Whenver a key is striked, a small tick sound will play if enabled", true));
-	array_push(options, make_toggle("Haptics", "Certain actions vibrate your controller for short or long moments", false));
 	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
-	array_push(options, make_toggle("Restricted Mode", "Hides and censors things like foul language, the filter may not be 100% accurate!", true));
 
-	array_push(options, { type: "header", name: "System" });
+	array_push(options, { type: "header", name: "System and Accessibility" });
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_toggle("Discord Rich Presence", "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
+	array_push(options, make_toggle("Colorblind Symbols", "Enables or disables icons to overlay colors for those visually impaired", false));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
-	array_push(options, make_button("Statistics", "See your statistics and information about the game!", function() { }));
 	
 	array_push(options, { type: "header", name: "Debugging and Maintenance" });
 	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
@@ -69,27 +64,28 @@ if global.mobile {
 	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
 
 }
+
 update_item_rects();
 // === Load options from ini ===
 ini_open("options.ini");
 for (var i = 0; i < array_length(options); i++) {
     var opt = options[i];
     if (opt.type == "toggle") {
-        if (ini_key_exists("options", opt.id)) {
-            var val = ini_read_real("options", opt.id, opt.value ? 1 : 0);
+        if (ini_key_exists("options", opt.name)) {
+            var val = ini_read_real("options", opt.name, opt.value ? 1 : 0);
             opt.value = (val == 1);
             options[i] = opt;
         }
     } else if (opt.type == "dropdown") {
-        if (ini_key_exists("options", opt.id)) {
-            var val = ini_read_real("options", opt.id, opt.selected);
+        if (ini_key_exists("options", opt.name)) {
+            var val = ini_read_real("options", opt.name, opt.selected);
             val = clamp(val, 0, array_length(opt.choices) - 1);
             opt.selected = val;
             options[i] = opt;
         }
     } else if (opt.type == "slider") {
-        if (ini_key_exists("options", opt.id)) {
-            var val = ini_read_real("options", opt.id, opt.value);
+        if (ini_key_exists("options", opt.name)) {
+            var val = ini_read_real("options", opt.name, opt.value);
             val = clamp(val, opt.min, opt.max);
             opt.value = val;
             options[i] = opt;

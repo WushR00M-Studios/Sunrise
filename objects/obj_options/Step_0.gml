@@ -42,8 +42,8 @@ for (var i = 0; i < array_length(options); i++) {
 				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
-			else if item.name == "Statistics"
-				description_text = "See your statistics and information about the game!";
+			else if item.name == "Colorblind Symbols"
+				description_text = "Enables or disables icons to overlay colors for those visually impaired";
 			else if item.name == "Discord Rich Presence"
 				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
 			else if item.name == "Autosaving"
@@ -164,8 +164,8 @@ if (gamepad_is_connected(0)) {
 				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
-			else if item.name == "Statistics"
-				description_text = "IN DEVELOPMENT; See your statistics and information about the game!";
+			else if item.name == "Colorblind Symbols"
+				description_text = "Enables or disables icons to overlay colors for those visually impaired";
 			else if item.name == "Discord Rich Presence"
 				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
 			else if item.name == "Autosaving"
@@ -201,37 +201,28 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	        item.value = !item.value;
 	        save_options();
 
-	       if (item.name == "Fullscreen Mode" && item.value) {
+			if (item.name == "Fullscreen Mode" && item.value)
 				window_set_fullscreen(true);
-				save_options();
-			} else if (item.name == "Fullscreen Mode" && !item.value) {
+			else if (item.name == "Fullscreen Mode" && !item.value)
 				window_set_fullscreen(false);
-				save_options();
-			}
 			
-			if (item.name == "Borderless Fullscreen" && item.value) {
+			if (item.name == "Borderless Fullscreen" && item.value)
 				window_enable_borderless_fullscreen(true);
-				save_options();
-			} else if (item.name == "Borderless Fullscreen" && !item.value) {
+			else if (item.name == "Borderless Fullscreen" && !item.value)
 				window_enable_borderless_fullscreen(false);
-				save_options();
-			}
 			
-			if (item.name == "Haptics") {
-				global.haptics = item.value;	
-			}
-			
-			if (item.name == "Anti-Alising" && item.value) {
-				if (display_aa > 12) {
-					display_reset(4, false);	
-				} else {
-					display_reset(0, false);
-					item.value = !item.value;
-					toast_create("FAILURE: Anti-Alising is not supported on your system!", 4);
-				}
-			} else if (item.name == "Anti-Alising" && !item.value) {
-				display_reset(0, false);
-			}
+			ini_open("options.ini");
+			global.op_photosen = ini_read_real("options", "Photosensitive Mode", 0);
+			global.op_fullscreen = ini_read_real("options", "Fullscreen Mode", 0);
+			global.op_borderless = ini_read_real("options", "Borderless Fullscreen", 0);
+			global.op_voicechat = ini_read_real("options", "Voice Chat", 0);
+			global.op_autosaving = ini_read_real("options", "Autosaving", 0);
+			global.op_discordrp = ini_read_real("options", "Discord Rich Presence", 0);
+			global.op_colorblind = ini_read_real("options", "Colorblind Symbols", 0);
+			global.op_showfps = ini_read_real("options", "Show FPS", 0);
+			global.op_errorep = ini_read_real("options", "Error Reporting", 0);
+			global.op_telemetry = ini_read_real("options", "Telemetry", 0);
+			ini_close();
 		
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
@@ -293,11 +284,11 @@ function save_options() {
     for (var i = 0; i < array_length(options); i++) {
         var opt = options[i];
         if (opt.type == "toggle") {
-            ini_write_real("options", opt.id, opt.value ? 1 : 0);
+            ini_write_real("options", opt.name, opt.value ? 1 : 0);
         } else if (opt.type == "dropdown") {
-            ini_write_real("options", opt.id, opt.selected);
+            ini_write_real("options", opt.name, opt.selected);
         } else if (opt.type == "slider") {
-            ini_write_real("options", opt.id, opt.value);
+            ini_write_real("options", opt.name, opt.value);
         }
     }
     ini_close();

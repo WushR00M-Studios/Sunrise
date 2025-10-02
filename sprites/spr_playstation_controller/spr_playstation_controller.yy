@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"playstation",
-    "path":"folders/Sprites/controller/playstation.yy",
+    "name":"controller_renders",
+    "path":"folders/Sprites/UI/controller/controller_renders.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

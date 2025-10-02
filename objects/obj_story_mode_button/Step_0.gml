@@ -14,15 +14,3 @@ if global.languageopt == 1 {
 } else {
 	image_index = 0;	
 }
-
-if gamepad_is_connected(0) {
-	if global.contindex = 1 {
-		sprite_index = spr_start_demo_button;
-		//sprite_index = spr_story_mode_button;
-		hover = true;
-	} else {
-		sprite_index = spr_start_demo_button_un;
-		//sprite_index = spr_story_mode_button_un;
-		hover = false;
-	}
-}

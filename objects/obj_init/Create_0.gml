@@ -16,24 +16,6 @@ if os_type == os_android
 else
 	global.mobile = false;
 
-if file_exists("options.ini") {
-	global.setup = false;
-	ini_open("options.ini")
-	global.op_fullscreen = ini_read_real("options", "Fullscreen Mode_2", 0);
-	global.op_typesound = ini_read_real("options", "Typing Sounds_3", 0);
-
-	if global.op_fullscreen == 1
-		window_set_fullscreen(true);
-	else
-		window_set_fullscreen(false);
-	
-	ini_close();
-	
-	global.current_user = "Guest";
-} else {
-	global.setup = true;	
-}
-
 global.haptics = false;
 
 global.server_socket = "";
@@ -57,25 +39,73 @@ global.input_finished = false;
 
 global.temp1 = "";
 	
-instance_create_depth(0, 0, -1, obj_controller);
+// instance_create_depth(0, 0, -1, obj_controller);
 
-if !global.mobile {
-	instance_create_depth(0, 0, -1, obj_richpres);
+//////////////////////////////////////////////////////////////////////////
+
+if file_exists("options.ini") {
+	global.setup = false;
+	ini_open("options.ini")
+	
+	global.op_photosen = ini_read_real("options", "Photosensitive Mode", 0);
+	global.op_fullscreen = ini_read_real("options", "Fullscreen Mode", 0);
+	global.op_borderless = ini_read_real("options", "Borderless Fullscreen", 0);
+	global.op_voicechat = ini_read_real("options", "Voice Chat", 0);
+	global.op_autosaving = ini_read_real("options", "Autosaving", 0);
+	global.op_discordrp = ini_read_real("options", "Discord Rich Presence", 0);
+	global.op_colorblind = ini_read_real("options", "Colorblind Symbols", 0);
+	global.op_showfps = ini_read_real("options", "Show FPS", 0);
+	global.op_errorep = ini_read_real("options", "Error Reporting", 0);
+	global.op_telemetry = ini_read_real("options", "Telemetry", 0);
+	global.op_accent = ini_read_string("color", "Color", "White");
+	
+	if global.op_accent == "White" {
+		gamepad_set_color(0, c_white);
+		gamepad_set_color(4, c_white);
+	} else if global.op_accent == "Red" {
+		gamepad_set_color(0, c_red);
+		gamepad_set_color(4, c_red);
+	} else if global.op_accent == "Orange" {
+		gamepad_set_color(0, c_orange);
+		gamepad_set_color(4, c_orange);
+	} else if global.op_accent == "Yellow" {
+		gamepad_set_color(0, c_yellow);
+		gamepad_set_color(4, c_yellow);
+	} else if global.op_accent == "Lime" {
+		gamepad_set_color(0, c_lime);
+		gamepad_set_color(4, c_lime);
+	} else if global.op_accent == "Teal" {
+		gamepad_set_color(0, c_teal);
+		gamepad_set_color(4, c_teal);
+	} else if global.op_accent == "Blue" {
+		gamepad_set_color(0, c_blue);
+		gamepad_set_color(4, c_blue);
+	} else if global.op_accent == "Purple" {
+		gamepad_set_color(0, c_purple);
+		gamepad_set_color(4, c_purple);
+	}
+	
+	telesent = false;
+	
+	ini_close();
+	
+	global.current_user = "Guest";
 } else {
-	if instance_exists(obj_voice_hub)
-		instance_destroy(obj_voice_hub);
+	global.setup = true;	
 }
 
-global.tele = false;
-telesent = false;
-ini_open("options.ini")
-if ini_read_real("options", "Telemetry_13", 1) == 1
-	global.tele = true
-else
-	global.tele = false
+//////////////////////////////////////////////////////////////////////////
+
+if global.op_borderless == 1
+	window_enable_borderless_fullscreen(true)
 	
-ini_close();
-if global.tele == true && telesent == false {
+if global.op_fullscreen == 1
+	window_set_fullscreen(true);
+	
+if global.op_discordrp == 1 && !global.mobile
+	instance_create_depth(0, 0, -1, obj_richpres);
+
+if global.op_telemetry == 1 && telesent == false {
 	if os_is_network_connected() {
 		if (os_type == os_android) {
 			var systemos = "Android ARM64 (reported: " + string(os_version) + ")";
@@ -137,6 +167,8 @@ if global.tele == true && telesent == false {
 		toast_create("FAILURE: Telemetry was unable to send! Are you connected to the internet?", 4);	
 	}
 }
+
+//////////////////////////////////////////////////////////////////////////
 
 room_goto_next();
 

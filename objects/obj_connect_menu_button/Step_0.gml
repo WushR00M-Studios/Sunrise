@@ -15,12 +15,3 @@ if global.languageopt == 1 {
 	image_index = 0;	
 }
 
-if gamepad_is_connected(0) {
-	if global.contindex = 2 {
-		sprite_index = spr_connect_button;
-		hover = true;
-	} else {
-		sprite_index = spr_connect_button_un;
-		hover = false;
-	}
-}

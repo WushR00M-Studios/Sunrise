@@ -1,10 +1,19 @@
 if global.exiting == false {
 	if gamepad_is_connected(0) {
+		var connected = true;
+	} else if gamepad_is_connected(4) {
+		var connected = true;
+		controller_index = 4;
+	} else {
+		connected = false;	
+	}
+	
+	if connected {
 	
 		if room == rm_main_menu {
 			face1_enabled = true;
 			face2_enabled = false;
-			face3_enabled = true;
+			face3_enabled = false;
 			face4_enabled = true;
 			start_enabled = false;
 			lb_enabled = false;
@@ -15,7 +24,7 @@ if global.exiting == false {
 			face1_prompt = "Select";
 			face2_prompt = "";
 			face3_prompt = "Accounts";
-			face4_prompt = "Exit Game";
+			face4_prompt = "";
 			start_prompt = "";
 			lb_prompt = "";
 			rb_prompt = "";
@@ -62,47 +71,25 @@ if global.exiting == false {
 			lt_prompt		= "";
 			rt_prompt		= "";
 		} else if room == rm_settings {
-			if global.settingstab == 1 {
 				face1_enabled = true;
 				face2_enabled = true;
 				face3_enabled = false;
 				face4_enabled = false;
 				start_enabled = false;
-				lb_enabled = true;
-				rb_enabled = true;
+				lb_enabled = false;
+				rb_enabled = false;
 				lt_enabled = false;
-				rt_enabled = false;
+				rt_enabled = true;
 		
 				face1_prompt = "Select";
 				face2_prompt = "Back";
 				face3_prompt = "";
 				face4_prompt = "";
 				start_prompt = "";
-				lb_prompt = "Switch Tab";
-				rb_prompt = "Switch Tab";
-				lt_prompt		= "";
-				rt_prompt		= "";
-			} else {
-				face1_enabled = false;
-				face2_enabled = true;
-				face3_enabled = false;
-				face4_enabled = false;
-				start_enabled = false;
-				lb_enabled = true;
-				rb_enabled = true;
-				lt_enabled = false;
-				rt_enabled = true;
-		
-				face1_prompt = "";
-				face2_prompt = "Back";
-				face3_prompt = "";
-				face4_prompt = "";
-				start_prompt = "";
-				lb_prompt = "Switch Tab";
-				rb_prompt = "Switch Tab";
-				lt_prompt = "";
-				rt_prompt = "Switch Controller Type";
-			}
+				lb_prompt	= "";
+				rb_prompt	= "";
+				lt_prompt	= "";
+				rt_prompt	= "Switch Controller Type";
 		} else if room == rm_title_screen {
 			face1_enabled = false;
 			face2_enabled = false;
@@ -273,7 +260,7 @@ if global.exiting == false {
 	
 		//////////////////
 	
-		if gamepad_button_check_pressed(0, gp_padu) {
+		if gamepad_button_check_pressed(controller_index, gp_padu) {
 			if room == rm_main_menu {
 				if global.contindex == 1 {
 					audio_play_sound(snd_error_placing, 0, false, 0.25);	
@@ -284,7 +271,7 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_padd) {
+		if gamepad_button_check_pressed(controller_index, gp_padd) {
 			if room == rm_main_menu {
 				if global.contindex == 3 {
 					audio_play_sound(snd_error_placing, 0, false, 0.25);	
@@ -297,7 +284,7 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_padl) {
+		if gamepad_button_check_pressed(controller_index, gp_padl) {
 			if room == rm_main_menu {
 				if global.contindex == 3 {
 					audio_play_sound(snd_error_placing, 0, false, 0.25);	
@@ -312,7 +299,7 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_padr) {
+		if gamepad_button_check_pressed(controller_index, gp_padr) {
 			if room == rm_main_menu {
 				if global.contindex == 4 {
 					audio_play_sound(snd_error_placing, 0, false, 0.25);	
@@ -327,8 +314,13 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_face1) {
-			if room == rm_main_menu {
+		if gamepad_button_check_pressed(controller_index, gp_face1) {
+			if room == rm_title_screen {
+				audio_stop_all();
+				audio_play_sound(snd_select_yes, 0, false);
+				instance_create_depth(0, 0, -1, obj_flashout_routine);
+				instance_create_depth(0, 0, -1, obj_slowtitlefadein);	
+			} else if room == rm_main_menu {
 				if global.contindex == 1 {
 					audio_play_sound(snd_select_yes, 0, false);
 					instance_create_depth(0, 0, -1, obj_slidein_routine_sm);
@@ -345,7 +337,7 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_face2) {
+		if gamepad_button_check_pressed(controller_index, gp_face2) {
 			if room == rm_settings {
 				audio_play_sound(snd_cancel_return_back, 0, false);
 				instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
@@ -359,7 +351,7 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_face4) {
+		if gamepad_button_check_pressed(controller_index, gp_face4) {
 			if room == rm_main_menu {
 				audio_play_sound(snd_select_yes, 0, false);
 				instance_create_depth(0, 0, -1, obj_fadein_routine_login);
@@ -375,85 +367,40 @@ if global.exiting == false {
 			}
 		}
 
-		if gamepad_button_check_pressed(0, gp_face3) {
-			if room == rm_main_menu {
-				audio_stop_all();
-				toast_dismiss();
-				audio_play_sound(snd_select_yes, 0, false);
-
-				voice = irandom_range(1, 4);
-				if voice == 1 {
-					audio_play_sound(vo_goodbye_wushy, 0, false);
-					global.exiting = 1;
-				} else if voice == 2 {
-					audio_play_sound(vo_goodbye_blue1, 0, false);
-					global.exiting = 2;
-				} else if voice == 3 {
-					audio_play_sound(vo_goodbye_blue2, 0, false);
-					global.exiting = 3;
-				} else if voice == 4 {
-					audio_play_sound(vo_goodbye_h49, 0, false);
-					global.exiting = 4;
-				}
-
-				instance_create_layer(0, 0, "Instances_1", obj_fadeout_close_game_routine);
-				instance_deactivate_layer("Instances");
-			}
+		if gamepad_button_check_pressed(controller_index, gp_face3) {
+			
 		}
 
-		if gamepad_button_check_pressed(0, gp_shoulderl) {
-			if room == rm_settings {
-				if global.settingstab == 1 {
-					audio_play_sound(snd_error_placing, 0, false, 0.25);
-					instance_deactivate_layer("Instances_1");
-					instance_activate_layer("Options");
-				} else {
-					audio_play_sound(snd_cursor_click, 0, false, 0.5);
-					instance_deactivate_layer("Instances_1");
-					instance_activate_layer("Options");
-					global.settingstab = 1;
-				}
-			}
+		if gamepad_button_check_pressed(controller_index, gp_shoulderl) {
+			
 		}
 
-		if gamepad_button_check_pressed(0, gp_shoulderr) {
-			if room == rm_settings {
-				if global.settingstab == 2 {
-					audio_play_sound(snd_error_placing, 0, false, 0.25);
-					instance_activate_layer("Instances_1");
-					instance_deactivate_layer("Options");
-				} else {
-					audio_play_sound(snd_cursor_click, 0, false, 0.5);
-					instance_activate_layer("Instances_1");
-					instance_deactivate_layer("Options");
-					global.settingstab = 2;
-				}
-			}
+		if gamepad_button_check_pressed(controller_index, gp_shoulderr) {
+			
 		}
 	
-		if gamepad_button_check_pressed(0, gp_shoulderlb) {
+		if gamepad_button_check_pressed(controller_index, gp_shoulderlb) {
 		
 		}
 	
-		if gamepad_button_check_pressed(0, gp_shoulderrb) {
+		if gamepad_button_check_pressed(controller_index, gp_shoulderrb) {
 			if room == rm_settings {
-				if global.settingstab == 2 {
-					if global.controllertype == 1
-						global.controllertype = 2;
-					else if global.controllertype == 2
-						global.controllertype = 3;
-					else if global.controllertype == 3
-						global.controllertype = 1;
-				}
+				if global.controllertype == 1
+					global.controllertype = 2;
+				else if global.controllertype == 2
+					global.controllertype = 3;
+				else if global.controllertype == 3
+					global.controllertype = 1;
 			}
 		}
 	
-		if room == rm_splash_autosave {
-			if gamepad_button_check_pressed(0, gp_start)
-				instance_create_depth(0, 0, -1, obj_fadein_routine_title);
-		} else if room == rm_title_screen {
-			if gamepad_button_check_pressed(0, gp_start)
-				instance_create_depth(0, 0, -1, obj_fadein_routine_mainmenu);
+		if room == rm_title_screen {
+			if gamepad_button_check_pressed(controller_index, gp_start) {
+				audio_stop_all();
+				audio_play_sound(snd_select_yes, 0, false);
+				instance_create_depth(0, 0, -1, obj_flashout_routine);
+				instance_create_depth(0, 0, -1, obj_slowtitlefadein);
+			}
 		}
 	}
 }

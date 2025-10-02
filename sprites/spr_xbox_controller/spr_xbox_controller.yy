@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"xbox",
-    "path":"folders/Sprites/controller/xbox.yy",
+    "name":"controller_renders",
+    "path":"folders/Sprites/UI/controller/controller_renders.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

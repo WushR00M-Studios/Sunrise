@@ -1,4 +1,5 @@
 var start_x = display_get_gui_width() / 2 - ((array_length(global.accounts) - 1) * spacing) / 2;
+draw_set_color(c_white);
 
 for (var i = 0; i < array_length(global.accounts); i++) {
     var tx = start_x + i * spacing - current_scroll;
@@ -23,5 +24,6 @@ for (var i = 0; i < array_length(global.accounts); i++) {
 	draw_set_halign(fa_center);
     draw_set_valign(fa_top);
 	draw_set_font(Font7_big);
+	draw_set_color(c_white);
     draw_text(tx, ty + item_height / 2 * scale + 10, acc.name);
 }

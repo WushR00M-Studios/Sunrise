@@ -1,4 +1,4 @@
-if microphone_configured == true {
+if microphone_configured == true && global.op_voicechat == 1 {
 	if shown == true {
 		x = lerp(x, view_wport[0] - 86, 0.05);
 		

@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"switch",
-    "path":"folders/Sprites/controller/switch.yy",
+    "name":"controller_renders",
+    "path":"folders/Sprites/UI/controller/controller_renders.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

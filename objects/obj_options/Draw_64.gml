@@ -52,7 +52,22 @@ for (var i = 0; i < array_length(options); i++) {
 	            if (item.value) {
 					draw_set_color(c_blue);
 	                draw_roundrect(box_x + 2, box_y + 2, box_x + 30, box_y + 30, false);
-	            }
+					if global.op_colorblind == 1 {
+						draw_set_color(c_white);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);
+						draw_set_font(Font7_Mobile);
+						draw_text(box_x + 16, box_y + 16, "O");
+					}
+	            } else {
+					if global.op_colorblind == 1 {
+						draw_set_color(c_black);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);
+						draw_set_font(Font7_Mobile);
+						draw_text(box_x + 16, box_y + 16, "X");
+					}	
+				}
 			} else {
 				var box_x = var_x + 200;
 	            var box_y = rect.y + rect.h / 2 - 10;
@@ -60,10 +75,24 @@ for (var i = 0; i < array_length(options); i++) {
 	            if (item.value) {
 					draw_set_color(c_blue);
 	                draw_roundrect(box_x + 2, box_y + 2, box_x + 18, box_y + 18, false);
-	            }
+					if global.op_colorblind == 1 {
+						draw_set_color(c_white);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);
+						draw_set_font(Font7);
+						draw_text(box_x + 10, box_y + 10, "O");
+					}
+				} else {
+					if global.op_colorblind == 1 {
+						draw_set_color(c_black);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_center);
+						draw_set_font(Font7);
+						draw_text(box_x + 10, box_y + 10, "X");
+					}
+				}
 			}
-        }
-        else if (item.type == "slider") {
+        } else if (item.type == "slider") {
             var slider_x = var_x + 200;
             var slider_y = rect.y + rect.h / 2 - 8;
             var slider_w = 180;

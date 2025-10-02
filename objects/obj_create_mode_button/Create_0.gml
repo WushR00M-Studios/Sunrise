@@ -1,6 +1,4 @@
-if gamepad_is_connected(0) {
-	sprite_index = spr_create_mode_button_un;	
-}
+
 
 hover = false;
 image_speed = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001

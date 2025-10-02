@@ -6,6 +6,9 @@ if fade == true {
 		draw_set_alpha(draw_get_alpha() - 0.1);
 }
 
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 if phase == 1
 	draw_text(16, 16, "Sunrise v0.3: Codename Laser, loading...");
 else if phase == 2

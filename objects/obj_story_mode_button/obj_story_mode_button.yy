@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_start_demo_button",
-    "path":"sprites/spr_start_demo_button/spr_start_demo_button.yy",
+    "name":"spr_story_mode_button",
+    "path":"sprites/spr_story_mode_button/spr_story_mode_button.yy",
   },
   "spriteMaskId":null,
   "visible":true,

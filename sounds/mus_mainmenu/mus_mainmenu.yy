@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":121.56,
+  "duration":0.0,
   "name":"mus_mainmenu",
   "parent":{
     "name":"ost",
