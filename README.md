@@ -12,10 +12,13 @@ If you're looking for a download link to the official compiled version, visit:
 - System Specifics:
   - 2GB+ RAM
   - 5+ GB Storage
-  - Windows 10 / 11
+  - Windows 11
 
 > [!NOTE]
 > Windows 7 is no longer supported as of GM-Runtime version 2024.11 due to Microsoft dropping support for DirectX 11.
+
+>[!WARNING]
+> Windows 10 has lost security updates as of October 2024, however GameMaker's Windows runtime still continues support for now. It is recommended that you use Windows 11 currently.
 
 ## Building Sunrise
 
@@ -40,6 +43,7 @@ For documentation on creating datapacks for Sunrise, [click here to go to the wi
 - Lead Artist & Design - WushR00M / WushyAnimates
 - Character Design - UndergroundError
 - Character Design - Obvlixx
+- Artist - BuildZones
 - Prop & Background Artist - Rose&Theo / Alex
 - Concept Artist - TheBlueVolcano
 - Guest Artist - Jason Lee (jasontomlee)
@@ -78,4 +82,5 @@ For documentation on creating datapacks for Sunrise, [click here to go to the wi
 - Design QA - TheBlueVolcano
 - Design QA - Lampshade
 - Design QA - Spacelord
+- Design & Story QA - BuildZone
 - Design & Music QA - Rose&Theo
