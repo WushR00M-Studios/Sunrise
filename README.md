@@ -18,7 +18,7 @@ If you're looking for a download link to the official compiled version, visit:
 > Windows 7 is no longer supported as of GM-Runtime version 2024.11 due to Microsoft dropping support for DirectX 11.
 
 >[!WARNING]
-> Windows 10 has lost security updates as of October 2024, however GameMaker's Windows runtime still continues support for now. It is recommended that you use Windows 11 currently.
+> Windows 10 has lost security updates as of October 2025, however GameMaker's Windows runtime still continues support for now. It is recommended that you use Windows 11 currently.
 
 ## Building Sunrise
 
