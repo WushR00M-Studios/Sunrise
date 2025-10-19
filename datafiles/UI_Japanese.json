@@ -1,0 +1,70 @@
+    {
+		"options": {
+			"opt_photosen": 		"感光モード",
+			"opt_fullscreen": 		"フルスクリーン",
+			"opt_borderless": 		"ボーダーレスフルスクリーン",
+			"opt_voice": 			"ボイスチャット",
+			"opt_autosave": 		"自動保存",
+			"opt_discordrp": 		"Discord リッチプレゼンス",
+			"opt_colorblind": 		"色覚異常のアクセシビリティ",
+			"opt_showfps": 			"FPS を表示",
+			"opt_telemetry": 		"テレメトリー",
+			"opt_errorrep": 		"エラーレポートの送信を有効にする",
+			
+			"btn_credits": 			"クレジット",
+			"btn_language": 		"Credits",
+			"btn_datapacks": 		"データパックリスト",
+			"btn_clearsave": 		"保存されているデータをすべてクリアする",
+			
+			"header_pref":			"設定",
+			"header_system":		"アクセシビリティなど",
+			"header_main":			"メンテナンス"
+			
+		}, "accounts": {
+			"add_user": 			"ユーザーの追加",
+			"guest_user": 			"ゲスト"
+			
+		}, "common": {
+			"com_play":				"プレイ",
+			"com_startgame": 		"STARTボタンを押す",
+			"com_select": 			"セレクト",
+			"com_back": 			"戻る",
+			"com_navigation": 		"航行する",
+			"com_on": 				"ON",
+			"com_off": 				"OFF",
+			"com_accept": 			"はい",
+			"com_decline": 			"いいえ",
+			"com_ok": 				"OK",
+			"com_cancel": 			"キャンセル",
+			"com_yes": 				"はい",
+			"com_no": 				"いいえ"
+			
+		}, "dialog": {
+			"dialog_exitgame": 			"終了してデスクトップへ戻りますか？",
+			"dialog_exitgame_true": 	"はい",
+			"dialog_exitgame_false": 	"いいえ",
+			
+			"dialog_exitcreate": 		"終了しますか？",
+			"dialog_exitcreate_true": 	"ゲームデータをセーブ",
+			"dialog_exitcreate_nosv": 	"終了する",
+			"dialog_exitcreate_false": 	"キャンセル",
+			
+			"dialog_renamelevel": 		"レベルの新しい名前を入力してください...",
+		
+			
+		}, "create": {
+			"create_testlvl":		"テストレベル",
+			"create_stoptest":		"編集レベル",
+			
+			"toolbar_newlvl":		"新しい",
+			"toolbar_openlvl":		"ロード",
+			"toolbar_savelvl":		"ゲームデータをセーブ",
+			"toolbar_savelvl_as":	"ゲームデータを名前を付けて保存...",
+			"toolbar_exit":			"終了する",
+			
+			"toolbar_file":			"ファイル",
+			"toolbar_edit":			"編集する",
+			"toolbar_lvlopt":		"レベルオプション",
+			
+		}
+    }
