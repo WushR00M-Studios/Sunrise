@@ -5,7 +5,7 @@
   "option_windows_allow_fullscreen_switching":true,
   "option_windows_borderless":false,
   "option_windows_company_info":"WushR00M Studios",
-  "option_windows_copyright_info":"",
+  "option_windows_copyright_info":"(C) WushR00M Studios; 2021-2026",
   "option_windows_copy_exe_to_dest":false,
   "option_windows_description_info":"Sunrise Game Client",
   "option_windows_disable_sandbox":true,

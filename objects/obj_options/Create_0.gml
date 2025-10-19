@@ -55,6 +55,7 @@ if global.mobile {
 	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_toggle("Discord Rich Presence", "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
 	array_push(options, make_toggle("Colorblind Symbols", "Enables or disables icons to overlay colors for those visually impaired", false));
+	array_push(options, make_toggle("Video Playback", "Video playback lags and freezes the client on low-end hardware, disable this to avoid that!", true));
 	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
 	
 	array_push(options, { type: "header", name: "Debugging and Maintenance" });

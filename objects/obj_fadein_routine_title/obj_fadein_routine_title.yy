@@ -3,13 +3,14 @@
   "%Name":"obj_fadein_routine_title",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_fadein_routine_title",
   "overriddenProperties":[],
   "parent":{
-    "name":"misc",
-    "path":"folders/Objects/misc.yy",
+    "name":"fades",
+    "path":"folders/Objects/fades.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -42,6 +42,10 @@ for (var i = 0; i < array_length(options); i++) {
 				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
+			else if item.name == "Video Playback"
+				description_text = "Video playback lags and freezes the client on low-end hardware, disable this to avoid that";
+			else if item.name == "Show FPS"
+				description_text = "Displays a small number in the bottom right with the game's FPS"
 			else if item.name == "Colorblind Symbols"
 				description_text = "Enables or disables icons to overlay colors for those visually impaired";
 			else if item.name == "Discord Rich Presence"
@@ -164,6 +168,10 @@ if (gamepad_is_connected(0)) {
 				description_text = "Enables or disables Online Voice Chat";
 			else if item.name == "Credits"
 				description_text = "See who made this amazing game!";
+			else if item.name == "Video Playback"
+				description_text = "Video playback lags and freezes the client on low-end hardware, disable this to avoid that";
+			else if item.name == "Show FPS"
+				description_text = "Displays a small number in the bottom right with the game's FPS"
 			else if item.name == "Colorblind Symbols"
 				description_text = "Enables or disables icons to overlay colors for those visually impaired";
 			else if item.name == "Discord Rich Presence"

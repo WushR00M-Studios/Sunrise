@@ -12,8 +12,8 @@
   "name":"obj_fadeout_close_game_routine",
   "overriddenProperties":[],
   "parent":{
-    "name":"misc",
-    "path":"folders/Objects/misc.yy",
+    "name":"fades",
+    "path":"folders/Objects/fades.yy",
   },
   "parentObjectId":null,
   "persistent":false,
