@@ -18,7 +18,7 @@ var _x = draw_x + view_x;
 var _y = view_y;
 
 // Box
-draw_set_color(make_color_rgb(30, 30, 30));
+draw_set_color(c_black);
 draw_roundrect(_x, _y, _x+_w, _y+_h, false);
 
 // Icon
@@ -39,7 +39,7 @@ var box_x = _x+_w/2 - box_w/2;
 var box_y = _y+330;
 draw_set_halign(fa_left);
 
-draw_set_color(c_black);
+draw_set_color(make_color_rgb(30, 30, 30));
 draw_roundrect(box_x, box_y, box_x+box_w, box_y+box_h, false);
 
 draw_set_color(c_white);
