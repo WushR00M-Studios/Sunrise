@@ -26,37 +26,31 @@ for (var i = 0; i < array_length(options); i++) {
 	    // Check mouse hover over item rectangle
 	    if (my > rect.y && my < rect.y + rect.h && mx > rect.x && mx < rect.x + rect.w) {
 	        hovered_item = i;
-			if item.name == "Photosensitive Mode"
+			if item.name == global.opt_photosen
 				description_text = "Disables or smoothes most flashing lights";
-			else if item.name == "Fullscreen Mode"
+			else if item.name == global.opt_fullscreen
 				description_text = "Enables or disables Windowed Mode";
-			else if item.name == "Borderless Fullscreen"
+			else if item.name == global.opt_borderless
 				description_text = "Allows for fullscreen without needing to re-render anything";
-			else if item.name == "Haptics"
-				description_text = "Certain actions vibrate your device / controller for short or long moments"
-			else if item.name == "Typing Sounds"
-				description_text = "Whenver a key is struck, a small tick sound will play if enabled";
-			else if item.name == "Anti-Alising"
-				description_text = "Creates a blur to smooth out rough pixels";
-			else if item.name == "Voice Chat"
+			else if item.name == global.opt_voice
 				description_text = "Enables or disables Online Voice Chat";
-			else if item.name == "Credits"
+			else if item.name == global.btn_credits
 				description_text = "See who made this amazing game!";
-			else if item.name == "Video Playback"
+			else if item.name == global.opt_videopb
 				description_text = "Video playback lags and freezes the client on low-end hardware, disable this to avoid that";
-			else if item.name == "Show FPS"
+			else if item.name == global.opt_showfps
 				description_text = "Displays a small number in the bottom right with the game's FPS"
-			else if item.name == "Colorblind Symbols"
+			else if item.name == global.opt_colorblind
 				description_text = "Enables or disables icons to overlay colors for those visually impaired";
-			else if item.name == "Discord Rich Presence"
+			else if item.name == global.opt_discordrp
 				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
-			else if item.name == "Autosaving"
+			else if item.name == global.opt_autosave
 				description_text = "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!";
-			else if item.name == "Reset User Data"
+			else if item.name == global.btn_clearsave
 				description_text = "Resets all offline game data and starts from the inital setup";
-			else if item.name == "Telemetry"
+			else if item.name == global.opt_telemetry
 				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
-			else if item.name == "Error Reporting"
+			else if item.name == global.opt_errorrep
 				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
@@ -100,36 +94,20 @@ if (gamepad_is_connected(0)) {
 	        item.value = !item.value;
 	        save_options();
 			
-			if (item.name == "Fullscreen Mode" && item.value) {
+			if (item.name == global.opt_fullscreen && item.value) {
 				window_set_fullscreen(true);
 				save_options();
-			} else if (item.name == "Fullscreen Mode" && !item.value) {
+			} else if (item.name == global.opt_fullscreen && !item.value) {
 				window_set_fullscreen(false);
 				save_options();
 			}
 			
-			if (item.name == "Borderless Fullscreen" && item.value) {
+			if (item.name == global.opt_borderless && item.value) {
 				window_enable_borderless_fullscreen(true);
 				save_options();
-			} else if (item.name == "Borderless Fullscreen" && !item.value) {
+			} else if (item.name == global.opt_borderless && !item.value) {
 				window_enable_borderless_fullscreen(false);
 				save_options();
-			}
-			
-			if (item.name == "Haptics") {
-				global.haptics = item.value;	
-			}
-			
-			if (item.name == "Anti-Alising" && item.value) {
-				if (display_aa > 12) {
-					display_reset(4, false);	
-				} else {
-					display_reset(0, false);
-					item.value = !item.value;
-					toast_create("FAILURE: Anti-Alising is not supported on your system!", 4);
-				}
-			} else if (item.name == "Anti-Alising" && !item.value) {
-				display_reset(0, false);
 			}
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
@@ -141,7 +119,7 @@ if (gamepad_is_connected(0)) {
 	            }
 	        }
 	    } else if (item.type == "button") {
-	        if (item.name == "Credits") {
+	        if (item.name == global.btn_credits) {
 	            room_goto(rm_credits);
 	        }
 	    }
@@ -152,38 +130,31 @@ if (gamepad_is_connected(0)) {
     hovered_item = selected_index;
     if (hovered_item >= 0 && hovered_item < array_length(options)) {
         var item = options[hovered_item];
-			if item.name == "Photosensitive Mode"
+			if item.name == global.opt_photosen
 				description_text = "Disables or smoothes most flashing lights";
-			else if item.name == "Fullscreen Mode"
+			else if item.name == global.opt_fullscreen
 				description_text = "Enables or disables Windowed Mode";
-			else if item.name == "Borderless Fullscreen"
+			else if item.name == global.opt_borderless
 				description_text = "Allows for fullscreen without needing to re-render anything";
-			else if item.name == "Haptics"
-				description_text = "Certain actions vibrate your device / controller for short or long moments"
-			else if item.name == "Typing Sounds"
-				description_text = "Whenver a key is struck, a small tick sound will play if enabled";
-			else if item.name == "Anti-Alising"
-				description_text = "Creates a blur to smooth out rough pixels";
-			else if item.name == "Voice Chat"
+			else if item.name == global.opt_voice
 				description_text = "Enables or disables Online Voice Chat";
-			else if item.name == "Credits"
+			else if item.name == global.btn_credits
 				description_text = "See who made this amazing game!";
-			else if item.name == "Video Playback"
+			else if item.name == global.opt_videopb
 				description_text = "Video playback lags and freezes the client on low-end hardware, disable this to avoid that";
-			else if item.name == "Show FPS"
+			else if item.name == global.opt_showfps
 				description_text = "Displays a small number in the bottom right with the game's FPS"
-			else if item.name == "Colorblind Symbols"
+			else if item.name == global.opt_colorblind
 				description_text = "Enables or disables icons to overlay colors for those visually impaired";
-			else if item.name == "Discord Rich Presence"
+			else if item.name == global.opt_discordrp
 				description_text = "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop";
-			else if item.name == "Autosaving"
+			else if item.name == global.opt_autosave
 				description_text = "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!";
-			else if item.name == "Reset User Data"
-				description_text = "DOESN'T WORK YET, DELETE THE USER.INI FILES IF YOU WANT TO REMOVE YOUR DATA";
-				//description_text = "Resets all game data and starts from the inital setup";
-			else if item.name == "Telemetry"
+			else if item.name == global.btn_clearsave
+				description_text = "Resets all offline game data and starts from the inital setup";
+			else if item.name == global.opt_telemetry
 				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
-			else if item.name == "Error Reporting"
+			else if item.name == global.opt_errorrep
 				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
 			else
 				description_text = "Manage Sunrise's various Settings here!";
@@ -209,28 +180,21 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	        item.value = !item.value;
 	        save_options();
 
-			if (item.name == "Fullscreen Mode" && item.value)
+			if (item.name == global.opt_fullscreen && item.value) {
 				window_set_fullscreen(true);
-			else if (item.name == "Fullscreen Mode" && !item.value)
+				save_options();
+			} else if (item.name == global.opt_fullscreen && !item.value) {
 				window_set_fullscreen(false);
+				save_options();
+			}
 			
-			if (item.name == "Borderless Fullscreen" && item.value)
+			if (item.name == global.opt_borderless && item.value) {
 				window_enable_borderless_fullscreen(true);
-			else if (item.name == "Borderless Fullscreen" && !item.value)
+				save_options();
+			} else if (item.name == global.opt_borderless && !item.value) {
 				window_enable_borderless_fullscreen(false);
-			
-			ini_open("options.ini");
-			global.op_photosen = ini_read_real("options", "Photosensitive Mode", 0);
-			global.op_fullscreen = ini_read_real("options", "Fullscreen Mode", 0);
-			global.op_borderless = ini_read_real("options", "Borderless Fullscreen", 0);
-			global.op_voicechat = ini_read_real("options", "Voice Chat", 0);
-			global.op_autosaving = ini_read_real("options", "Autosaving", 0);
-			global.op_discordrp = ini_read_real("options", "Discord Rich Presence", 0);
-			global.op_colorblind = ini_read_real("options", "Colorblind Symbols", 0);
-			global.op_showfps = ini_read_real("options", "Show FPS", 0);
-			global.op_errorep = ini_read_real("options", "Error Reporting", 0);
-			global.op_telemetry = ini_read_real("options", "Telemetry", 0);
-			ini_close();
+				save_options();
+			}
 		
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
@@ -242,7 +206,7 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	            }
 	        }
 	    } else if (item.type == "button") {
-	        if (item.name == "Credits") {
+	        if (item.name == global.btn_credits) {
 	            instance_create_depth(0, 0, -1, obj_fadein_routine)
 	        }
 	    }

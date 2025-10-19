@@ -32,6 +32,7 @@
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
     {"name":"create_sys","order":7,"path":"folders/Scripts/create_sys.yy",},
     {"name":"dialog_sys","order":2,"path":"folders/Scripts/dialog_sys.yy",},
+    {"name":"language_set","order":11,"path":"folders/Scripts/language_set.yy",},
     {"name":"misc","order":4,"path":"folders/Scripts/misc.yy",},
     {"name":"network_sys","order":3,"path":"folders/Scripts/network_sys.yy",},
     {"name":"options_sys","order":8,"path":"folders/Scripts/options_sys.yy",},

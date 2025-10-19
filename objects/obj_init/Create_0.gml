@@ -30,7 +30,8 @@ global.slidebar = false;
 controller = false;
 touch = false;
 
-global.languageopt = 0;
+global.op_language = 0; // 0: English, 1: Spanish, 2: Japanese
+						// Translations are heavily incomplete!!
 global.playtestfin = false;
 global.exiting = false;
 	
@@ -40,6 +41,9 @@ global.input_finished = false;
 global.temp1 = "";
 	
 // instance_create_depth(0, 0, -1, obj_controller);
+
+//////////////////////////////////////////////////////////////////////////
+
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -57,6 +61,7 @@ if file_exists("options.ini") {
 	global.op_showfps = ini_read_real("options", "Show FPS", 0);
 	global.op_errorep = ini_read_real("options", "Error Reporting", 0);
 	global.op_telemetry = ini_read_real("options", "Telemetry", 0);
+	global.op_language = ini_read_real("lang", "Language", 0); // 0: English, 1: Spanish, 2: Japanese
 	global.op_accent = ini_read_string("color", "Color", "White");
 	
 	if global.op_accent == "White" {
@@ -83,6 +88,12 @@ if file_exists("options.ini") {
 	} else if global.op_accent == "Purple" {
 		gamepad_set_color(0, c_purple);
 		gamepad_set_color(4, c_purple);
+	}
+	
+	global.languageopt = global.op_language; // For compatibility's sake, I'm a little lazy at the moment
+	
+	if global.op_language == 0 {
+		ui_english();
 	}
 	
 	telesent = false;

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ui_english",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ui_english",
+  "parent":{
+    "name":"language_set",
+    "path":"folders/Scripts/language_set.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

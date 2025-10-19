@@ -28,41 +28,41 @@ menu_top = 64;
 
 if global.mobile {
 	
-	array_push(options, { type: "header", name: "Preferences" });
-	array_push(options, make_toggle("Photosensitive Mode", "Disables or smoothes most flashing lights", false));
-	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
+	array_push(options, { type: "header", name: global.header_pref });
+	array_push(options, make_toggle(global.opt_photosen, "Disables or smoothes most flashing lights", false));
+	array_push(options, make_toggle(global.opt_voice, "Enables or disables Voice Chat", true));
 
-	array_push(options, { type: "header", name: "System and Accessibility" });
-	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
-	array_push(options, make_toggle("Colorblind Symbols", "Enables or disables icons to overlay colors for those visually impaired", false));
-	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
+	array_push(options, { type: "header", name: global.header_system });
+	array_push(options, make_toggle(global.opt_autosave, "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
+	array_push(options, make_toggle(global.opt_colorblind, "Enables or disables icons to overlay colors for those visually impaired", false));
+	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
 	
-	array_push(options, { type: "header", name: "Debugging and Maintenance" });
-	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
-	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
+	array_push(options, { type: "header", name: global.header_main });
+	array_push(options, make_toggle(global.opt_showfps, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle(global.opt_telemetry, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle(global.opt_errorrep, "Tick this off to disable sending error report data to WushR00M Studios", true));
+	array_push(options, make_button(global.btn_clearsave, "Resets all game data and starts from the inital setup.", function() { }));
 
 } else {
 	
-	array_push(options, { type: "header", name: "Preferences" });
-	array_push(options, make_toggle("Photosensitive Mode", "Disables or smoothes most flashing lights", false));
-	array_push(options, make_toggle("Fullscreen Mode", "Enables or disables Windowed Mode", false));
-	array_push(options, make_toggle("Borderless Fullscreen", "Allows for fullscreen without needing to re-render anything", false));
-	array_push(options, make_toggle("Voice Chat", "Enables or disables Voice Chat", true));
+	array_push(options, { type: "header", name: global.header_pref });
+	array_push(options, make_toggle(global.opt_photosen, "Disables or smoothes most flashing lights", false));
+	array_push(options, make_toggle(global.opt_fullscreen, "Enables or disables Windowed Mode", false));
+	array_push(options, make_toggle(global.opt_borderless, "Allows for fullscreen without needing to re-render anything", false));
+	array_push(options, make_toggle(global.opt_voice, "Enables or disables Voice Chat", true));
 
-	array_push(options, { type: "header", name: "System and Accessibility" });
-	array_push(options, make_toggle("Autosaving", "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
-	array_push(options, make_toggle("Discord Rich Presence", "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
-	array_push(options, make_toggle("Colorblind Symbols", "Enables or disables icons to overlay colors for those visually impaired", false));
-	array_push(options, make_toggle("Video Playback", "Video playback lags and freezes the client on low-end hardware, disable this to avoid that!", true));
-	array_push(options, make_button("Credits", "See who made this amazing game!", function() { }));
+	array_push(options, { type: "header", name: global.header_system });
+	array_push(options, make_toggle(global.opt_autosave, "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
+	array_push(options, make_toggle(global.opt_discordrp, "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
+	array_push(options, make_toggle(global.opt_colorblind, "Enables or disables icons to overlay colors for those visually impaired", false));
+	array_push(options, make_toggle(global.opt_videopb, "Video playback lags and freezes the client on low-end hardware, disable this to avoid that!", true));
+	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
 	
-	array_push(options, { type: "header", name: "Debugging and Maintenance" });
-	array_push(options, make_toggle("Show FPS", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle("Telemetry", "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle("Error Reporting", "Tick this off to disable sending error report data to WushR00M Studios", true));
-	array_push(options, make_button("Reset User Data", "Resets all game data and starts from the inital setup.", function() { }));
+	array_push(options, { type: "header", name: global.header_main });
+	array_push(options, make_toggle(global.opt_showfps, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle(global.opt_telemetry, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
+	array_push(options, make_toggle(global.opt_errorrep, "Tick this off to disable sending error report data to WushR00M Studios", true));
+	array_push(options, make_button(global.btn_clearsave, "Resets all game data and starts from the inital setup.", function() { }));
 
 }
 

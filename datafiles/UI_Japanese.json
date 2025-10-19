@@ -1,5 +1,5 @@
     {
-		"options": {
+
 			"opt_photosen": 		"感光モード",
 			"opt_fullscreen": 		"フルスクリーン",
 			"opt_borderless": 		"ボーダーレスフルスクリーン",
@@ -7,6 +7,7 @@
 			"opt_autosave": 		"自動保存",
 			"opt_discordrp": 		"Discord リッチプレゼンス",
 			"opt_colorblind": 		"色覚異常のアクセシビリティ",
+			"opt_videopb":			"ビデオの再生",
 			"opt_showfps": 			"FPS を表示",
 			"opt_telemetry": 		"テレメトリー",
 			"opt_errorrep": 		"エラーレポートの送信を有効にする",
@@ -18,13 +19,13 @@
 			
 			"header_pref":			"設定",
 			"header_system":		"アクセシビリティなど",
-			"header_main":			"メンテナンス"
+			"header_main":			"メンテナンス",
 			
-		}, "accounts": {
+
 			"add_user": 			"ユーザーの追加",
 			"guest_user": 			"ゲスト"
 			
-		}, "common": {
+
 			"com_play":				"プレイ",
 			"com_startgame": 		"STARTボタンを押す",
 			"com_select": 			"セレクト",
@@ -37,9 +38,9 @@
 			"com_ok": 				"OK",
 			"com_cancel": 			"キャンセル",
 			"com_yes": 				"はい",
-			"com_no": 				"いいえ"
+			"com_no": 				"いいえ",
 			
-		}, "dialog": {
+
 			"dialog_exitgame": 			"終了してデスクトップへ戻りますか？",
 			"dialog_exitgame_true": 	"はい",
 			"dialog_exitgame_false": 	"いいえ",
@@ -52,7 +53,7 @@
 			"dialog_renamelevel": 		"レベルの新しい名前を入力してください...",
 		
 			
-		}, "create": {
+
 			"create_testlvl":		"テストレベル",
 			"create_stoptest":		"編集レベル",
 			
@@ -66,5 +67,7 @@
 			"toolbar_edit":			"編集する",
 			"toolbar_lvlopt":		"レベルオプション",
 			
+
+			"loading_msg":			"ローディング中…"
 		}
     }
