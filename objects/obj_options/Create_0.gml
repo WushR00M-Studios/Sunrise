@@ -56,13 +56,12 @@ if global.mobile {
 	array_push(options, make_toggle(global.opt_discordrp, "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
 	array_push(options, make_toggle(global.opt_colorblind, "Enables or disables icons to overlay colors for those visually impaired", false));
 	array_push(options, make_toggle(global.opt_videopb, "Video playback lags and freezes the client on low-end hardware, disable this to avoid that!", true));
-	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
-	
-	array_push(options, { type: "header", name: global.header_main });
+	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }))
 	array_push(options, make_toggle(global.opt_showfps, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle(global.opt_telemetry, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
 	array_push(options, make_toggle(global.opt_errorrep, "Tick this off to disable sending error report data to WushR00M Studios", true));
 	array_push(options, make_button(global.btn_clearsave, "Resets all game data and starts from the inital setup.", function() { }));
+	array_push(options, make_button(global.btn_language, "Set the game's language, translations may be incomplete!", function() { }));
 
 }
 

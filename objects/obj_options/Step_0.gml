@@ -52,6 +52,8 @@ for (var i = 0; i < array_length(options); i++) {
 				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
 			else if item.name == global.opt_errorrep
 				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
+			else if item.name == global.btn_language
+				description_text = "Sets the game's language, translations may not be 100% complete!"
 			else
 				description_text = "Manage Sunrise's various Settings here!";
 			
@@ -156,6 +158,8 @@ if (gamepad_is_connected(0)) {
 				description_text = "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!";
 			else if item.name == global.opt_errorrep
 				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
+			else if item.name == global.btn_language
+				description_text = "Sets the game's language, translations may not be 100% complete!"
 			else
 				description_text = "Manage Sunrise's various Settings here!";
     }
@@ -208,7 +212,14 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	    } else if (item.type == "button") {
 	        if (item.name == global.btn_credits) {
 	            instance_create_depth(0, 0, -1, obj_fadein_routine)
-	        }
+	        } else if (item.name == global.btn_language) {
+				var dia_but = [
+					{label:"English", action: dummyscript()},
+					{label:"Español",  action: dummyscript()},
+				];
+				
+				scr_show_dialog(global.btn_language, spr_dialog_rename, dia_but);
+			}
 	    }
 	}
 

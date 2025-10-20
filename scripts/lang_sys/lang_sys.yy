@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ui_english",
+  "%Name":"lang_sys",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ui_english",
+  "name":"lang_sys",
   "parent":{
     "name":"language_set",
     "path":"folders/Scripts/language_set.yy",

@@ -92,9 +92,10 @@ if file_exists("options.ini") {
 	
 	global.languageopt = global.op_language; // For compatibility's sake, I'm a little lazy at the moment
 	
-	if global.op_language == 0 {
+	if global.op_language == 0
 		ui_english();
-	}
+	else if global.op_language == 1
+		ui_spanish();
 	
 	telesent = false;
 	

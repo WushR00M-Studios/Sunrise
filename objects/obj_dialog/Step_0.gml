@@ -74,6 +74,10 @@ try {
 						} else if buttons[i].label == "Let me out already!" {
 							instance_create_layer(0, 0, "Instances_1", obj_fadeout_close_game_routine);
 							audio_stop_all();
+						} else if buttons[i].label == "English" {
+							ui_english();
+						} else if buttons[i].label == "Español" {
+							ui_spanish()
 						} else if buttons[i].label == "Yes, delete it!" {
 							array_delete(global.accounts, i, 1);	
 

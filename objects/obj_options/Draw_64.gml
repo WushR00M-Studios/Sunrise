@@ -14,10 +14,7 @@ for (var i = 0; i < array_length(options); i++) {
     var center_y = rect.y + rect.h / 2;
 
     if (item.type == "header") {
-		if global.mobile
-			draw_set_font(Font4_Mobile);
-		else
-			draw_set_font(Font4);
+		draw_set_font(Font4);
 			
         draw_set_color(c_white);
 		draw_set_halign(fa_left);
@@ -46,7 +43,7 @@ for (var i = 0; i < array_length(options); i++) {
 
         if (item.type == "toggle") {
 			if global.mobile {
-	            var box_x = var_x + 250;
+	            var box_x = room_width - 72;
 	            var box_y = rect.y;
 	            draw_roundrect(box_x, box_y, box_x + 32, box_y + 32, false);
 	            if (item.value) {
@@ -69,7 +66,7 @@ for (var i = 0; i < array_length(options); i++) {
 					}	
 				}
 			} else {
-				var box_x = var_x + 200;
+				var box_x = room_width - 72;
 	            var box_y = rect.y + rect.h / 2 - 10;
 	            draw_roundrect(box_x, box_y, box_x + 20, box_y + 20, false);
 	            if (item.value) {
@@ -119,10 +116,12 @@ for (var i = 0; i < array_length(options); i++) {
             draw_set_halign(fa_left);
         }
         else if (item.type == "dropdown") {
-            var dd_x = var_x + 200;
+            var dd_x = room_width - 72;
             var dd_y = rect.y + rect.h / 2;
             var selected_text = item.choices[item.selected];
             draw_set_color(c_white);
+			draw_set_font(Font7);
+			draw_set_halign(fa_right);
             draw_text(dd_x, dd_y, selected_text);
 
             // Draw dropdown arrow
@@ -132,7 +131,7 @@ for (var i = 0; i < array_length(options); i++) {
 
             // If open, draw dropdown list
             if (item.open) {
-                var dd_w = 180;
+                var dd_w = -180;
                 var dd_h = line_height;
                 draw_set_color(c_black);
                 draw_rectangle(dd_x, rect.y + rect.h, dd_x + dd_w, rect.y + rect.h + dd_h * array_length(item.choices), false);
@@ -146,25 +145,27 @@ for (var i = 0; i < array_length(options); i++) {
                     } else {
                         draw_set_color(c_white);
                     }
+					draw_set_font(Font7);
+					draw_set_halign(fa_right);
                     draw_text(dd_x + 8, choice_y, item.choices[k]);
                 }
             }
         }
         else if (item.type == "button") {
-            var btn_x = var_x + 200;
+            var btn_x = room_width - 72;
             var btn_y = rect.y + rect.h / 2 - 14;
             var btn_w = (256);
             var btn_h = 28;
             draw_set_color(c_black);
-            draw_rectangle(btn_x, btn_y, btn_x + btn_w, btn_y + btn_h, false);
+            draw_rectangle(btn_x, btn_y, btn_x - btn_w, btn_y + btn_h, false);
             if (hovered_item == i) {
                 draw_set_color(c_navy);
-                draw_rectangle(btn_x, btn_y, btn_x + btn_w, btn_y + btn_h, false);
+                draw_rectangle(btn_x, btn_y, btn_x - btn_w, btn_y + btn_h, false);
             }
             draw_set_color(c_white);
             draw_set_font(Font7);
 			draw_set_halign(fa_right);
-            draw_text(btn_x + btn_w - 4, btn_y + btn_h / 2, item.name);
+            draw_text(btn_x - 4, btn_y + btn_h / 2, item.name);
         }
     }
     draw_y += (item.type == "header") ? header_height : line_height;
