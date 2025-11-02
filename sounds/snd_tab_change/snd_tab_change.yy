@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.13639456,
+  "duration":0.04208617,
   "exportDir":"",
   "name":"snd_tab_change",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_tab_change.wav",
+  "soundFile":"snd_tab_change.mp3",
   "volume":1.0,
 }

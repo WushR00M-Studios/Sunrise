@@ -12,8 +12,6 @@ if !window_has_focus() or os_is_paused() {
 	draw_text(view_wport[0] / 2, view_hport[0] / 2, "FOCUS LOST");
 }
 
-draw_sprite(spr_devbuild_footer, 0, view_xport[0], view_hport[0]);
-
 if global.op_showfps == 1 {
 	draw_set_alpha(1);
 	draw_set_font(Font7);

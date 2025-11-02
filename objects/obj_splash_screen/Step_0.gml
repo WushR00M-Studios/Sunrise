@@ -1,17 +1,9 @@
-x = room_width / 2;
-y = room_height / 2;
-
-if instance_exists(obj_loading_spinner) {
-	if obj_loading_spinner.fulload == true
-		fade = true;	
-}
+if !audio_is_playing(snd_logobump) && hasplayed == true {
+	video_close();
 	
-if fade == true {
-	if image_alpha != 1
-		image_alpha += 0.1;
-		
-	if image_alpha == 0.9
-		alarm_set(0,300);
-} else {
-	image_alpha = 0;	
+	ini_open("options.ini");
+	if ini_section_exists("options")
+		room_goto(rm_intro_animation);
+	else
+		room_goto_next();
 }

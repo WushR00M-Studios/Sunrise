@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_notification",
+  "%Name":"snd_logobump",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.9461224,
+  "duration":8.071836,
   "exportDir":"",
-  "name":"snd_notification",
+  "name":"snd_logobump",
   "parent":{
-    "name":"main_menu",
-    "path":"folders/Sounds/sounds/main_menu.yy",
+    "name":"sounds",
+    "path":"folders/Sounds/sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_notification.mp3",
+  "soundFile":"snd_logobump.mp3",
   "volume":1.0,
 }

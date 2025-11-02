@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.40941042,
+  "duration":1.4236735,
   "exportDir":"",
   "name":"snd_notification_warning",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_notification_warning.wav",
+  "soundFile":"snd_notification_warning.mp3",
   "volume":1.0,
 }

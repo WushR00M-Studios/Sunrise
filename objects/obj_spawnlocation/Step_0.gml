@@ -19,7 +19,6 @@ if rcm == true {
 if global.cmplay == true {
 	instance_create_layer(0, 0, "UI", obj_camera);
 	instance_create_layer(0, 0, "UI", obj_hud);
-	instance_destroy(obj_cm_manager);
 	instance_change(obj_plr_platformer,true);
 	view_visible[1] = true;
 	view_visible[0] = false;

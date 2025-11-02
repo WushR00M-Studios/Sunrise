@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.29063493,
+  "duration":1.4759184,
   "exportDir":"",
   "name":"snd_disabled",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_disabled.wav",
+  "soundFile":"snd_disabled.mp3",
   "volume":1.0,
 }

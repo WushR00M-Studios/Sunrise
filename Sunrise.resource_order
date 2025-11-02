@@ -231,6 +231,7 @@
     {"name":"snd_highlight","order":1,"path":"sounds/snd_highlight/snd_highlight.yy",},
     {"name":"snd_intro_gametitle_reveal","order":5,"path":"sounds/snd_intro_gametitle_reveal/snd_intro_gametitle_reveal.yy",},
     {"name":"snd_locked_or_create_error","order":2,"path":"sounds/snd_locked_or_create_error/snd_locked_or_create_error.yy",},
+    {"name":"snd_logobump","order":8,"path":"sounds/snd_logobump/snd_logobump.yy",},
     {"name":"snd_musicnote_collect_plus2","order":1,"path":"sounds/snd_musicnote_collect_plus2/snd_musicnote_collect_plus2.yy",},
     {"name":"snd_musicnote_collect_plus3","order":2,"path":"sounds/snd_musicnote_collect_plus3/snd_musicnote_collect_plus3.yy",},
     {"name":"snd_musicnote_collect_plusMAX","order":3,"path":"sounds/snd_musicnote_collect_plusMAX/snd_musicnote_collect_plusMAX.yy",},
