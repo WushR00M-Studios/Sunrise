@@ -9,10 +9,7 @@ try {
 
 	randomize();
 } catch(ex) {
-	if global.op_errorep
-		toast_create("FAILURE: An internal error has occured and has been reported to WushR00M Studios.", 4);
-	else
-		toast_create("FAILURE: An internal error has occured. Error data has been dumped to a debug file.", 4);
+	toast_create("FAILURE: An internal error has occured. Error data has been dumped to a debug file, it's recommended you file a bug report.", 3);
 		
 	if file_exists("error_rep.log") file_delete("error_rep.log");
 	var _f = file_text_open_write("error_rep.log");
@@ -39,4 +36,3 @@ exception_unhandled_handler(function(ex)
 
     show_message("A serious error has occured and Sunrise needs to close. We apologise for the inconvience! You can view the crash log in \"crash.txt\".");
 });
-

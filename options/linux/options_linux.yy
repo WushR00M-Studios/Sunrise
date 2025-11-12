@@ -6,7 +6,7 @@
   "option_linux_disable_sandbox":true,
   "option_linux_display_cursor":true,
   "option_linux_display_name":"Sunrise",
-  "option_linux_display_splash":false,
+  "option_linux_display_splash":true,
   "option_linux_enable_steam":false,
   "option_linux_homepage":"https://www.wushroomstudios.com/",
   "option_linux_icon":"${options_dir}/linux/icons/64.png",

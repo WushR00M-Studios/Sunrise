@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.356712,
+  "duration":0.34070295,
   "exportDir":"",
   "name":"snd_pause_menu_slidein",
   "parent":{
