@@ -76,8 +76,10 @@ try {
 							audio_stop_all();
 						} else if buttons[i].label == "English" {
 							ui_english();
+							instance_create_depth(0, 0, -1, obj_fadein_routine_refreshroom);
 						} else if buttons[i].label == "Español" {
-							ui_spanish()
+							ui_spanish();
+							instance_create_depth(0, 0, -1, obj_fadein_routine_refreshroom);
 						} else if buttons[i].label == "Yes, delete it!" {
 							array_delete(global.accounts, i, 1);	
 

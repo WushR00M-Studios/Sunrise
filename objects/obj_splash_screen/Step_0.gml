@@ -1,4 +1,4 @@
-if !audio_is_playing(snd_logobump) && hasplayed == true {
+if !audio_is_playing(snd_logobump) {
 	video_close();
 	
 	ini_open("options.ini");

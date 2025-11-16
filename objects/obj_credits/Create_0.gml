@@ -56,7 +56,7 @@ credit_text = [
 "Design QA - Lampshade",
 "Story QA - BuildZones",
 "Design & Music QA - Rose&Theo",
-"Android Testing - Spacelord"
+"Android Testing - Spacelord",
 " ",
 //" ",
 //"KICKSTARTER SUPPORTERS",

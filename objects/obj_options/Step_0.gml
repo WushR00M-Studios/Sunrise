@@ -54,6 +54,8 @@ for (var i = 0; i < array_length(options); i++) {
 				description_text = "Tick this off to disable sending error report data to WushR00M Studios";
 			else if item.name == global.btn_language
 				description_text = "Sets the game's language, translations may not be 100% complete!"
+			else if item.name == "Remap Controller"
+				description_text = "Edit settings for controller use in-game, including haptics, button mappings, and PS4/5 light bar colors"
 			else
 				description_text = "Manage Sunrise's various Settings here!";
 			
@@ -241,14 +243,14 @@ if (mouse_check_button_pressed(mb_left)) {
     for (var i = 0; i < array_length(options); i++) {
         var item = options[i];
         if (item.type == "dropdown" && item.open) {
-            var dd_x = padding_x + 200;
-            var dd_y = item_rects[i].y + item_rects[i].h;
-            var dd_w = 180;
-            var dd_h = line_height;
+            var dd_x = room_width - 72;
+            var dd_y = rect.y + rect.h / 2 - 14;
+            var dd_w = (256);
+            var dd_h = 28;
             for (var c = 0; c < array_length(item.choices); c++) {
                 var choice_y_start = dd_y + dd_h * c;
                 var choice_y_end = dd_y + dd_h * (c + 1);
-                if (mx > dd_x && mx < dd_x + dd_w && my > choice_y_start && my < choice_y_end) {
+                if (mx > dd_x && mx < dd_x - dd_w && my > choice_y_start && my < choice_y_end) {
                     item.selected = c;
                     item.value = c; // keep value synced if needed
                     item.open = false;

@@ -26,48 +26,21 @@ padding_x = 48;
 scroll_area_height = 400; // Adjust as needed
 menu_top = 64;
 
-if global.mobile {
-	
-	array_push(options, { type: "header", name: global.header_pref });
-	array_push(options, make_toggle(global.opt_photosen, "Disables or smoothes most flashing lights", false));
-	array_push(options, make_toggle(global.opt_voice, "Enables or disables Voice Chat", true));
-
-	array_push(options, { type: "header", name: global.header_system });
-	array_push(options, make_toggle(global.opt_autosave, "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
-	array_push(options, make_toggle("Colorblind Symbols", "Adds symbols to various aspects of the game for those visually impaired", false));
-	array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
-	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
-	//array_push(options, make_button(global.btn_language, "Sets the game's language, translations may be incomplete!", function() { }));
-	
-	array_push(options, { type: "header", name: global.header_main });
-	array_push(options, make_toggle(global.opt_telemetry, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle(global.opt_showfps, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-
-} else {
-	
-	array_push(options, { type: "header", name: global.header_pref });
-	array_push(options, make_toggle(global.opt_borderless, "Allows for fullscreen without needing to re-render anything", false));
-	array_push(options, make_toggle(global.opt_fullscreen, "Enables or disables Windowed Mode", false));
-	array_push(options, make_toggle(global.opt_photosen, "Disables or smoothes most flashing lights", false));
-	array_push(options, make_toggle(global.opt_voice, "Enables or disables Voice Chat", true));
-
-	array_push(options, { type: "header", name: global.header_system });
-	array_push(options, make_toggle(global.opt_autosave, "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
-	array_push(options, make_toggle("Colorblind Symbols", "Adds symbols to various aspects of the game for those visually impaired", false));
-	array_push(options, make_toggle(global.opt_discordrp, "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
-	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
-	array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
-	//array_push(options, make_button(global.btn_language, "Sets the game's language, translations may be incomplete!", function() { }));
-	
-	array_push(options, { type: "header", name: global.header_main });
-	array_push(options, make_toggle(global.opt_telemetry, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle(global.opt_showfps, "Sends data about the specifications of your device for the sake of compatibility and optimization, no private data is collected!", false));
-	array_push(options, make_toggle(global.opt_videopb, "Video playback lags and freezes the client on low-end hardware, disable this to avoid that!", true));
-}
+array_push(options, { type: "header", name: "Controller Settings" });
+array_push(options, make_toggle("Haptics", "Certain actions in-game will vibrate your controller at different levels, disable this to avoid that.", true));
+array_push(options, make_toggle("Swap Action and Cancel Buttons", "The confirm and cancel button will be swapped similar to older PlayStation controller mappings in Japan", false));
+array_push(options, make_toggle("In-Game Button Guide", "Displays a guide at the lower left corner of the screen showcasing which button does what", true));
+array_push(options, make_toggle("Custom Light Bar Color", "Various events in-game will change your DUALSHOCK 4 / DualSense light bar color to match", true));
+array_push(options, make_toggle("Touchpad Controls", "Enables a sudo-cursor on screen whenever input from the DUALSHOCK 4 / DualSense touchpad is detected", false));
+array_push(options, make_toggle("Automatic Controller Detection", "If playing on Android with a wireless controller, the game will automatically detect if said wireless controller was connected or disconnected", false));
+array_push(options, make_toggle("DualSense Adaptive Triggers", "Certain actions in-game will change the amount of pressure needed to fully press down the adaptive triggers on the DualSense controller", true));
+array_push(options, make_toggle("DualSense HD Haptics", "Standard haptics will be replaced with the DualSense controller's advanced HD haptics", true));
+array_push(options, make_button("Calibrate Controller", "This will automatically optimize the deadzone on your controller to avoid minor stick-drift only", function() {}));
+array_push(options, make_button("Edit Deadzones", "Manually optimize the left and right axis deadzones on your controller to avoid any sort of stick drift", function() {}));
 
 update_item_rects();
 // === Load options from ini ===
-ini_open("options.ini");
+ini_open("controller.ini");
 for (var i = 0; i < array_length(options); i++) {
     var opt = options[i];
     if (opt.type == "toggle") {
