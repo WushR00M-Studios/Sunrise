@@ -23,6 +23,10 @@ function __InputConfigVerbs()
 		MIDDLE_CLICK,
 		RIGHT_CLICK,
 		LEFT_CLICK,
+		L1,
+		R1,
+		PLACE,
+		DELETE,
     }
     
     enum INPUT_CLUSTER
@@ -54,10 +58,11 @@ function __InputConfigVerbs()
         InputDefineVerb(INPUT_VERB.ACTION,  "action",      vk_enter,            gp_face3);
         InputDefineVerb(INPUT_VERB.SPECIAL, "special",     vk_shift,            gp_face4);
         InputDefineVerb(INPUT_VERB.PAUSE,   "pause",       vk_escape,           gp_start);
-		
-		InputDefineVerb(INPUT_VERB.MIDDLE_CLICK, "midclick", mb_middle,			gp_touchpadbutton);
-		InputDefineVerb(INPUT_VERB.RIGHT_CLICK, "midclick", mb_middle,			gp_paddler);
-		InputDefineVerb(INPUT_VERB.LEFT_CLICK, "midclick", mb_middle,			gp_paddlel);
+	
+		InputDefineVerb(INPUT_VERB.L1,		"l1",			vk_pageup,			gp_shoulderl);
+		InputDefineVerb(INPUT_VERB.R1,		"r1",			vk_pagedown,		gp_shoulderr);
+		InputDefineVerb(INPUT_VERB.PLACE,	"place",		vk_insert,		gp_shoulderlb);
+		InputDefineVerb(INPUT_VERB.DELETE,	"place",		vk_delete,		gp_shoulderrb);
     }
     else //Flip A/B over on Switch
     {

@@ -35,3 +35,17 @@ function scr_show_input_dialog(_msg, _icon) {
 	    }
 	}
 }
+
+function scr_show_instancelist(_buttons) {
+	with (obj_instance_list) {
+	    buttons      = argument0;
+
+	    hover_index  = -1;
+
+	    var _w = 500;
+	    target_x = 0;                     // snap target to 0 (left edge)
+	    draw_x   = -_w;                   // start off-screen left
+	    state    = "opening";
+	    visible  = true;
+	}
+}

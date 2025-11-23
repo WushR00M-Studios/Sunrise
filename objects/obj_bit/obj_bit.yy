@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_cm_empty_slot",
+  "%Name":"obj_bit",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_plr_platformer","path":"objects/obj_plr_platformer/obj_plr_platformer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_cm_empty_slot",
+  "name":"obj_bit",
   "overriddenProperties":[],
   "parent":{
-    "name":"misc",
-    "path":"folders/Objects/create_mode/misc.yy",
+    "name":"gameplay",
+    "path":"folders/Objects/gameplay.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_cm_empty_grid_slot",
-    "path":"sprites/spr_cm_empty_grid_slot/spr_cm_empty_grid_slot.yy",
+    "name":"spr_bit_circle",
+    "path":"sprites/spr_bit_circle/spr_bit_circle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

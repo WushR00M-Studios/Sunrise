@@ -1,1 +1,0 @@
-instance_change(obj_solid_block,true);

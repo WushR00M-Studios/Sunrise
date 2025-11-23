@@ -5,7 +5,10 @@ draw_set_valign(fa_bottom);
 
 draw_set_alpha(0.5);
 
-draw_text(view_xport[0] + 72, view_hport[0] - 8, "Switch Modes using 1-3, Open Instances List using 4, Toggle Playtest Mode using 9, Open Properties Menu using 0");
+if global.inputtype
+	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Switch Modes using 1-3, Open Instances Menu using ENTER, Toggle Playtest Mode using SHIFT");
+else
+	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Switch Modes using L1 and R1, Open Instances Menu using ACTION, Toggle Playtest Mode using SPECIAL");
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_center);
