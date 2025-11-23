@@ -231,6 +231,7 @@ function load_level() {
 					var a = ini_read_string("info", "levelname", "Untitled");
 					if ini_key_exists("info", "levelauthor") {
 						var aw = ini_read_string("info", "levelauthor", "Unknown Author");
+						var porting = false;
 						global.cmname = a;
 						global.cmauthor = aw;
 						var count = ini_read_real("meta", "count", 0);
