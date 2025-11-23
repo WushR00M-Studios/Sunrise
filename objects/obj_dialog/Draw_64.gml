@@ -9,8 +9,8 @@ draw_set_font(Font4);
 
 // --- Top-left of current view ---
 var cam = view_camera[0];
-var view_x = camera_get_view_x(cam);
-var view_y = camera_get_view_y(cam);
+var view_x = view_xport[0];
+var view_y = view_yport[0];
 
 // Dialog box
 var _w = 500;
