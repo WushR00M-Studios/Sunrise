@@ -16,7 +16,12 @@ description_text = "";
 description = "";
 
 selected_index = 0;           // Tracks gamepad focus
-gamepad_id = 0;               // Default to gamepad 0
+
+if global.gamepad_id == 4
+	gamepad_id = 4;               // Default to gamepad 0
+else
+	gamepad_id = 0;
+	
 gamepad_cooldown = 0;         // Delay between gamepad inputs
 
 // Visual config

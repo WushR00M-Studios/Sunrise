@@ -39,6 +39,38 @@ global.input_result = "";
 global.input_finished = false;
 
 global.temp1 = "";
+connectflag = false;
+global.controllertype = 0; // 0: Xbox - 1: PlayStation 4 - 2: PlayStation 5 - 3: Switch - 4: Anything Else
+
+
+	if InputPlayerUsingGamepad(0) {
+		var _type = InputPlayerGetGamepadType(_player_index);
+	    switch(_type)
+	    {
+	        case INPUT_GAMEPAD_TYPE_UNKNOWN:
+	            global.controllertype = 4;
+	        break;
+
+	        case INPUT_GAMEPAD_TYPE_PS4:
+				global.controllertype = 1;
+			break;
+	        case INPUT_GAMEPAD_TYPE_PS5:
+	            global.controllertype = 2;
+	        break;
+
+	        case INPUT_GAMEPAD_TYPE_SWITCH:
+	            global.controllertype = 3;
+	        break;
+		
+			case INPUT_GAMEPAD_TYPE_XBOX:
+				global.controllertype = 0;
+			break;
+
+	        default:
+	            global.controllertype = 5;
+	        break;
+	    }
+	}
 	
 // instance_create_depth(0, 0, -1, obj_controller);
 

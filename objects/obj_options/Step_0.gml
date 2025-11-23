@@ -22,7 +22,7 @@ for (var i = 0; i < array_length(options); i++) {
     var item = options[i];
     var rect = item_rects[i];
 	
-	if !gamepad_is_connected(0) {
+	if !InputPlayerUsingGamepad(0) {
 	    // Check mouse hover over item rectangle
 	    if (my > rect.y && my < rect.y + rect.h && mx > rect.x && mx < rect.x + rect.w) {
 	        hovered_item = i;
@@ -66,11 +66,11 @@ for (var i = 0; i < array_length(options); i++) {
 }
 
 // --- Gamepad Navigation ---
-if (gamepad_is_connected(0)) {
+if global.inputtype == false {
     if (gamepad_cooldown > 0) gamepad_cooldown--;
 
     // Navigate Up
-    if (gamepad_button_check_pressed(gamepad_id, gp_padu) && gamepad_cooldown <= 0) {
+    if ((InputPressed(INPUT_VERB.UP) or InputPressed(INPUT_VERB.JOY_UP)) && gamepad_cooldown <= 0) {
 		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index - 1 + array_length(options)) mod array_length(options);
@@ -80,7 +80,7 @@ if (gamepad_is_connected(0)) {
     }
 
     // Navigate Down
-    if (gamepad_button_check_pressed(gamepad_id, gp_padd) && gamepad_cooldown <= 0) {
+    if ((InputPressed(INPUT_VERB.JOY_DOWN) or InputPressed(INPUT_VERB.DOWN)) && gamepad_cooldown <= 0) {
 		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index + 1) mod array_length(options);
@@ -90,7 +90,7 @@ if (gamepad_is_connected(0)) {
     }
 
     // Select with Face Button (A)
-    if (gamepad_button_check_pressed(gamepad_id, gp_face1)) {
+    if (InputPressed(INPUT_VERB.ACCEPT)) {
         audio_play_sound(snd_select_yes, 0, false);
 	    var item = options[selected_index];
 
@@ -124,8 +124,10 @@ if (gamepad_is_connected(0)) {
 	        }
 	    } else if (item.type == "button") {
 	        if (item.name == global.btn_credits) {
-	            room_goto(rm_credits);
-	        }
+	            instance_create_depth(0, 0, -1, obj_fadein_routine);
+	        } else if (item.name == "Remap Controller") {
+				instance_create_depth(0, 0, -1, obj_fadein_routine_controllersettings);
+			}
 	    }
     }
 
@@ -185,7 +187,7 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	    if (item.type == "toggle") {
 	        item.value = !item.value;
 	        save_options();
-
+			
 			if (item.name == global.opt_fullscreen && item.value) {
 				window_set_fullscreen(true);
 				save_options();
@@ -201,7 +203,6 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 				window_enable_borderless_fullscreen(false);
 				save_options();
 			}
-		
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
 	    } else if (item.type == "dropdown") {
@@ -213,14 +214,9 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 	        }
 	    } else if (item.type == "button") {
 	        if (item.name == global.btn_credits) {
-	            instance_create_depth(0, 0, -1, obj_fadein_routine)
-	        } else if (item.name == global.btn_language) {
-				var dia_but = [
-					{label:"English", action: dummyscript()},
-					{label:"Español",  action: dummyscript()},
-				];
-				
-				scr_show_dialog(global.btn_language, spr_dialog_rename, dia_but);
+	            instance_create_depth(0, 0, -1, obj_fadein_routine);
+	        } else if (item.name == "Remap Controller") {
+				instance_create_depth(0, 0, -1, obj_fadein_routine_controllersettings);
 			}
 	    }
 	}

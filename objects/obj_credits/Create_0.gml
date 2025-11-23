@@ -9,6 +9,7 @@ credit_text = [
 "Assistant Programming - SimonDoes",
 "MacOS Porting - Lauren Shepard (@cooptheausshep)",
 "Development Tools - Julian (Juju) Adams",
+"Development Tools - Alynne Keith",
 "Development Tools - stoozey",
 " ",
 "STORY",

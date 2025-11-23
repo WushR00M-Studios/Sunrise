@@ -55,7 +55,7 @@ if os_type == os_windows {
 	    for (var j = 0; j < visible_items && j < max_items; j++) {
 	        var item_y = by + j * item_h;
 
-			if !gamepad_is_connected(0) {
+			if global.inputtype {
 		        if (mouse_over_item == j) {
 		            draw_set_alpha(0.4);
 		            draw_set_color(c_navy);

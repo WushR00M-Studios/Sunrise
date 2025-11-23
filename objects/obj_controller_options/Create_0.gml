@@ -16,7 +16,12 @@ description_text = "";
 description = "";
 
 selected_index = 0;           // Tracks gamepad focus
-gamepad_id = 0;               // Default to gamepad 0
+
+if global.gamepad_id == 4
+	gamepad_id = 4;               // Default to gamepad 0
+else
+	gamepad_id = 0;
+	
 gamepad_cooldown = 0;         // Delay between gamepad inputs
 
 // Visual config
@@ -28,13 +33,10 @@ menu_top = 64;
 
 array_push(options, { type: "header", name: "Controller Settings" });
 array_push(options, make_toggle("Haptics", "Certain actions in-game will vibrate your controller at different levels, disable this to avoid that.", true));
-array_push(options, make_toggle("Swap Action and Cancel Buttons", "The confirm and cancel button will be swapped similar to older PlayStation controller mappings in Japan", false));
 array_push(options, make_toggle("In-Game Button Guide", "Displays a guide at the lower left corner of the screen showcasing which button does what", true));
 array_push(options, make_toggle("Custom Light Bar Color", "Various events in-game will change your DUALSHOCK 4 / DualSense light bar color to match", true));
 array_push(options, make_toggle("Touchpad Controls", "Enables a sudo-cursor on screen whenever input from the DUALSHOCK 4 / DualSense touchpad is detected", false));
-array_push(options, make_toggle("Automatic Controller Detection", "If playing on Android with a wireless controller, the game will automatically detect if said wireless controller was connected or disconnected", false));
-array_push(options, make_toggle("DualSense Adaptive Triggers", "Certain actions in-game will change the amount of pressure needed to fully press down the adaptive triggers on the DualSense controller", true));
-array_push(options, make_toggle("DualSense HD Haptics", "Standard haptics will be replaced with the DualSense controller's advanced HD haptics", true));
+array_push(options, make_toggle("DualSense Adaptive Trigger Support", "Certain actions requiring input on a DualSense controller's triggers will require more pressure onto the button in different scenarios", false));
 array_push(options, make_button("Calibrate Controller", "This will automatically optimize the deadzone on your controller to avoid minor stick-drift only", function() {}));
 array_push(options, make_button("Edit Deadzones", "Manually optimize the left and right axis deadzones on your controller to avoid any sort of stick drift", function() {}));
 

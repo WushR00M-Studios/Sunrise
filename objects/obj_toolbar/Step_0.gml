@@ -5,32 +5,32 @@ var my = device_mouse_y_to_gui(0);
 mouse_over_button = -1;
 mouse_over_item = -1;
 
-// Controller input toggle
-if (gamepad_button_check_pressed(controller_gamepad, gp_start)) {
-    controller_active = true;
-	global.controllertoolbar = true;
-    active_button = 0; // Start with File
-    controller_button_index = 0;
-    controller_item_index = 0;
-    dropdown_target_height = array_length(buttons[0].items) * button_height;
-}
+if !global.inputtype {
+	// Controller input toggle
+	if InputPressed(INPUT_VERB.PAUSE) {
+	    controller_active = true;
+		global.controllertoolbar = true;
+	    active_button = 0; // Start with File
+	    controller_button_index = 0;
+	    controller_item_index = 0;
+	    dropdown_target_height = array_length(buttons[0].items) * button_height;
+	}
 
-// Exit toolbar control
-if (controller_active && gamepad_button_check_pressed(controller_gamepad, gp_face2)) {
-    controller_active = false;
-	global.controllertoolbar = false;
-    active_button = -1;
-}
+	// Exit toolbar control
+	if InputPressed(INPUT_VERB.CANCEL) {
+	    controller_active = false;
+		global.controllertoolbar = false;
+	    active_button = -1;
+	}
 
-// Controller navigation
-if (controller_active) {
+	// Controller navigation
     // Left/right to switch categories
-    if (gamepad_button_check_pressed(controller_gamepad, gp_padl)) {
+    if InputPressed(INPUT_VERB.LEFT) {
         controller_button_index = max(0, controller_button_index - 1);
         active_button = controller_button_index;
         controller_item_index = 0;
     }
-    if (gamepad_button_check_pressed(controller_gamepad, gp_padr)) {
+    if InputPressed(INPUT_VERB.RIGHT) {
         controller_button_index = min(array_length(buttons) - 1, controller_button_index + 1);
         active_button = controller_button_index;
         controller_item_index = 0;
@@ -39,17 +39,17 @@ if (controller_active) {
     // Up/down to navigate dropdown
     if (active_button >= 0 && active_button < array_length(buttons)) {
         var item_count = array_length(buttons[active_button].items);
-        if (gamepad_button_check_pressed(controller_gamepad, gp_padu)) {
+        if InputPressed(INPUT_VERB.UP) {
             controller_item_index = max(0, controller_item_index - 1);
 			mouse_over_button = controller_item_index;
         }
-        if (gamepad_button_check_pressed(controller_gamepad, gp_padd)) {
+        if InputPressed(INPUT_VERB.DOWN) {
             controller_item_index = min(item_count - 1, controller_item_index + 1);
 			mouse_over_button = controller_item_index;
         }
 
         // Select with A (face1)
-        if (gamepad_button_check_pressed(controller_gamepad, gp_face1)) {
+        if InputPressed(INPUT_VERB.ACCEPT) {
             var item_name = buttons[active_button].items[controller_item_index];
 
             switch (buttons[active_button].name) {
@@ -276,9 +276,6 @@ if (mouse_clicked) {
 						    spr_dialog_rename
 						);			
 					break;
-                    case "Set Author": 
-						global.lvlauthor = get_string("Enter your name, this will automatically grab your account name later in development!","");
-					break;
 					
 					case "Playtest Level":
 						global.playtest = true;
@@ -319,14 +316,6 @@ if autosave_time != 0 && do_autosave == true {
 	save_level_autosave();
 	autosave_time = 7200; // 2 minutes
 	do_autosave = true;
-}
-
-if keyboard_check(vk_control) && keyboard_check_pressed(ord("S")) {
-	show_debug_message("Action: Save Level");
-	if global.cmauto != ""
-		save_level();
-	else
-		save_level_as();
 }
 
 if global.input_finished == true {

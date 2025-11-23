@@ -16,34 +16,28 @@ var my = device_mouse_y_to_gui(0);
 
 var pos_y = menu_top - scroll_y;  // renamed from y
 hovered_item = -1;
-description_text = "Manage Sunrise's various Settings here!";
+description_text = "Edit your controller settings here!";
 
 for (var i = 0; i < array_length(options); i++) {
     var item = options[i];
     var rect = item_rects[i];
 	
-	if !gamepad_is_connected(0) {
+	if global.inputtype == false {
 	    // Check mouse hover over item rectangle
 	    if (my > rect.y && my < rect.y + rect.h && mx > rect.x && mx < rect.x + rect.w) {
 	        hovered_item = i;
 			if item.name == "Haptics"
 				description_text = "Certain actions in-game will vibrate your controller at different levels, disable this to avoid that.";
-			else if item.name == "Swap Action and Cancel Buttons"
-				description_text = "The confirm and cancel button will be swapped similar to older PlayStation controller mappings in Japan";
 			else if item.name == "In-Game Button Guide"
 				description_text = "Displays a guide at the lower left corner of the screen showcasing which button does what";
 			else if item.name == "Custom Light Bar Color"
 				description_text = "Various events in-game will change your DUALSHOCK 4 / DualSense light bar color to match";
 			else if item.name == "Touchpad Controls"
 				description_text = "Enables a sudo-cursor on screen whenever input from the DUALSHOCK 4 / DualSense touchpad is detected";
-			else if item.name == "Automatic Controller Detection"
-				description_text = "If playing on Android with a wireless controller, the game will automatically detect if said wireless controller was connected or disconnected";
-			else if item.name == "DualSense Adaptive Triggers"
-				description_text = "Certain actions in-game will change the amount of pressure needed to fully press down the adaptive triggers on the DualSense controller";
-			else if item.name == "DualSense HD Haptics"
-				description_text = "Standard haptics will be replaced with the DualSense controller's advanced HD haptics";
 			else if item.name == "Calibrate Controller"
 				description_text = "This will automatically optimize the deadzone on your controller to avoid minor stick-drift only";
+			else if item.name == "DualSense Adaptive Trigger Support"
+				description_text = "Certain actions requiring input on a DualSense controller's will require more pressure onto the button in different scenarios"
 			else if item.name == "Edit Deadzones"
 				description_text = "Manually optimize the left and right axis deadzones on your controller to avoid any sort of stick drift";
 			else
@@ -56,11 +50,11 @@ for (var i = 0; i < array_length(options); i++) {
 }
 
 // --- Gamepad Navigation ---
-if (gamepad_is_connected(0)) {
+if global.inputtype == false {
     if (gamepad_cooldown > 0) gamepad_cooldown--;
 
     // Navigate Up
-    if (gamepad_button_check_pressed(gamepad_id, gp_padu) && gamepad_cooldown <= 0) {
+    if ((InputPressed(INPUT_VERB.UP) or InputPressed(INPUT_VERB.JOY_UP)) && gamepad_cooldown <= 0) {
 		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index - 1 + array_length(options)) mod array_length(options);
@@ -70,7 +64,7 @@ if (gamepad_is_connected(0)) {
     }
 
     // Navigate Down
-    if (gamepad_button_check_pressed(gamepad_id, gp_padd) && gamepad_cooldown <= 0) {
+    if ((InputPressed(INPUT_VERB.JOY_DOWN) or InputPressed(INPUT_VERB.DOWN)) && gamepad_cooldown <= 0) {
 		audio_play_sound(snd_highlight, 0, false);
         repeat (1) {
             selected_index = (selected_index + 1) mod array_length(options);
@@ -80,7 +74,7 @@ if (gamepad_is_connected(0)) {
     }
 
     // Select with Face Button (A)
-    if (gamepad_button_check_pressed(gamepad_id, gp_face1)) {
+    if (InputPressed(INPUT_VERB.ACCEPT)) {
         audio_play_sound(snd_select_yes, 0, false);
 	    var item = options[selected_index];
 
@@ -88,7 +82,41 @@ if (gamepad_is_connected(0)) {
 	        item.value = !item.value;
 	        save_options();
 			
-			
+			if item.name == "Custom Light Bar Color" {
+				if item.value == true {
+					if InputColorSupportedByDevice(0)
+						InputColorSet(c_fuchsia, 0)
+					else
+						toast_create("The input device you're using doesn't support custom colors!", 3);
+				} else {
+					InputColorReset(0);
+				}
+			} else if item.name == "Haptics" {
+				if item.value == true {
+					var _type = InputPlayerGetGamepadType(0);
+					var _hd = false;
+				    switch(_type)
+				    {
+				        default:
+							_hd = false;
+							break;
+
+				        case INPUT_GAMEPAD_TYPE_PS5:
+							_hd = true;
+							break;
+					}
+				
+					if InputVibrateGetSupported(0)
+						InputVibratePulse(3, 0, false, 60, 0);
+					else
+						toast_create("The input device you're using doesn't support haptic feedback!", 3);
+				}
+			} else if item.name == "DualSense Adaptive Trigger Support" {
+				if item.value == true {
+					if !InputTriggerEffectGetSupported(0)
+						toast_create("A PlayStation 5 / DualSense controller is required to use adaptive triggers!", 3);
+				}
+			}
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
 	    } else if (item.type == "dropdown") {
@@ -99,7 +127,10 @@ if (gamepad_is_connected(0)) {
 	            }
 	        }
 	    } else if (item.type == "button") {
-	        
+	        if item.name == "Calibrate Controller" {
+				InputMotionCalibrate(0);
+				toast_create("SUCCESS: Motion controls were calibrated on your controller!", 2);
+			}
 	    }
     }
 
@@ -110,22 +141,16 @@ if (gamepad_is_connected(0)) {
         var item = options[hovered_item];
 			if item.name == "Haptics"
 				description_text = "Certain actions in-game will vibrate your controller at different levels, disable this to avoid that.";
-			else if item.name == "Swap Action and Cancel Buttons"
-				description_text = "The confirm and cancel button will be swapped similar to older PlayStation controller mappings in Japan";
 			else if item.name == "In-Game Button Guide"
 				description_text = "Displays a guide at the lower left corner of the screen showcasing which button does what";
 			else if item.name == "Custom Light Bar Color"
 				description_text = "Various events in-game will change your DUALSHOCK 4 / DualSense light bar color to match";
 			else if item.name == "Touchpad Controls"
 				description_text = "Enables a sudo-cursor on screen whenever input from the DUALSHOCK 4 / DualSense touchpad is detected";
-			else if item.name == "Automatic Controller Detection"
-				description_text = "If playing on Android with a wireless controller, the game will automatically detect if said wireless controller was connected or disconnected";
-			else if item.name == "DualSense Adaptive Triggers"
-				description_text = "Certain actions in-game will change the amount of pressure needed to fully press down the adaptive triggers on the DualSense controller";
-			else if item.name == "DualSense HD Haptics"
-				description_text = "Standard haptics will be replaced with the DualSense controller's advanced HD haptics";
 			else if item.name == "Calibrate Controller"
 				description_text = "This will automatically optimize the deadzone on your controller to avoid minor stick-drift only";
+			else if item.name == "DualSense Adaptive Trigger Support"
+				description_text = "Certain actions requiring input on the triggers will require more pressure onto the button in different scenarios"
 			else if item.name == "Edit Deadzones"
 				description_text = "Manually optimize the left and right axis deadzones on your controller to avoid any sort of stick drift";
 			else

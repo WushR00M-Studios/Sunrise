@@ -188,3 +188,29 @@ else
 	
 draw_set_color(c_white);
 draw_text(desc_x, desc_y, description_text);
+
+if global.controllertype == 0
+	draw_sprite(spr_xbox_controller, 0, (room_width / 2), room_height - 164);
+else if global.controllertype == 1
+	draw_sprite(spr_playstation4_controller, 0, (room_width / 2), room_height - 164);
+else if global.controllertype == 2
+	draw_sprite(spr_playstation5_controller, 0, (room_width / 2), room_height - 164);
+else if global.controllertype == 3
+	draw_sprite(spr_switch_controller, 0, (room_width / 2), room_height - 164);
+else if global.controllertype == 4
+	draw_sprite(spr_misc_controller, 0, (room_width / 2), room_height - 164);
+else
+	draw_sprite(spr_no_controller, 0, (room_width / 2), room_height - 164);
+
+if global.controllertype == 0
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: Xbox One / Series X|S Controller"));
+else if global.controllertype == 1
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: DUALSHOCK 4 (PlayStation 4) Controller"));
+else if global.controllertype == 2
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: DualSense (PlayStation 5) Controller"));
+else if global.controllertype == 3
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: Nintendo Switch Joycons / Pro Controller"));
+else if global.controllertype == 4
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: Unknown Controller"));
+else
+	draw_text((room_width / 2), (room_height - 32), ("Connected Controller: No Controller Detected!"));
