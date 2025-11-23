@@ -52,9 +52,9 @@ try {
 	if (state == "open") {
 			var btn_count = array_length(buttons);
 		    var btn_w = 300;
-		    var btn_h = 32;
-		    var btn_gap = 15;
-		    var start_y = _y+350;
+			var btn_h = 32;
+			var btn_gap = 8;
+			var start_y = view_yport[0]+64;
 		    var new_hover = -1;
 		    for (var i=0; i<btn_count; i++) {
 		        var bx = _x+_w/2 - btn_w/2;
@@ -63,7 +63,9 @@ try {
 		        if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), bx, by, bx+btn_w, by+btn_h)) {
 		            new_hover = i;
 		            if (mouse_check_button_pressed(mb_left)) {
-		                if buttons[i].label == "Solid Block" {
+		                if buttons[i].label == "Close Menu" {
+							global.cmselection = 0;
+						} else if buttons[i].label == "Solid Block" {
 							global.cmselection = 1;
 						} else if buttons[i].label == "Autoterrain" {
 							global.cmselection = 2;
@@ -73,9 +75,12 @@ try {
 							global.cmselection = 4;
 						} else {
 							state = "closing";
+							global.cmselection = 0;
+							global.cmmode = 1;
 						}
 				
 		                state = "closing";
+						global.cmmode = 1;
 		            }
 					
 		        } else {

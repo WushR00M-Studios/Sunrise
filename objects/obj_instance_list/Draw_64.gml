@@ -25,10 +25,11 @@ draw_roundrect(_x, _y, _x+_w, _y+_h, false);
 var btn_count = array_length(buttons);
 var btn_w = 300;
 var btn_h = 32;
-var btn_gap = 16;
+var btn_gap = 8;
 var start_y = _y+64;
 
 for (var i=0; i<btn_count; i++) {
+	draw_set_halign(fa_center);
     var bx = _x+_w/2 - btn_w/2;
     var by = start_y + i*(btn_h+btn_gap);
     var hovered = (hover_index == i);

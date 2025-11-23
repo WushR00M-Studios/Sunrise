@@ -1,27 +1,6 @@
 try {
-	
 	if !instance_exists(obj_light) && instance_exists(obj_lighting_engine)
 		instance_destroy(obj_lighting_engine);
-
-	if global.inputtype {
-		if keyboard_check_pressed(ord("1"))
-			global.cmmode = 1;
-		else if keyboard_check_pressed(ord("2")) 
-			global.cmmode = 2;
-		else keyboard_check_pressed(ord("3")) 
-			global.cmmode = 3;
-	} else {
-		if InputPressed(INPUT_VERB.L1)
-			global.cmmode -= 1;
-		else InputPressed(INPUT_VERB.R1)
-			global.cmmode += 1;
-			
-		if global.cmmode < 1
-			global.cmmode = 1;
-		
-		if global.cmmode > 3
-			global.cmmode = 3;
-	}
 		
 	if InputPressed(INPUT_VERB.SPECIAL)
 		global.cmplay = !global.cmplay;
@@ -32,6 +11,7 @@ try {
 			{label:"Autoterrain", action: dummyscript()},
 			{label:"Bit", action: dummyscript()},
 			{label:"Text Display", action: dummyscript()},
+			{label:"Close Menu", action: dummyscript()},
 		];
 		
 		scr_show_instancelist(btns);
