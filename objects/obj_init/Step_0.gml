@@ -1,35 +1,3 @@
-if connectflag == false {
-	if InputDeviceIsConnected(0) {
-		if InputDeviceIsGamepad(0) {
-			toast_create("Controller Connected!", 1);
-				
-			InputPlayerSetDevice(0);
-			connectflag = true;
-		}
-	} else if InputDeviceIsConnected(4) {
-		if InputDeviceIsGamepad(4) {
-			toast_create("Controller Connected!", 1);
-				
-			InputPlayerSetDevice(0);
-			connectflag = true;
-		}
-	}
-} else if connectflag == true {
-	if !InputDeviceIsConnected(0) {
-		if !InputDeviceIsGamepad(0) {
-			toast_create("Controller Disonnected!", 3);
-				
-			connectflag = false;
-		}
-	} else if !InputDeviceIsConnected(4) {
-		if !InputDeviceIsGamepad(4) {
-			toast_create("Controller Disonnected!", 3);
-				
-			connectflag = false;
-		}
-	}	
-}
-
 try {
 	if global.mobile {	
 		if audio_is_playing(snd_highlight)

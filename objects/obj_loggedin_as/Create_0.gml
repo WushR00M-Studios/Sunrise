@@ -1,13 +1,7 @@
-toast_create("Logged in as: " + string(global.current_user));
+toast_create("Logged in as: " + string(global.current_user), 0);
 
 slideback = false;
 start_slideback = false;
-
-if global.languageopt == 1 {
-	image_index = 4;	
-} else {
-	image_index = 0;	
-}
 
 if global.connected == false {
 	if os_is_network_connected() {

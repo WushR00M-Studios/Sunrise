@@ -1,3 +1,3 @@
 audio_stop_all();
 video_close();
-room_goto(rm_intro_animation);
+instance_create_depth(0, 0, -1, obj_fadein_routine);

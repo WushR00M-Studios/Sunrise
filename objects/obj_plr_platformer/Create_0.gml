@@ -28,9 +28,7 @@ on_ground = false;
 // Collision objects list
 collision_list = [
     obj_solid_block,
-    obj_solid_cm,
-    obj_autoterrain_grass,
-    obj_autoterrain_metal
+    obj_autoterrain,
 ];
 
 global.bits = 0;

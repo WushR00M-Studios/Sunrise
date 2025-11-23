@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_sm_erase_save",
+  "%Name":"obj_splash_screen_alt",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_sm_erase_save",
+  "name":"obj_splash_screen_alt",
   "overriddenProperties":[],
   "parent":{
-    "name":"story_mode",
-    "path":"folders/Objects/main_menu/story_mode.yy",
+    "name":"splash",
+    "path":"folders/Objects/splash.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_sm_erase_save",
-    "path":"sprites/spr_sm_erase_save/spr_sm_erase_save.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

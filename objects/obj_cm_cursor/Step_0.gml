@@ -1,4 +1,4 @@
-
+if !global.cmplay {
 	if global.inputtype {
 		x = mouse_x;
 		y = mouse_y;
@@ -43,3 +43,6 @@
 				instance_create_layer(x, y, "Objects", obj_bit);
 		}
 	}
+} else {
+	image_alpha = 0;	
+}

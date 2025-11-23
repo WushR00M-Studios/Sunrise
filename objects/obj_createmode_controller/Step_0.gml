@@ -3,14 +3,14 @@ try {
 		instance_destroy(obj_lighting_engine);
 		
 	if InputPressed(INPUT_VERB.SPECIAL)
-		global.cmplay = !global.cmplay;
+		global.cmplay = true;
 		
 	if InputPressed(INPUT_VERB.ACTION) {
 		var btns = [
 			{label:"Solid Block", action: dummyscript()},
 			{label:"Autoterrain", action: dummyscript()},
 			{label:"Bit", action: dummyscript()},
-			{label:"Text Display", action: dummyscript()},
+			//{label:"Text Display", action: dummyscript()}, Disabled due to bugs
 			{label:"Close Menu", action: dummyscript()},
 		];
 		

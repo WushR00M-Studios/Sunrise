@@ -1,5 +1,5 @@
-global.lsvspawn_x = x;
-global.lsvspawn_y = y;
+global.cmspawn_x = x;
+global.cmspawn_y = y;
 
 if rcm == true {
 	if keyboard_check_pressed(ord("A")) {
