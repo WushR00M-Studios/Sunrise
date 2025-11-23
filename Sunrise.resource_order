@@ -221,8 +221,6 @@
     {"name":"rm_main_menu","order":4,"path":"rooms/rm_main_menu/rm_main_menu.yy",},
     {"name":"rm_settings_controller","order":5,"path":"rooms/rm_settings_controller/rm_settings_controller.yy",},
     {"name":"rm_settings","order":4,"path":"rooms/rm_settings/rm_settings.yy",},
-    {"name":"rm_setup_options","order":4,"path":"rooms/rm_setup_options/rm_setup_options.yy",},
-    {"name":"rm_setup_welcome","order":2,"path":"rooms/rm_setup_welcome/rm_setup_welcome.yy",},
     {"name":"rm_splash","order":11,"path":"rooms/rm_splash/rm_splash.yy",},
     {"name":"rm_story_mode","order":1,"path":"rooms/rm_story_mode/rm_story_mode.yy",},
     {"name":"rm_test","order":10,"path":"rooms/rm_test/rm_test.yy",},

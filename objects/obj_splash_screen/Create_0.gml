@@ -1,4 +1,7 @@
-if global.setup == false {
+if global.setup == true {
+	instance_create_depth(0, 0, -1, obj_splash_screen_alt);
+	instance_destroy();
+} else {
 	hasplayed = false;
 
 	ini_open("options.ini");
@@ -6,7 +9,4 @@ if global.setup == false {
 	ini_close();
 
 	audio_play_sound(snd_logobump, 0, false, 0);
-} else {
-	instance_create_depth(0, 0, -1, obj_splash_screen_alt);
-	instance_destroy();
 }

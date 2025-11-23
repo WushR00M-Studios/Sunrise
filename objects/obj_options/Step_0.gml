@@ -203,6 +203,13 @@ scroll_y = lerp(scroll_y, scroll_target, 0.25);
 				window_enable_borderless_fullscreen(false);
 				save_options();
 			}
+			
+			if (item.name == "Show FPS") {
+				if global.op_showfps == 0
+					global.op_showfps = 1;
+				else
+					global.op_showfps = 0;
+			}
 	    } else if (item.type == "slider") {
 	        dragging_slider = hovered_item;
 	    } else if (item.type == "dropdown") {
@@ -261,7 +268,7 @@ if (mouse_check_button_pressed(mb_left)) {
 
 // --- Save function for options ---
 function save_options() {
-    ini_open("options.ini");
+    ini_open("settings.ini");
     for (var i = 0; i < array_length(options); i++) {
         var opt = options[i];
         if (opt.type == "toggle") {

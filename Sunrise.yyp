@@ -296,8 +296,6 @@
     {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"id":{"name":"rm_settings_controller","path":"rooms/rm_settings_controller/rm_settings_controller.yy",},},
     {"id":{"name":"rm_settings","path":"rooms/rm_settings/rm_settings.yy",},},
-    {"id":{"name":"rm_setup_options","path":"rooms/rm_setup_options/rm_setup_options.yy",},},
-    {"id":{"name":"rm_setup_welcome","path":"rooms/rm_setup_welcome/rm_setup_welcome.yy",},},
     {"id":{"name":"rm_splash","path":"rooms/rm_splash/rm_splash.yy",},},
     {"id":{"name":"rm_story_mode","path":"rooms/rm_story_mode/rm_story_mode.yy",},},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
@@ -882,8 +880,6 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"roomId":{"name":"rm_splash","path":"rooms/rm_splash/rm_splash.yy",},},
-    {"roomId":{"name":"rm_setup_welcome","path":"rooms/rm_setup_welcome/rm_setup_welcome.yy",},},
-    {"roomId":{"name":"rm_setup_options","path":"rooms/rm_setup_options/rm_setup_options.yy",},},
     {"roomId":{"name":"rm_intro_animation","path":"rooms/rm_intro_animation/rm_intro_animation.yy",},},
     {"roomId":{"name":"rm_title_screen","path":"rooms/rm_title_screen/rm_title_screen.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},

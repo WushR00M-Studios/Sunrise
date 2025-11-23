@@ -11,5 +11,5 @@ if fade_timer_start == 0 {
 	}
 } else {
 	fade_timer_start--;;	
-	fade += 0.01;
+	fade += 0.005;
 }

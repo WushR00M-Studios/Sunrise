@@ -72,7 +72,7 @@ if global.mobile {
 
 update_item_rects();
 // === Load options from ini ===
-ini_open("options.ini");
+ini_open("settings.ini");
 for (var i = 0; i < array_length(options); i++) {
     var opt = options[i];
     if (opt.type == "toggle") {

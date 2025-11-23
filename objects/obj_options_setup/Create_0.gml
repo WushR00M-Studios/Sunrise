@@ -35,7 +35,7 @@ scroll_area_height = 400; // Adjust as needed
 menu_top = 64;
 
 // Build options list
-array_push(options, { type: "header", name: "Video & Audio" });
+array_push(options, { type: "header", name: "Preferences" });
 array_push(options, make_toggle("Photosensitive Mode", "Disables or smooths most flashing lights", false));
 array_push(options, make_toggle("Fullscreen Mode", "Enables or disables Windowed Mode", false));
 array_push(options, make_toggle("Typing Sounds", "Whenver a key is striked, a small tick sound will play if enabled", true));

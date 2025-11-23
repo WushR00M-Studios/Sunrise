@@ -28,7 +28,7 @@ global.op_telemetry = 0;
 global.op_language = 0;
 global.op_accent = 0;
 global.current_user = "Guest";
-global.setup = false;	
+global.setup = true;	
 init_var();
 
 // Finish Preloading + Load Options and Definitions
@@ -72,9 +72,9 @@ else
 	
 //////////////////////////////////////////////////////////////////////////
 
-if file_exists("options.ini") {
+if file_exists("settings.ini") {
 	global.setup = false;
-	ini_open("options.ini")
+	ini_open("settings.ini")
 	
 	global.op_photosen = ini_read_real("options", "Photosensitive Mode", 0);
 	global.op_fullscreen = ini_read_real("options", "Fullscreen Mode", 0);
@@ -115,15 +115,13 @@ if file_exists("options.ini") {
 		gamepad_set_color(4, c_purple);
 	}
 	
-	if global.op_language == 0
-		ui_english();
-	else if global.op_language == 1
-		ui_spanish();	
+	ui_english();
 	ini_close();
-	
 	global.current_user = "Guest";
 } else {
-	global.setup = true;	
+	global.current_user = "Guest";
+	ui_english();
+	global.setup = true;
 }
 
 //////////////////////////////////////////////////////////////////////////

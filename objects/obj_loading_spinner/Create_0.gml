@@ -1,3 +1,8 @@
+if global.setup == true {
+	instance_create_depth(0, 0, -1, obj_splash_screen_alt);
+	instance_destroy();
+}
+
 fade = false;
 fulload = false;
 phase = 1;

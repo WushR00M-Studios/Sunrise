@@ -274,7 +274,7 @@ if (mouse_check_button_pressed(mb_left)) {
 
 
 // --- Save function for options ---
-function save_options() {
+function save_options_setup() {
     ini_open("options.ini");
     for (var i = 0; i < array_length(options); i++) {
         var opt = options[i];

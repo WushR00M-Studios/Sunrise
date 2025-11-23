@@ -63,7 +63,7 @@ credit_text = [
 //"KICKSTARTER SUPPORTERS",
 //"Backer - Username",
 //" ",
-"(C) WushR00M Studios 2026",
+"(C) WushR00M Studios 2025",
 "Sunrise: Alpha v0.3 - Codename Lazer",
 
 ];
