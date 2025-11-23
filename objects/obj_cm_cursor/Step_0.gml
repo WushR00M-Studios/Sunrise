@@ -39,7 +39,7 @@ if !global.cmplay {
 		} else if global.cmselection == 4 {
 			sprite_index = spr_bit_icon;
 	
-			if mouse_check_button(mb_left) && place_free(x, y)
+			if mouse_check_button_pressed(mb_left) && place_free(x, y)
 				instance_create_layer(x, y, "Objects", obj_bit);
 		}
 	}

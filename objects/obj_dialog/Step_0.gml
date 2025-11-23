@@ -52,9 +52,9 @@ try {
 	if (state == "open") {
 			var btn_count = array_length(buttons);
 		    var btn_w = 300;
-		    var btn_h = 50;
-		    var btn_gap = 15;
-		    var start_y = _y+350;
+			var btn_h = 50;
+			var btn_gap = 16;
+			var start_y = _y+350;
 		    var new_hover = -1;
 		    for (var i=0; i<btn_count; i++) {
 		        var bx = _x+_w/2 - btn_w/2;

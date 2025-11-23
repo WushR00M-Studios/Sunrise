@@ -125,8 +125,7 @@ if !global.inputtype {
 					break; 
 					
 					case "Playtest Level":
-						global.playtest = true;
-						instance_destroy();
+						global.cmplay = !global.cmplay;
 					break;
 					
 					case "Publish Level":
@@ -278,8 +277,7 @@ if (mouse_clicked) {
 					break;
 					
 					case "Playtest Level":
-						global.playtest = true;
-						instance_destroy();
+						global.cmplay = !global.cmplay;
 					break;
 					
 					case "Publish Level":

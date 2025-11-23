@@ -40,7 +40,7 @@ if global.mobile {
 	array_push(options, { type: "header", name: global.header_system });
 	array_push(options, make_toggle(global.opt_autosave, "Tick this off to disable autosaving story progress and create mode levels, but beware in the case of an unexpected shutdown!", true));
 	array_push(options, make_toggle("Colorblind Symbols", "Adds symbols to various aspects of the game for those visually impaired", false));
-	array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
+	//array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
 	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
 	//array_push(options, make_button(global.btn_language, "Sets the game's language, translations may be incomplete!", function() { }));
 	
@@ -61,7 +61,7 @@ if global.mobile {
 	array_push(options, make_toggle("Colorblind Symbols", "Adds symbols to various aspects of the game for those visually impaired", false));
 	array_push(options, make_toggle(global.opt_discordrp, "Enables the rich presence display on your Discord profile if Discord is detected open on your desktop", true));
 	array_push(options, make_button(global.btn_credits, "See who made this amazing game!", function() { }));
-	array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
+	//array_push(options, make_button("Remap Controller", "Edit your controller settings, including mapped buttons and PlayStation light bar color", function() { }));
 	//array_push(options, make_button(global.btn_language, "Sets the game's language, translations may be incomplete!", function() { }));
 	
 	array_push(options, { type: "header", name: global.header_main });

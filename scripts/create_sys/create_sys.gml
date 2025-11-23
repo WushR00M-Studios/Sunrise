@@ -25,15 +25,22 @@ function save_level_as() {
 
 		    ini_open(filename);
 
-		    for (var i = 0; i < count; i++) {
-		        var inst = instances[i];
-		        if (!instance_exists(inst)) continue;
-
-		        var section = "instance_" + string(i);
-		        ini_write_string(section, "object", object_get_name(inst.object_index));
-		        ini_write_real(section, "x", inst.x);
-		        ini_write_real(section, "y", inst.y);
-		    }
+		    var layer_name = "Objects";
+	        var file_name = global.cmauto;
+	        ini_open(file_name);
+	        var index = 0;
+                                
+	        with (all) {
+		        if (layer_get_name(layer) == layer_name) {
+			        var obj_name = object_get_name(object_index);
+			        var section = "Object_" + string(index);
+			        ini_write_string(section, "name", obj_name);
+			        ini_write_real(section, "x", x);
+					ini_write_real(section, "y", y);
+			        show_debug_message("Object_" + string(index) + " saved");
+					index += 1;
+		        }
+	        }
 
 		    ini_write_real("meta", "count", count);
 		
@@ -88,15 +95,22 @@ function save_level() {
 
 		ini_open(global.cmauto);
 
-		for (var i = 0; i < count; i++) {
-		    var inst = instances[i];
-		    if (!instance_exists(inst)) continue;
-
-		    var section = "instance_" + string(i);
-		    ini_write_string(section, "object", object_get_name(inst.object_index));
-		    ini_write_real(section, "x", inst.x);
-		    ini_write_real(section, "y", inst.y);
-		}
+		var layer_name = "Objects";
+        var file_name = global.cmauto;
+        ini_open(file_name);
+        var index = 0;
+                                
+        with (all) {
+	        if (layer_get_name(layer) == layer_name) {
+		        var obj_name = object_get_name(object_index);
+		        var section = "Object_" + string(index);
+		        ini_write_string(section, "name", obj_name);
+		        ini_write_real(section, "x", x);
+				ini_write_real(section, "y", y);
+		        show_debug_message("Object_" + string(index) + " saved");
+				index += 1;
+	        }
+        }
 
 		ini_write_real("meta", "count", count);
 		
@@ -147,15 +161,22 @@ function save_level_autosave() {
 
 		ini_open(global.cmauto);
 
-		for (var i = 0; i < count; i++) {
-		    var inst = instances[i];
-		    if (!instance_exists(inst)) continue;
-
-		    var section = "instance_" + string(i);
-		    ini_write_string(section, "object", object_get_name(inst.object_index));
-		    ini_write_real(section, "x", inst.x);
-		    ini_write_real(section, "y", inst.y);
-		}
+		var layer_name = "Objects";
+        var file_name = global.cmauto;
+        ini_open(file_name);
+        var index = 0;
+                                
+        with (all) {
+	        if (layer_get_name(layer) == layer_name) {
+		        var obj_name = object_get_name(object_index);
+		        var section = "Object_" + string(index);
+		        ini_write_string(section, "name", obj_name);
+		        ini_write_real(section, "x", x);
+				ini_write_real(section, "y", y);
+		        show_debug_message("Object_" + string(index) + " saved");
+				index += 1;
+	        }
+        }
 
 		ini_write_real("meta", "count", count);
 		
@@ -206,39 +227,37 @@ function load_level() {
 			ini_open(filename);
 		
 			if ini_section_exists("info") {
-				if ini_key_exists("info", "leveltitle") {
-					var a = ini_read_string("info", "leveltitle", "Untitled");
+				if ini_key_exists("info", "levelname") {
+					var a = ini_read_string("info", "levelname", "Untitled");
 					if ini_key_exists("info", "levelauthor") {
 						var aw = ini_read_string("info", "levelauthor", "Unknown Author");
 						global.cmname = a;
 						global.cmauthor = aw;
-						if ini_key_exists("info", "leveltheme")
-							var ae = ini_read_string("info", "leveltheme", "Plains");
-						else
-							var ae = "Plains"
-					
-						if ae != "Plains" or ae != "Playspace" or ae != "Metropolis" or ae != "Forest" or ae != "Mansion" or ae != "Stage" {
+						var count = ini_read_real("meta", "count", 0);
+						if !ini_key_exists("info", "leveltheme")
 							var porting = true;
-						}
 					
 						if ini_key_exists("info", "leveltime")
 							var ax = ini_read_string("info", "leveltime", "Day");
 						else
 							var ax = "Day"
 					
-						for (var i = 0; i < count; i++) {
-					        var section = "instance_" + string(i);
-					        var obj_name = ini_read_string(section, "object", "");
-					        var tx = ini_read_real(section, "x", 0);
-					        var ty = ini_read_real(section, "y", 0);
-
-					        if (obj_name != "") {
-					            var obj = asset_get_index(obj_name);
-					            if (obj != -1) {
-					                instance_create_layer(tx, ty, "Objects", obj);
-					            }
-					        }
-					    }
+						layer_destroy_instances("Objects");
+                                            
+                        for (var index = 0; true; index += 1) {
+	                        var section_name = "Object_" + string(index);
+                         
+	                        if (!ini_section_exists(section_name))
+								break;
+                                                
+	                        var obj_name = ini_read_string(section_name, "name", "");
+	                        var obj_x = ini_read_real(section_name, "x", 0);
+	                        var obj_y = ini_read_real(section_name, "y", 0);
+	                        var obj_index = asset_get_index(obj_name);
+                                                
+	                        if (obj_index != -1)
+								instance_create_layer(obj_x, obj_y, "Objects", obj_index);
+                        }
 					
 						ini_close();
 						if porting == true

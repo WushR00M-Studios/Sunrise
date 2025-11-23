@@ -136,6 +136,8 @@ if room == rm_create {
 	if global.cmplay == false {
 		x = global.cmspawn_x;
 		y = global.cmspawn_y;
+		instance_destroy(obj_hud);
+		instance_destroy(obj_camera);
 		instance_change(obj_spawnlocation,true);
 		view_visible[1] = false;
 		view_visible[0] = true;
