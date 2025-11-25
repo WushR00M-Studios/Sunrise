@@ -49,3 +49,17 @@ function scr_show_instancelist(_buttons) {
 	    visible  = true;
 	}
 }
+
+function scr_show_quickmenu(_buttons) {
+	with (obj_instance_list) {
+	    buttons      = argument0;
+
+	    hover_index  = -1;
+
+	    var _w = 500;
+	    target_x = 0;                     // snap target to 0 (left edge)
+	    draw_x   = -_w;                   // start off-screen left
+	    state    = "opening";
+	    visible  = true;
+	}
+}

@@ -125,7 +125,8 @@ if !global.inputtype {
 					break; 
 					
 					case "Playtest Level":
-						global.cmplay = !global.cmplay;
+						global.cmplay = true;
+						instance_destroy();
 					break;
 					
 					case "Publish Level":

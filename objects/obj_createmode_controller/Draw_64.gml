@@ -6,9 +6,9 @@ draw_set_valign(fa_bottom);
 draw_set_alpha(0.5);
 
 if global.inputtype
-	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Open Instances Menu using ENTER, Toggle Playtest Mode using SHIFT");
+	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Open Instances Menu using ENTER");
 else
-	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Open Instances Menu using ACTION, Toggle Playtest Mode using SPECIAL");
+	draw_text(view_xport[0] + 72, view_hport[0] - 8, "Open Instances Menu using ACTION");
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_center);

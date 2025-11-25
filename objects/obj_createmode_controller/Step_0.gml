@@ -2,20 +2,22 @@ try {
 	if !instance_exists(obj_light) && instance_exists(obj_lighting_engine)
 		instance_destroy(obj_lighting_engine);
 		
-	if InputPressed(INPUT_VERB.SPECIAL)
-		global.cmplay = true;
-		
 	if InputPressed(INPUT_VERB.ACTION) {
+		global.cmselection = 0;
+		
 		var btns = [
 			{label:"Solid Block", action: dummyscript()},
 			{label:"Autoterrain", action: dummyscript()},
 			{label:"Bit", action: dummyscript()},
 			//{label:"Text Display", action: dummyscript()}, Disabled due to bugs
-			{label:"Close Menu", action: dummyscript()},
+			{label:"Close Instance List", action: dummyscript()},
 		];
 		
 		scr_show_instancelist(btns);
 	}
+	
+	if device_mouse_y_to_gui(0) <= 32
+		global.cmselection = 0;
 	
 } catch(ex) {
 	if global.op_errorep
