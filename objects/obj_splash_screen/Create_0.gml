@@ -10,3 +10,5 @@ if global.setup == true {
 
 	audio_play_sound(snd_logobump, 0, false, 0);
 }
+
+instance_create_depth(0, 0, -1, obj_fadeout_routine);

@@ -1,9 +1,4 @@
 if !audio_is_playing(snd_logobump) {
 	video_close();
-	
-	ini_open("options.ini");
-	if ini_section_exists("options")
-		room_goto(rm_intro_animation);
-	else
-		room_goto_next();
+	instance_create_depth(0, 0, -1, obj_fadein_routine_intro);
 }
