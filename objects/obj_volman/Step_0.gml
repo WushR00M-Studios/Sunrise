@@ -1,12 +1,12 @@
 // Handle volume increase
-if (keyboard_check_pressed(vk_add) || keyboard_check_pressed(ord("="))) {
+if (keyboard_check_pressed(vk_pageup) || keyboard_check_pressed(ord("="))) {
     if (volume < 5) volume += 1;
     show_slider();
 	audio_master_gain((volume)/10);
 }
 
 // Handle volume decrease
-if (keyboard_check_pressed(vk_subtract) || keyboard_check_pressed(ord("-"))) {
+if (keyboard_check_pressed(vk_pagedown) || keyboard_check_pressed(ord("-"))) {
     if (volume > 0) volume -= 1;
     show_slider();
 	audio_master_gain((volume)/10);
