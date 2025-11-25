@@ -20,3 +20,5 @@ pan_speed = 0.25;
 // mouse prev
 mouse_x_prev = mouse_x;
 mouse_y_prev = mouse_y;
+
+cancelout = false;

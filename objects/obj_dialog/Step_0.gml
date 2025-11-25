@@ -31,6 +31,12 @@ try {
 		
 			warningsound = true;
 			global.dialogup = true;
+			
+			if instance_exists(obj_cm_camera) {
+				with obj_cm_camera {
+					cancelout = true;	
+				}	
+			}
 	    break;
 
 	    case "closing":
@@ -45,11 +51,17 @@ try {
 	        }
 			warningsound = false;
 			global.dialogup = false;
+			
+			if instance_exists(obj_cm_camera) {
+				with obj_cm_camera {
+					cancelout = false;	
+				}	
+			}
 	    break;
 	}
 
 	// Button logic only when open
-	if (state == "open") {
+	if (state == "open") {	
 			var btn_count = array_length(buttons);
 		    var btn_w = 300;
 			var btn_h = 50;
