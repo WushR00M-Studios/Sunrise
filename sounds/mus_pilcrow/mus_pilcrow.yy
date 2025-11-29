@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"mus_backwards_p",
+  "%Name":"mus_pilcrow",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":104.44898,
   "exportDir":"",
-  "name":"mus_backwards_p",
+  "name":"mus_pilcrow",
   "parent":{
     "name":"ost",
     "path":"folders/Sounds/ost.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"mus_backwards_p.mp3",
+  "soundFile":"mus_pilcrow.mp3",
   "volume":1.0,
 }

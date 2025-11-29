@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":165.008,
+  "duration":165.0,
   "exportDir":"",
   "name":"mus_a_millenium_to_a_dream",
   "parent":{
