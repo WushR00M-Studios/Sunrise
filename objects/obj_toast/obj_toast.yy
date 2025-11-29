@@ -10,8 +10,8 @@
   "name":"obj_toast",
   "overriddenProperties":[],
   "parent":{
-    "name":"toasts",
-    "path":"folders/Objects/managers/toasts.yy",
+    "name":"managers",
+    "path":"folders/Objects/managers.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -4,7 +4,7 @@ if cancelout == false {
 	    var dx = mouse_x - mouse_x_prev;
 	    var dy = mouse_y - mouse_y_prev;
 
-	    cam_x_target -= dx / zoom; // ← zoom-aware panning
+	    cam_x_target -= dx / zoom; 
 	    cam_y_target -= dy / zoom;
 	
 		if cam_x_target < 0

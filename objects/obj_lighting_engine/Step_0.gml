@@ -1,1 +1,0 @@
-update_lighting(tile_w, tile_h, grid_w, grid_h, light_map);

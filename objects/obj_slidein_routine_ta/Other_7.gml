@@ -1,1 +1,0 @@
-room_goto(rm_time_attack_mode);
