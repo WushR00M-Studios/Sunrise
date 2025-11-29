@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"script_parse",
+  "%Name":"create_systems",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"script_parse",
+  "name":"create_systems",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"systems",
+    "path":"folders/Scripts/systems.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

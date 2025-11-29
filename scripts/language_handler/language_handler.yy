@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"levelgen",
+  "%Name":"language_handler",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"levelgen",
+  "name":"language_handler",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"systems",
+    "path":"folders/Scripts/systems.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

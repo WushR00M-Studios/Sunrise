@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"ssave_config_level",
+  "%Name":"dialog_system",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ssave_config_level",
+  "name":"dialog_system",
   "parent":{
-    "name":"misc",
-    "path":"folders/Scripts/misc.yy",
+    "name":"systems",
+    "path":"folders/Scripts/systems.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

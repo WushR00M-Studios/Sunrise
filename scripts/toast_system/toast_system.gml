@@ -35,3 +35,9 @@ function toast_create(_text, _color_index){
 	else
 		audio_play_sound(snd_notification, 0, false);
 }
+
+function toast_dismiss(){
+	with obj_toast {
+		timer = duration;	
+	}
+}

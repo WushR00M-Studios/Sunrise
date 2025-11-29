@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"dummyscript",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"misc",
+    "path":"folders/Scripts/misc.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
