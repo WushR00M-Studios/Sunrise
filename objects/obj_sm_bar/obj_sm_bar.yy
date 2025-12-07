@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"story_mode",
-    "path":"folders/Objects/main_menu/story_mode.yy",
+    "path":"folders/Objects/menus/story_mode.yy",
   },
   "parentObjectId":null,
   "persistent":false,

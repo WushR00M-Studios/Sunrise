@@ -10,8 +10,8 @@
   "name":"obj_menu_screensaver",
   "overriddenProperties":[],
   "parent":{
-    "name":"main_menu",
-    "path":"folders/Objects/main_menu.yy",
+    "name":"menus",
+    "path":"folders/Objects/menus.yy",
   },
   "parentObjectId":null,
   "persistent":false,

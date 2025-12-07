@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"story_mode",
-    "path":"folders/Objects/main_menu/story_mode.yy",
+    "path":"folders/Objects/menus/story_mode.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_sm_chapter1",
-    "path":"sprites/spr_sm_chapter1/spr_sm_chapter1.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

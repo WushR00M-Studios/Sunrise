@@ -1,7 +1,6 @@
-// Manual dismiss
-if (keyboard_check_pressed(vk_backspace)) {
-    state = "slide_out";
-}
+start_y = camera_get_view_height(0) + 100;
+target_y = camera_get_view_height(0) - 100;
+x = view_wport[0] * 0.5;
 
 // Slide in
 if (state == "slide_in") {
@@ -14,6 +13,7 @@ if (state == "slide_in") {
 // Wait
 else if (state == "showing") {
     timer++;
+	y = lerp(y, target_y, slide_speed);
     if (timer >= duration) {
         state = "slide_out";
     }

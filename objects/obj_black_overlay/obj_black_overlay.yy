@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"misc",
-    "path":"folders/Objects/main_menu/misc.yy",
+    "path":"folders/Objects/menus/misc.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -13,7 +13,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"back_button_collection",
-    "path":"folders/Objects/main_menu/back_button_collection.yy",
+    "path":"folders/Objects/menus/back_button_collection.yy",
   },
   "parentObjectId":null,
   "persistent":false,

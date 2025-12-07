@@ -1,8 +1,4 @@
-	surface_deform(window_get_width(), window_get_height(), deform_data, global.object_timer, 1);
-	draw_sprite(spr_keyart_dim, 0, 0, 0);
-	shader_reset();
-	
-	for (var i = 0; i < 3; ++i) 
+		for (var i = 0; i < 3; ++i) 
 	{
 		if(!surface_exists(logo_surface[i]))
 		{

@@ -12,8 +12,8 @@
   "name":"obj_connect_menu_button",
   "overriddenProperties":[],
   "parent":{
-    "name":"main_menu",
-    "path":"folders/Objects/main_menu.yy",
+    "name":"menus",
+    "path":"folders/Objects/menus.yy",
   },
   "parentObjectId":null,
   "persistent":false,

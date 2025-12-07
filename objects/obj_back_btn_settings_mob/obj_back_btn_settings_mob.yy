@@ -13,7 +13,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"mobile",
-    "path":"folders/Objects/main_menu/back_button_collection/mobile.yy",
+    "path":"folders/Objects/menus/back_button_collection/mobile.yy",
   },
   "parentObjectId":null,
   "persistent":false,
