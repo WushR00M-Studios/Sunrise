@@ -10,7 +10,7 @@
 	
 	draw_clear_alpha(c_white, 0);
 	
-	draw_sprite_ext(spr_wrstudios_logo, 0, window_get_width() / 2, (window_get_height() / 2), scale_x, scale_y, 0, c_white, 1);
+	draw_sprite_ext(spr_wrstudios_logo, 0, room_width / 2, room_height / 2, scale_x, scale_y, 0, c_white, 1);
 	
 	surface_reset_target();
 	
