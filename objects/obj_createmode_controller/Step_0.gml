@@ -2,15 +2,7 @@ try {
 	if InputPressed(INPUT_VERB.ACTION) {
 		global.cmselection = 0;
 		
-		var btns = [
-			{label:"Solid Block", action: dummyscript()},
-			{label:"Autoterrain", action: dummyscript()},
-			{label:"Bit", action: dummyscript()},
-			//{label:"Text Display", action: dummyscript()}, Disabled due to bugs
-			{label:"Close Objects List", action: dummyscript()},
-		];
 		
-		scr_show_instancelist(btns);
 	}
 	
 	if device_mouse_y_to_gui(0) <= 32

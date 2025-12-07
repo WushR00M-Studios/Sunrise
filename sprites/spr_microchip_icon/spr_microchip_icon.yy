@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"icons",
-    "path":"folders/Sprites/editor/icons.yy",
+    "name":"cursor_icons",
+    "path":"folders/Sprites/editor/cursor_icons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

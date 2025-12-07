@@ -125,7 +125,6 @@ if !global.inputtype {
 					break; 
 					
 					case "Playtest Level":
-						instance_create_depth(0, 0, -1, obj_camera);
 						instance_create_depth(0, 0, -1, obj_fadein_routine_titlecard_cm);
 					break;
 					

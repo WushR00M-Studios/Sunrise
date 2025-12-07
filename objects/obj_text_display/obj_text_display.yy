@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"objects",
-    "path":"folders/Objects/create_mode/objects.yy",
+    "path":"folders/Objects/editor/objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

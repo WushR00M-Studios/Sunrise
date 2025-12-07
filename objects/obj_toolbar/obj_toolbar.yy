@@ -14,8 +14,8 @@
   "name":"obj_toolbar",
   "overriddenProperties":[],
   "parent":{
-    "name":"managers",
-    "path":"folders/Objects/managers.yy",
+    "name":"editor",
+    "path":"folders/Objects/editor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

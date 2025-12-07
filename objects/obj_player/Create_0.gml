@@ -127,5 +127,6 @@
 	//Create important objects:
 	instance_create_depth(0, 0, 0, obj_hud);
 	instance_create_depth(0, 0, 0, obj_camera);
+	
 	obj_hud.render = true;
 	titlecard_show(global.levelname);

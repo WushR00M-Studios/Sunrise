@@ -1,3 +1,4 @@
+global.cmselection = 1;
 init_var();
 
 	if !audio_is_playing(mus_yourwelcome_74) or !audio_is_playing(mus_capslock) {

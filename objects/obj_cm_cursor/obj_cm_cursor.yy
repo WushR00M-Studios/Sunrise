@@ -9,8 +9,8 @@
   "name":"obj_cm_cursor",
   "overriddenProperties":[],
   "parent":{
-    "name":"create_mode",
-    "path":"folders/Objects/create_mode.yy",
+    "name":"editor",
+    "path":"folders/Objects/editor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

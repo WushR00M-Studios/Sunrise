@@ -26,7 +26,7 @@
   "origin":3,
   "parent":{
     "name":"ui",
-    "path":"folders/Sprites/editor/icons/ui.yy",
+    "path":"folders/Sprites/editor/cursor_icons/ui.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
