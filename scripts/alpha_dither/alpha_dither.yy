@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"alpha_dither",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"alpha_dither",
+  "parent":{
+    "name":"engine",
+    "path":"folders/Scripts/engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

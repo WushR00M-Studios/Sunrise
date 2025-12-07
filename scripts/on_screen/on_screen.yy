@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"on_screen",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"on_screen",
+  "parent":{
+    "name":"engine",
+    "path":"folders/Scripts/engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

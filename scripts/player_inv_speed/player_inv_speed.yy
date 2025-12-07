@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"player_inv_speed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"player_inv_speed",
+  "parent":{
+    "name":"misc",
+    "path":"folders/Scripts/player/misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

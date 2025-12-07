@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"player_direction",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"player_direction",
+  "parent":{
+    "name":"misc",
+    "path":"folders/Scripts/player/misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

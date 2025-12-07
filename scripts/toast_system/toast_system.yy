@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"toast_system",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"toast_system",
+  "parent":{
+    "name":"systems",
+    "path":"folders/Scripts/systems.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

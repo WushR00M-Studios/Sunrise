@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"reset_stage_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"reset_stage_data",
+  "parent":{
+    "name":"levels",
+    "path":"folders/Scripts/levels.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

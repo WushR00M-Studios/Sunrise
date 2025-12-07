@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_systems",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_systems",
+  "parent":{
+    "name":"systems",
+    "path":"folders/Scripts/systems.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

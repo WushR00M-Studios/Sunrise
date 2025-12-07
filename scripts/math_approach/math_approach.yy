@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"math_approach",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"math_approach",
+  "parent":{
+    "name":"engine",
+    "path":"folders/Scripts/engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

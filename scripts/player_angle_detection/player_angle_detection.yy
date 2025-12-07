@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"player_angle_detection",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"player_angle_detection",
+  "parent":{
+    "name":"movement",
+    "path":"folders/Scripts/player/movement.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

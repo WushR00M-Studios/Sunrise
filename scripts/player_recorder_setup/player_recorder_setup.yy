@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"player_recorder_setup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"player_recorder_setup",
+  "parent":{
+    "name":"misc",
+    "path":"folders/Scripts/player/misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

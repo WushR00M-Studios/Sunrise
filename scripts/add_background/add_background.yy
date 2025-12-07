@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"add_background",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"add_background",
+  "parent":{
+    "name":"engine",
+    "path":"folders/Scripts/engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

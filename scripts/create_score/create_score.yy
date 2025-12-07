@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_score",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_score",
+  "parent":{
+    "name":"levels",
+    "path":"folders/Scripts/levels.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
